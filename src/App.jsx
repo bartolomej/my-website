@@ -1,7 +1,7 @@
 import React from 'react';
 import Landing from "./components/Landing";
 import styled from "styled-components";
-import projects from './projects.json';
+import projects from './projects.js';
 import Project from "./components/Project";
 import Navigation from "./components/Navigation";
 
@@ -16,9 +16,11 @@ function App () {
         <ProjectWrapper>
           {projects.map(p => (
             <Project
+              url={p.url}
               title={p.title}
+              tags={p.tags}
               description={p.description}
-              image={p.image}
+              preview={p.preview}
             />
           ))}
         </ProjectWrapper>
@@ -39,13 +41,17 @@ const SectionTitle = styled.h2`
 
 const Section = styled.section`
   display: flex;
+  margin: 50px 0;
   flex-direction: column;
   align-items: center;
 `;
 
 const ProjectWrapper = styled.div`
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
+  @media (max-width: 700px) {
+    width: 90%;
+  }
 `;
 
 export default App;

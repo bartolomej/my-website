@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;700&display=swap');
+/*TODO: try out this font*/
+/*@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');*/
 
 * {
   margin: 0;
   padding: 0;
+  z-index: 1;
   font-family: 'Baloo Bhaina 2', cursive;
+  /*font-family: 'Quicksand', sans-serif;*/
 }
 
 body {
@@ -20,4 +24,8 @@ input, button {
 
 button {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }

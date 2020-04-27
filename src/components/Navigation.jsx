@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { ReactComponent as logo } from "../logo.svg";
+import { ReactComponent as logo } from "../assets/logo.svg";
 
 
 function Navigation () {
@@ -28,6 +28,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 2;
 `;
 
 const LeftWrapper = styled.div`

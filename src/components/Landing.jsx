@@ -55,7 +55,8 @@ const HelloText = styled.p`
 `;
 
 const Title = styled.h1`
-  font-size: 3em;
+  text-shadow: 3px 3px ${props => props.theme.lightText};
+  font-size: 4em;
   color: ${props => props.theme.vibrant};
   @media (max-width: 700px) {
     text-align: center;

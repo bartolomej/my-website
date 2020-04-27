@@ -1,9 +1,9 @@
-import cryptobricks from '../src/assets/cryptobricks.mp4'
-import translator from '../src/assets/translator.mp4';
-import pathFinding from '../src/assets/path-finding.mp4';
-import nikeWebsite from '../src/assets/nike-website.mp4';
-import vectorField from '../src/assets/vector-field.mp4';
-import planetSimulation from '../src/assets/planet-simulation.mp4';
+import cryptobricks from '../assets/projects/cryptobricks.mp4'
+import translator from '../assets/projects/translator.mp4';
+import pathFinding from '../assets/projects/path-finding.mp4';
+import nikeWebsite from '../assets/projects/nike-website.mp4';
+import vectorField from '../assets/projects/vector-field.mp4';
+import planetSimulation from '../assets/projects/planet-simulation.mp4';
 
 export default [
   {

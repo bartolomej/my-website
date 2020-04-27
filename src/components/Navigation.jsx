@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { ReactComponent as logo } from "../assets/logo.svg";
+import UseAnimations from "react-useanimations";
 
 
 function Navigation () {
@@ -10,9 +11,11 @@ function Navigation () {
         <Logo/>
       </LeftWrapper>
       <RightWrapper>
-        <Link>Projects</Link>
-        <Link>Gallery</Link>
-        <Link>About</Link>
+        <Link href="#projects">Projects</Link>
+        <Link href="#gallery">Gallery</Link>
+        <Link href="https://github.com/bartolomej">
+          <UseAnimations animationKey="github" size={30} />
+        </Link>
       </RightWrapper>
     </Container>
   )

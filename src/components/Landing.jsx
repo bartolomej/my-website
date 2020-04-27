@@ -6,7 +6,7 @@ function Landing () {
 
   return (
     <Container>
-      <Background src={julia}/>
+      <Background alt="" src={julia}/>
       <TextWrapper>
         <HelloText>
           Hi, my name is

@@ -99,10 +99,11 @@ const TagsWrapper = styled.div`
 
 const Tag = styled.div`
   margin: 0 .5em .5em 0;
-  padding: 0 .9em;
+  padding: .3em .9em;
+  font-family: 'Space Mono',monospace;
   border-radius: 3px;
+  font-size: 12px;
   color: ${props => props.theme.vibrant};
-  font-size: 14px;
   background-color: ${props => colorWithOpacity(props.theme.vibrant, 0.1)};
 `;
 

@@ -6,6 +6,7 @@ import photos from "./content/photos";
 import Project from "./components/Project";
 import Navigation from "./components/Navigation";
 import Photo from "./components/Photo";
+import Footer from "./components/Footer";
 
 
 function App () {
@@ -41,6 +42,7 @@ function App () {
           ))}
         </PhotoWrapper>
       </Section>
+      <Footer/>
     </Root>
   );
 }
@@ -50,9 +52,9 @@ const Root = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2em;
+  font-size: 2.4em;
   color: ${props => props.theme.vibrant};
-  text-underline: ${props => props.theme.vibrant};
+  text-shadow: 1px 1px ${props => props.theme.lightText};
 `;
 
 const Section = styled.section`
@@ -60,7 +62,7 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  margin: 50px auto;
+  margin: 80px auto;
   @media (max-width: 700px) {
     width: 90%;
   }

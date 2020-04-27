@@ -14,7 +14,7 @@ function Navigation () {
         <Link href="#projects">Projects</Link>
         <Link href="#gallery">Gallery</Link>
         <Link href="https://github.com/bartolomej">
-          <UseAnimations animationKey="github" size={30} />
+          <UseAnimations style={{display: 'flex'}} animationKey="github" size={30} />
         </Link>
       </RightWrapper>
     </Container>
@@ -47,9 +47,16 @@ const RightWrapper = styled.div`
 `;
 
 const Link = styled.a`
+  display: flex;
+  align-items: center;
   font-weight: bold;
+  font-size: 1.3em;
   color: ${props => props.theme.lightText};
   margin-left: 20px;
+  transition: 0.6s all ease;
+  &:hover {
+    color: ${props => props.theme.vibrant};
+  }
 `;
 
 const Logo = styled(logo)`

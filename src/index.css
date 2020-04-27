@@ -6,7 +6,6 @@
   padding: 0;
   z-index: 1;
   font-family: 'Baloo Bhaina 2', cursive;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -22,6 +21,8 @@ input, button {
 
 button {
   cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 a {

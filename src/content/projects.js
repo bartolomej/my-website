@@ -1,5 +1,6 @@
 import cryptobricks from '../assets/projects/cryptobricks.mp4'
 import translator from '../assets/projects/translator.mp4';
+import awesomeSearch from '../assets/projects/awesome-search.mp4';
 import pathFinding from '../assets/projects/path-finding.mp4';
 import nikeWebsite from '../assets/projects/nike-website.mp4';
 import vectorField from '../assets/projects/vector-field.mp4';
@@ -11,35 +12,13 @@ import juliaSet from '../assets/projects/julia-set.mp4';
 import moduloArithmetics from '../assets/projects/modulo-arithmetics.mp4';
 import simplePendulum from '../assets/projects/simple-pendulum.mp4';
 
-export default [
-  {
-    "title": "CryptoBricks",
-    "description": "A simple browser game that interacts with the Ethereum blockchain to players to publish and compete on bounties for rewards.",
-    "preview": {
-      "url": cryptobricks,
-      "type": "video"
-    },
-    "url": "https://www.cryptobricks.in/",
-    "repo": "https://github.com/bartolomej/crypto-bricks",
-    "tags": [
-      "cryptocurrency",
-      "ethereum",
-      "browser-game"
-    ]
-  },
-  {
-    "title": "Translator",
-    "description": "I build this website for a local translation agency.",
-    "preview": {
-      "url": translator,
-      "type": "video"
-    },
-    "url": "https://www.prevajalec.eu/",
-    "tags": [
-      "translation-agency",
-      "agency-website"
-    ]
-  },
+// project groups assets
+import mathPreview from '../assets/math.png';
+import mobilePreview from '../assets/mobile.png';
+import websitesPreview from '../assets/website.png';
+
+
+const mathProjects = [
   {
     "title": "Path Finding",
     "description": "Simple web visualization of 2 path finding algorithms.",
@@ -97,37 +76,6 @@ export default [
       "complex-set",
       "julia-set",
       "fractals"
-    ]
-  },
-  {
-    "title": "Nike Website Concept",
-    "description": "Nike website design concept, developed for a school project.",
-    "url": "https://bartolomej.github.io/nike-website/",
-    "repo": "https://github.com/bartolomej/nike-website",
-    "preview": {
-      "url": nikeWebsite,
-      "type": "video"
-    },
-    "tags": [
-      "ui-design",
-      "concept-website"
-    ]
-  },
-  {
-    "title": "SCNG App",
-    "description": "Mobile application that displays schedule and meal menu for our high school in Nova Gorica. Sadly never launched.",
-    "url": "https://bartolomej.github.io/scng-api/",
-    "repo": "https://github.io/bartolomej/scng-mobile/",
-    "preview": {
-      "url": scngMobile,
-      "type": "image",
-      "background": "transparent",
-      "overflow": "visible"
-    },
-    "tags": [
-      "react-native",
-      "nodejs",
-      "mobile-app"
     ]
   },
   {
@@ -203,3 +151,145 @@ export default [
     ]
   }
 ]
+
+const websites = [
+  {
+    "title": "Awesome Search",
+    "description": "I build this website for a local translation agency.",
+    "preview": {
+      "url": awesomeSearch,
+      "type": "video"
+    },
+    "url": "https://bartolomej.github.io/awesome-search/",
+    "repo": "https://github.com/bartolomej/awesome-search",
+    "tags": [
+      "awesome-list",
+      "nodejs",
+      "reactjs",
+      "rest-api"
+    ]
+  },
+  {
+    "title": "Translator",
+    "description": "I build this website for a local translation agency.",
+    "preview": {
+      "url": translator,
+      "type": "video"
+    },
+    "url": "https://www.prevajalec.eu/",
+    "tags": [
+      "translation-agency",
+      "agency-website"
+    ]
+  },
+  {
+    "title": "Nike Website Concept",
+    "description": "Nike website design concept, developed for a school project.",
+    "url": "https://bartolomej.github.io/nike-website/",
+    "repo": "https://github.com/bartolomej/nike-website",
+    "preview": {
+      "url": nikeWebsite,
+      "type": "video"
+    },
+    "tags": [
+      "ui-design",
+      "concept-website"
+    ]
+  },
+  {
+    "title": "CryptoBricks",
+    "description": "A simple browser game that interacts with the Ethereum blockchain to players to publish and compete on bounties for rewards.",
+    "preview": {
+      "url": cryptobricks,
+      "type": "video"
+    },
+    "url": "https://www.cryptobricks.in/",
+    "repo": "https://github.com/bartolomej/crypto-bricks",
+    "tags": [
+      "cryptocurrency",
+      "ethereum",
+      "browser-game"
+    ]
+  },
+]
+
+const mobile = [
+  {
+    "title": "SCNG App",
+    "description": "Mobile application that displays schedule and meal menu for our high school in Nova Gorica. Sadly never launched.",
+    "url": "https://bartolomej.github.io/scng-api/",
+    "repo": "https://github.io/bartolomej/scng-mobile/",
+    "preview": {
+      "url": scngMobile,
+      "type": "image",
+      "background": "transparent",
+      "overflow": "visible"
+    },
+    "tags": [
+      "react-native",
+      "nodejs",
+      "mobile-app"
+    ]
+  },
+]
+
+const projects = [
+  {
+    "title": "Math Projects",
+    "path": "/math",
+    "description": "Coding projects related to mathematics and physics.",
+    "projects": mathProjects,
+    "preview": {
+      "url": mathPreview,
+      "type": "image",
+    },
+    "tags": [
+      "go-lang",
+      "fractals",
+      "web-simulations",
+    ]
+  },
+  {
+    "title": "Websites / Server apps",
+    "path": "/websites",
+    "description": "Coding projects related to mathematics and physics.",
+    "projects": websites,
+    "preview": {
+      "url": websitesPreview,
+      "type": "image",
+    },
+    "tags": [
+      "reactjs",
+      "html/css",
+      "nodejs",
+      "rest-api"
+    ]
+  },
+  {
+    "title": "Mobile / Server apps",
+    "path": "/mobile",
+    "description": "Mobile and backend apps that I developed.",
+    "projects": mobile,
+    "preview": {
+      "url": mobilePreview,
+      "type": "image",
+    },
+    "tags": [
+      "react-native",
+      "android",
+      "ios",
+      "nodejs"
+    ]
+  },
+]
+
+export function getProjectGroup (path) {
+  for (let p of projects) {
+    if (p.path === path) {
+      return p;
+    }
+  }
+  throw new Error('Project with path: "' + path + '" not found')
+}
+
+export default projects;

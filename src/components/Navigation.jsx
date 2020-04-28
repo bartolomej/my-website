@@ -1,37 +1,41 @@
 import React from 'react';
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as logo } from "../assets/logo.svg";
+import { Link } from "react-router-dom";
 import UseAnimations from "react-useanimations";
 
 
-function Navigation () {
+function Navigation ({ current }) {
+
+  const RouterLink = ({to, children}) => (
+    <RLink iscurrent={current === to} to={to}>
+      {children}
+    </RLink>
+  );
+
   return (
     <Container>
       <LeftWrapper>
         <Logo/>
       </LeftWrapper>
       <RightWrapper>
-        <Link href="#projects">Projects</Link>
-        <Link href="#gallery">Gallery</Link>
-        <Link href="https://github.com/bartolomej">
-          <UseAnimations style={{display: 'flex'}} animationKey="github" size={30} />
-        </Link>
+        <RouterLink to="/">Home</RouterLink>
+        <ExternalLink href="/#projects">Projects</ExternalLink>
+        <ExternalLink href="/#gallery">Photos</ExternalLink>
+        <ExternalLink href="https://github.com/bartolomej">
+          <UseAnimations style={{ display: 'flex' }} animationKey="github" size={30}/>
+        </ExternalLink>
       </RightWrapper>
     </Container>
   )
 }
 
 const Container = styled.div`
-  height: 8vh;
   padding: 0 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
+  height: 100%;
 `;
 
 const LeftWrapper = styled.div`
@@ -46,7 +50,7 @@ const RightWrapper = styled.div`
   justify-content: flex-end;
 `;
 
-const Link = styled.a`
+const LinkStyle = css`
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -57,7 +61,17 @@ const Link = styled.a`
   &:hover {
     color: ${props => props.theme.vibrant};
   }
+  @media (max-width: 400px) {
+    font-size: 0.8em;
+  }
 `;
+
+const RLink = styled(Link)`
+  ${LinkStyle};
+  ${props => props.iscurrent ? `color: ${props.theme.vibrant}` : ''};
+`;
+
+const ExternalLink = styled.a`${LinkStyle}`;
 
 const Logo = styled(logo)`
   height: 40px;

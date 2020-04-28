@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { animated, useTransition } from "react-spring";
 import UseAnimations from "react-useanimations";
@@ -7,10 +7,8 @@ import useFocus from "../useFocus";
 
 function Photo ({ src, caption, orientation }) {
   const ref = React.useRef();
-  const isFocused = useFocus(ref);
+  const focus = useFocus(ref);
   const [isOpen, setOpen] = useState(false);
-  const [showCaption, setCaption] = useState(false);
-  const focus = useMemo(() => isFocused || showCaption, [showCaption, isFocused]);
 
   const transitions = useTransition(isOpen, null, {
     from: { opacity: 0, transform: 'scale(0.2)' },
@@ -68,13 +66,7 @@ function Photo ({ src, caption, orientation }) {
           </OpenContainer>
         )
       )}
-      <Container
-        ref={ref}
-        key={src}
-        onClick={handleOpen}
-        onMouseOver={() => setCaption(true)}
-        onMouseOut={() => setCaption(false)}
-      >
+      <Container ref={ref} key={src} onClick={handleOpen}>
         {captionTransitions.map(({ item, key, props }) =>
           item && (
             <FocusWrapper key={key} style={props}>

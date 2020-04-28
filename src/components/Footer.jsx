@@ -10,31 +10,35 @@ function Footer () {
     <Container>
       <Background alt="" src={julia}/>
       <SocialMediaWrapper>
-        <SocialLink href="https://www.github.com/bartolomej">
+        <Link href="https://www.github.com/bartolomej">
           <UseAnimations animationKey="github" size={40} />
-        </SocialLink>
-        <SocialLink href="https://www.instagram.com/mejkozorog/">
+        </Link>
+        <Link href="https://www.instagram.com/mejkozorog/">
           <UseAnimations animationKey="instagram" size={40} />
-        </SocialLink>
-        <SocialLink href="https://www.linkedin.com/in/bartolomej-kozorog-55419610b">
+        </Link>
+        <Link href="https://www.linkedin.com/in/bartolomej-kozorog-55419610b">
           <UseAnimations animationKey="linkedin" size={40} />
-        </SocialLink>
-        <SocialLink href="https://www.twitter.com/mkozorog">
+        </Link>
+        <Link href="https://www.twitter.com/mkozorog">
           <UseAnimations animationKey="twitter" size={40} />
-        </SocialLink>
+        </Link>
       </SocialMediaWrapper>
+      <Link href={"https://bartolomej.github.io/portfolio-2019/"}>
+        Last year's portfolio.
+      </Link>
     </Container>
   )
 }
 
-const Container = styled.div`
-  height: 30vh;
+const Container = styled.footer`
+  height: 40vh;
   z-index: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   position: relative;
   overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
 
 const Background = styled.img`
@@ -54,9 +58,10 @@ const SocialMediaWrapper = styled.div`
   width: 60%;
 `;
 
-const SocialLink = styled.a`
+const Link = styled.a`
   color: ${props => props.theme.lightText};
   transition: 0.3s all ease;
+  font-weight: bold;
   &:hover {
     color: ${props => props.theme.vibrant};
     transform: scale(1.1);

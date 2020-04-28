@@ -17,6 +17,9 @@ function Landing () {
         <ShortAboutMe>
           I’m a computer science student from Slovenia. I like coding, photography and mathematics,..
         </ShortAboutMe>
+        <ShortAboutMe>
+          Follow me on <GithubLink target="_blank" href="https://github.com/bartolomej">Github</GithubLink>.
+        </ShortAboutMe>
       </TextWrapper>
     </Container>
   )
@@ -69,7 +72,17 @@ const ShortAboutMe = styled.p`
   font-family: 'Space Mono', monospace;
   max-width: 600px;
   text-align: center;
+  margin-top: 5px;
+  font-size: 1em;
   color: ${props => props.theme.lightText};
+`;
+
+const GithubLink = styled.a`
+  font-size: 1.2em;
+  color: ${props => props.theme.vibrant};
+  &:hover{
+    color: ${props => props.theme.vibrant}
+  }
 `;
 
 export default Landing;

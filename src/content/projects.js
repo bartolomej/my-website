@@ -4,6 +4,12 @@ import pathFinding from '../assets/projects/path-finding.mp4';
 import nikeWebsite from '../assets/projects/nike-website.mp4';
 import vectorField from '../assets/projects/vector-field.mp4';
 import planetSimulation from '../assets/projects/planet-simulation.mp4';
+import scngMobile from '../assets/projects/scng-mobile.png';
+import numberFlower from '../assets/projects/number-flower.mp4';
+import pendulumDynamics from '../assets/projects/pendulum-dynamics.mp4';
+import juliaSet from '../assets/projects/julia-set.mp4';
+import moduloArithmetics from '../assets/projects/modulo-arithmetics.mp4';
+import simplePendulum from '../assets/projects/simple-pendulum.mp4';
 
 export default [
   {
@@ -14,6 +20,7 @@ export default [
       "type": "video"
     },
     "url": "https://www.cryptobricks.in/",
+    "repo": "https://github.com/bartolomej/crypto-bricks",
     "tags": [
       "cryptocurrency",
       "ethereum",
@@ -36,6 +43,7 @@ export default [
   {
     "title": "Path Finding",
     "description": "Simple web visualization of 2 path finding algorithms.",
+    "repo": "https://github.com/bartolomej/path-finding",
     "preview": {
       "url": pathFinding,
       "type": "video"
@@ -54,6 +62,7 @@ export default [
       "type": "video"
     },
     "url": "https://bartolomej.github.io/planet-system/",
+    "repo": "https://github.com/bartolomej/planet-system",
     "tags": [
       "physics-simulation",
       "solar-system",
@@ -68,6 +77,7 @@ export default [
       "type": "video"
     },
     "url": "https://bartolomej.github.io/vector-field/",
+    "repo": "https://github.com/bartolomej/vector-field",
     "tags": [
       "math-simulation",
       "vector-field"
@@ -77,9 +87,11 @@ export default [
     "title": "Julia Set Art",
     "description": "A tool for rendering videos and images of Julia Set fractal. Written in GO.",
     "url": "https://bartolomej.github.io/complex-set-art/",
+    "repo": "https://github.com/bartolomej/complex-set-art",
     "preview": {
       "url": "https://raw.githubusercontent.com/bartolomej/complex-set-art/master/docs/examples/giphy1.gif",
-      "type": "image"
+      "type": "image",
+      "background": "black",
     },
     "tags": [
       "complex-set",
@@ -91,6 +103,7 @@ export default [
     "title": "Nike Website Concept",
     "description": "Nike website design concept, developed for a school project.",
     "url": "https://bartolomej.github.io/nike-website/",
+    "repo": "https://github.com/bartolomej/nike-website",
     "preview": {
       "url": nikeWebsite,
       "type": "video"
@@ -98,6 +111,95 @@ export default [
     "tags": [
       "ui-design",
       "concept-website"
+    ]
+  },
+  {
+    "title": "SCNG App",
+    "description": "Mobile application that displays schedule and meal menu for our high school in Nova Gorica. Sadly never launched.",
+    "url": "https://bartolomej.github.io/scng-api/",
+    "repo": "https://github.io/bartolomej/scng-mobile/",
+    "preview": {
+      "url": scngMobile,
+      "type": "image",
+      "background": "transparent",
+      "overflow": "visible"
+    },
+    "tags": [
+      "react-native",
+      "nodejs",
+      "mobile-app"
+    ]
+  },
+  {
+    "title": "Julia Set",
+    "description": "Julia Set web interactive playground. Change hyper parameter C value and observe how the fractal changes.",
+    "url": "https://github.com/bartolomej/julia-set",
+    "repo": "https://github.com/bartolomej/julia-set",
+    "preview": {
+      "url": juliaSet,
+      "type": "video"
+    },
+    "tags": [
+      "complex-set",
+      "julia-set",
+      "fractals"
+    ]
+  },
+  {
+    "title": "Pendulum Dynamics",
+    "description": "",
+    "url": "https://bartolomej.github.io/pendulum-dynamics/",
+    "repo": "https://github.com/bartolomej/pendulum-dynamics",
+    "preview": {
+      "url": pendulumDynamics,
+      "type": "video"
+    },
+    "tags": [
+      "analysis",
+      "pendulum",
+      "physics"
+    ]
+  },
+  {
+    "title": "Number Flower",
+    "description": "Visualization of number ratios, inspired by Mathologer video.",
+    "repo": "https://github.com/bartolomej/flower",
+    "url": "https://bartolomej.github.io/flower/",
+    "preview": {
+      "url": numberFlower,
+      "type": "video"
+    },
+    "tags": [
+      "number-patterns",
+      "mathematics",
+    ]
+  },
+  {
+    "title": "Simple pendulum",
+    "description": "Simple harmonic pendulum physics visualization.",
+    "repo": "https://github.com/bartolomej/simple-pendulum",
+    "url": "https://bartolomej.github.io/simple-pendulum/",
+    "preview": {
+      "url": simplePendulum,
+      "type": "video"
+    },
+    "tags": [
+      "simulation",
+      "physics",
+    ]
+  },
+  {
+    "title": "Modulo Patterns",
+    "description": "Geometric patterns in number modulo arithmetics, inspired by Mathologer video.",
+    "repo": "https://github.com/bartolomej/modulo-arithmetics",
+    "url": "https://bartolomej.github.io/modulo-arithmetics/",
+    "preview": {
+      "url": moduloArithmetics,
+      "type": "video"
+    },
+    "tags": [
+      "geometry",
+      "mathematics",
     ]
   }
 ]

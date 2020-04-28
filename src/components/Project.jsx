@@ -4,7 +4,7 @@ import { colorWithOpacity } from "../style";
 import useFocus from "../useFocus";
 
 
-function Project ({ title, description, tags, preview, url }) {
+function Project ({ title, description, tags, preview, url, repo }) {
   const videoRef = React.useRef();
   const isFocused = useFocus(videoRef);
 
@@ -36,13 +36,21 @@ function Project ({ title, description, tags, preview, url }) {
           {tags.map(t => <Tag key={t}>{t}</Tag>)}
         </TagsWrapper>
         <Description>{description}</Description>
-        <LaunchButton target="_blank" href={url}>
-          <span>Launch</span>
-          <LinkSvg/>
-        </LaunchButton>
+        <ButtonsWrapper>
+          <Button target="_blank" href={url}>
+            <span>Website</span>
+            <LinkSvg/>
+          </Button>
+          {repo && (
+            <Button target="_blank" href={repo}>
+              <span>Repository</span>
+              <LinkSvg/>
+            </Button>
+          )}
+        </ButtonsWrapper>
       </TextWrapper>
       <PreviewWrapper>
-        <PreviewInner>
+        <PreviewInner bcg={preview.background} overflow={preview.overflow}>
           {preview.type === 'image' ? (
             <Image alt={title} src={preview.url}/>
           ) : (
@@ -116,7 +124,12 @@ const Tag = styled.div`
   background-color: ${props => colorWithOpacity(props.theme.vibrant, 0.1)};
 `;
 
-const LaunchButton = styled.a`
+const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Button = styled.a`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -129,6 +142,7 @@ const LaunchButton = styled.a`
   font-weight: bold;
   padding: 0 20px;
   margin-top: 10px;
+  margin-right: 10px;
   &:hover {
     background: ${props => props.theme.lightText};
     color: ${props => props.theme.light};
@@ -161,11 +175,11 @@ const PreviewInner = styled.div`
   height: 300px;
   width: 100%;
   max-width: 500px;
-  background: black;
+  background: ${props => props.bcg || 'transparent'};
   justify-content: center;
   display: flex;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: ${props => props.overflow || 'hidden'};
   @media (max-width: 700px) {
     height: 100%;
   }

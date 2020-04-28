@@ -21,6 +21,7 @@ function App () {
             <Project
               key={p.url}
               url={p.url}
+              repo={p.repo}
               title={p.title}
               tags={p.tags}
               description={p.description}
@@ -52,8 +53,9 @@ const Root = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.4em;
+  font-size: 2.5em;
   color: ${props => props.theme.vibrant};
+  margin-bottom: 20px;
   text-shadow: 1px 1px ${props => props.theme.lightText};
   @media (max-width: 700px) {
     text-align: center;
@@ -66,7 +68,7 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  margin: 80px auto;
+  margin: 120px auto;
   @media (max-width: 700px) {
     width: 90%;
   }

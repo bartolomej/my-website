@@ -30,7 +30,7 @@ function App () {
         </ProjectWrapper>
       </Section>
       <Section>
-        <SectionTitle id="gallery">My Photo gallery</SectionTitle>
+        <SectionTitle id="gallery">My Photos</SectionTitle>
         <PhotoWrapper>
           {photos.map(p => (
             <Photo
@@ -55,6 +55,10 @@ const SectionTitle = styled.h2`
   font-size: 2.4em;
   color: ${props => props.theme.vibrant};
   text-shadow: 1px 1px ${props => props.theme.lightText};
+  @media (max-width: 700px) {
+    text-align: center;
+    line-height: 1.2;
+  }
 `;
 
 const Section = styled.section`

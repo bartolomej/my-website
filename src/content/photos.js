@@ -11,7 +11,7 @@ import tree from '../assets/gallery/tree.jpg';
 export default [
   {
     "src": fractal1,
-    "caption": ""
+    "caption": "Zoomed in Julia Fractal."
   },
   {
     "src": fractal2,
@@ -27,19 +27,19 @@ export default [
   },
   {
     "src": sunrise,
-    "caption": ""
+    "caption": "A beautiful sunrise in Log pod Mangartom (Slovenia)."
   },
   {
     "src": landscape,
-    "caption": ""
+    "caption": "Landscape shot of a bird and Slovenian mountains in the background."
   },
   {
     "src": wedding,
-    "caption": ""
+    "caption": "My cousins wedding day."
   },
   {
     "src": fire,
-    "caption": ""
+    "caption": "Bonfire night somewhere in Slovenian Alps."
   },
   {
     "src": tree,

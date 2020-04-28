@@ -29,6 +29,7 @@ function Footer () {
 
 const Container = styled.div`
   height: 30vh;
+  z-index: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;

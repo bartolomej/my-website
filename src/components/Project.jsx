@@ -1,26 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { colorWithOpacity } from "../style";
-import UseAnimations from "react-useanimations";
+import useFocus from "../useFocus";
 
 
 function Project ({ title, description, tags, preview, url }) {
   const videoRef = React.useRef();
+  const isFocused = useFocus(videoRef);
 
-  function handleMouseOver () {
+  useEffect(() => {
+    if (isFocused) {
+      playVideo();
+    } else {
+      pauseVideo();
+    }
+  })
+
+  function playVideo () {
     if (videoRef.current) {
       videoRef.current.play();
     }
   }
 
-  function handleMouseOut () {
+  function pauseVideo () {
     if (videoRef.current) {
       videoRef.current.pause();
     }
   }
 
   return (
-    <Container onMouseOut={handleMouseOut} onMouseOver={handleMouseOver}>
+    <Container onMouseOut={pauseVideo} onMouseOver={playVideo}>
       <TextWrapper>
         <Title>{title}</Title>
         <TagsWrapper>

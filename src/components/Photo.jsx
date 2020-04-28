@@ -1,27 +1,41 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import styled from "styled-components";
-import { animated, useSpring, useTransition } from "react-spring";
+import { animated, useTransition } from "react-spring";
 import UseAnimations from "react-useanimations";
+import useFocus from "../useFocus";
 
 
 function Photo ({ src, caption, orientation }) {
+  const ref = React.useRef();
+  const isFocused = useFocus(ref);
   const [isOpen, setOpen] = useState(false);
-  const props = useSpring({ number: 1, from: { number: 0 } })
+  const [showCaption, setCaption] = useState(false);
+  const focus = useMemo(() => isFocused || showCaption, [showCaption, isFocused]);
 
   const transitions = useTransition(isOpen, null, {
     from: { opacity: 0, transform: 'scale(0.2)' },
     enter: { opacity: 1, transform: 'scale(1)' },
     leave: { opacity: 0, transform: 'scale(0.2)' },
-  })
+  });
 
   const bcgTransitions = useTransition(isOpen, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-  })
+  });
 
-  function handleClick () {
-    setOpen(!isOpen);
+  const captionTransitions = useTransition(focus, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  });
+
+  function handleOpen () {
+    setOpen(true);
+  }
+
+  function handleClose () {
+    setOpen(false);
   }
 
   return (
@@ -30,9 +44,9 @@ function Photo ({ src, caption, orientation }) {
         item && (
           <>
             <CloseButton
-              key={key}
+              key={`${key}_1`}
               style={props}
-              onClick={handleClick}
+              onClick={handleClose}
             >
               <UseAnimations
                 animationKey="plusToX"
@@ -40,7 +54,7 @@ function Photo ({ src, caption, orientation }) {
                 style={{ transform: 'rotate(45deg)' }}
               />
             </CloseButton>
-            <OpenBackground key={key} style={props}/>
+            <OpenBackground key={`${key}_2`} style={props}/>
           </>
         )
       )}
@@ -54,8 +68,27 @@ function Photo ({ src, caption, orientation }) {
           </OpenContainer>
         )
       )}
-      <Container onClick={handleClick}>
+      <Container
+        ref={ref}
+        key={src}
+        onClick={handleOpen}
+        onMouseOver={() => setCaption(true)}
+        onMouseOut={() => setCaption(false)}
+      >
+        {captionTransitions.map(({ item, key, props }) =>
+          item && (
+            <FocusWrapper key={key} style={props}>
+              <MaximizeBtn
+                animationKey="maximizeMinimize"
+                size={20}
+              />
+              <Caption>{caption}</Caption>
+            </FocusWrapper>
+          )
+        )}
         <Image
+          isFocused={focus && caption}
+          blur={caption}
           portrait={orientation === 'portrait'}
           alt={caption}
           src={src}
@@ -67,6 +100,9 @@ function Photo ({ src, caption, orientation }) {
 
 const Container = styled.div`
   cursor: pointer;
+  position: relative;
+  mix-blend-mode: exclusion;
+  color: ${props => props.theme.dark};
   width: 300px;
   height: 300px;
   overflow: hidden;
@@ -82,10 +118,35 @@ const Container = styled.div`
 const Image = styled.img`
   ${props => props.portrait ? 'width: 100%' : 'height: 100%'};
   transition: 0.6s all ease;
-  &:hover {
+  ${props => props.isFocused ? 'transform: scale(1.1); filter: blur(4px) grayscale(1) brightness(0.5)' : ''};
+  ${Container}:hover & {
     transform: scale(1.1);
-    filter: brightness(1.3);
+    filter: ${props => props.blur ? 'blur(4px) grayscale(1) brightness(0.5)' : 'brightness(1.3)'};
   }
+`;
+
+const FocusWrapper = styled(animated.div)`
+  z-index: 4;
+`;
+
+const MaximizeBtn = styled(UseAnimations)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  color: ${props => props.theme.light};
+`;
+
+const Caption = styled.span`
+  z-index: 4;
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  color: ${props => props.theme.lightText};
 `;
 
 const OpenContainer = styled(animated.div)`

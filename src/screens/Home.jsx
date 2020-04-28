@@ -34,6 +34,7 @@ function Home () {
         <ProjectWrapper>
           {projects.map(g => (
             <ProjectGroup
+              key={g.path}
               title={g.title}
               description={g.description}
               tags={g.tags}

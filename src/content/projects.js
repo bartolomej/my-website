@@ -13,9 +13,7 @@ import moduloArithmetics from '../assets/projects/modulo-arithmetics.mp4';
 import simplePendulum from '../assets/projects/simple-pendulum.mp4';
 
 // project groups assets
-import mathPreview from '../assets/math.png';
 import mobilePreview from '../assets/mobile.png';
-import websitesPreview from '../assets/website.png';
 
 
 const mathProjects = [
@@ -240,8 +238,8 @@ const projects = [
     "description": "Coding projects related to mathematics and physics.",
     "projects": mathProjects,
     "preview": {
-      "url": mathPreview,
-      "type": "image",
+      "url": vectorField,
+      "type": "video",
     },
     "tags": [
       "go-lang",
@@ -255,8 +253,8 @@ const projects = [
     "description": "Coding projects related to mathematics and physics.",
     "projects": websites,
     "preview": {
-      "url": websitesPreview,
-      "type": "image",
+      "url": translator,
+      "type": "video",
     },
     "tags": [
       "reactjs",

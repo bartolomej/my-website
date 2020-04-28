@@ -1,4 +1,4 @@
-import fractal1 from '../assets/gallery/fractal1.JPG';
+import fractal1 from '../assets/gallery/fractal1.jpeg';
 import fractal2 from '../assets/gallery/fractal2.PNG';
 import fractal3 from '../assets/gallery/fractal3.PNG';
 import fractal4 from '../assets/gallery/fractal4.PNG';
@@ -7,6 +7,10 @@ import wedding from '../assets/gallery/wedding.jpg';
 import landscape from '../assets/gallery/landscape.jpg';
 import fire from '../assets/gallery/fire.jpg';
 import tree from '../assets/gallery/tree.jpg';
+import modrej from '../assets/gallery/modrej.jpg';
+import mountains from '../assets/gallery/mountains.jpg';
+import capricorn from '../assets/gallery/capricorn.jpg';
+import lighthouse from '../assets/gallery/lighthouse.jpg';
 
 export default [
   {
@@ -45,5 +49,21 @@ export default [
     "src": tree,
     "caption": "",
     "orientation": "portrait"
+  },
+  {
+    "src": modrej,
+    "caption": "",
+  },
+  {
+    "src": capricorn,
+    "caption": "",
+  },
+  {
+    "src": lighthouse,
+    "caption": "",
+  },
+  {
+    "src": mountains,
+    "caption": "",
   },
 ]

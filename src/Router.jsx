@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { Route, Switch, useLocation } from 'react-router-dom'
 import { animated, useTransition } from 'react-spring'
 import Home from "./screens/Home";
-import About from "./screens/About";
 import projects from "./content/projects";
 import Coding from "./screens/Coding";
 import Navigation from "./components/Navigation";
 import { theme } from "./style";
+import Experience from "./screens/Experience";
 
 
 function Router () {
@@ -28,8 +28,8 @@ function Router () {
         <Page key={key} style={props}>
           <Switch location={location}>
             <Route path="/" exact component={Home}/>
-            <Route path="/about" component={About}/>
-            {projects.map(p => <Route path={p.path} component={Coding}/>)}
+            <Route path="/experience" component={Experience}/>
+            {projects.map(p => <Route key={p.path} path={p.path} component={Coding}/>)}
           </Switch>
         </Page>
       ))}

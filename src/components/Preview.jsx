@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-function Preview ({ isFocused = false, type, background, overflow, url, title, play = false }) {
+function Preview ({ isFocused = false, type, background, overflow, url, title, play = false, height = 300 }) {
   const videoRef = React.useRef();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function Preview ({ isFocused = false, type, background, overflow, url, title, p
   }
 
   return (
-    <PreviewInner bcg={background} overflow={overflow}>
+    <PreviewInner h={height} bcg={background} overflow={overflow}>
       {type === 'image' ? (
         <Image isfocused={isFocused} alt={title} src={url}/>
       ) : (
@@ -38,8 +38,7 @@ function Preview ({ isFocused = false, type, background, overflow, url, title, p
 }
 
 const PreviewInner = styled.div`
-  height: 300px;
-  width: 100%;
+  height: ${props => `${props.h}px`};
   max-width: 500px;
   background: ${props => props.bcg || 'transparent'};
   justify-content: center;

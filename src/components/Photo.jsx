@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { animated, useTransition } from "react-spring";
 import UseAnimations from "react-useanimations";
 import useFocus from "../useFocus";
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 
 function Photo ({ src, caption, orientation }) {
@@ -10,7 +11,7 @@ function Photo ({ src, caption, orientation }) {
   const focus = useFocus(ref);
   const [isOpen, setOpen] = useState(false);
 
-  const transitions = useTransition(isOpen, null, {
+  const imageTransitions = useTransition(isOpen, null, {
     from: { opacity: 0, transform: 'scale(0.2)' },
     enter: { opacity: 1, transform: 'scale(1)' },
     leave: { opacity: 0, transform: 'scale(0.2)' },
@@ -30,10 +31,12 @@ function Photo ({ src, caption, orientation }) {
 
   function handleOpen () {
     setOpen(true);
+    //disableBodyScroll(document.querySelector('body'));
   }
 
   function handleClose () {
     setOpen(false);
+    //enableBodyScroll(document.querySelector('body'));
   }
 
   return (
@@ -56,7 +59,7 @@ function Photo ({ src, caption, orientation }) {
           </>
         )
       )}
-      {transitions.map(({ item, key, props }) =>
+      {imageTransitions.map(({ item, key, props }) =>
         item && (
           <OpenContainer key={key} style={props}>
             <OpenedImage
@@ -142,12 +145,12 @@ const Caption = styled.span`
 `;
 
 const OpenContainer = styled(animated.div)`
-  width: 100vw;
-  height: 100vh;
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 3;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
   display: flex;
   justify-content: center;
 `;

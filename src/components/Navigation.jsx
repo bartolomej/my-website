@@ -16,13 +16,14 @@ function Navigation ({ current }) {
   return (
     <Container>
       <LeftWrapper>
-        <Logo/>
+        <RLink to="/">
+          <Logo/>
+        </RLink>
       </LeftWrapper>
       <RightWrapper>
         <RouterLink to="/">Home</RouterLink>
-        <ExternalLink href="/#projects">Projects</ExternalLink>
-        <ExternalLink href="/#gallery">Photos</ExternalLink>
-        <ExternalLink href="https://github.com/bartolomej">
+        <RouterLink to="/experience">Experiences</RouterLink>
+        <ExternalLink rel="noreferrer" href="https://github.com/bartolomej">
           <UseAnimations style={{ display: 'flex' }} animationKey="github" size={30}/>
         </ExternalLink>
       </RightWrapper>
@@ -54,9 +55,8 @@ const LinkStyle = css`
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.1em;
   color: ${props => props.theme.lightText};
-  margin-left: 20px;
   transition: 0.6s all ease;
   &:hover {
     color: ${props => props.theme.vibrant};
@@ -68,14 +68,15 @@ const LinkStyle = css`
 
 const RLink = styled(Link)`
   ${LinkStyle};
+  margin-right: 20px;
   ${props => props.iscurrent ? `color: ${props.theme.vibrant}` : ''};
 `;
 
 const ExternalLink = styled.a`${LinkStyle}`;
 
 const Logo = styled(logo)`
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
 `;
 
 export default Navigation;

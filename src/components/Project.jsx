@@ -16,9 +16,11 @@ function Project ({ title, description, tags, preview, url, repo, reverse = fals
         <TagsView tags={tags}/>
         <Description>{description}</Description>
         <ButtonsWrapper>
-          <Button target="_blank" href={url}>
-            <span>Website</span>
-          </Button>
+          {url && (
+            <Button target="_blank" href={url}>
+              <span>Website</span>
+            </Button>
+          )}
           {repo && (
             <Button target="_blank" href={repo}>
               <span>Repository</span>

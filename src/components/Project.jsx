@@ -47,9 +47,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: ${props => props.reverse ? 'row-reverse' : 'row'};
   align-items: center;
-  padding: 50px 0;
+  padding: 60px 0;
   @media (max-width: 1100px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -58,7 +58,7 @@ const TextWrapper = styled.div`
   flex-direction: row;
   ${props => props.reverse ? 'margin-left: 40px;' : 'margin-right: 40px;'};
   @media (max-width: 1100px) {
-    margin: 0 0 40px;
+    margin: 30px 0 0;
   }
   @media (max-width: 700px) {
     width: 100%;

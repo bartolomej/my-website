@@ -24,9 +24,10 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  margin: 60px auto;
+  margin: 20% auto;
   @media (max-width: 700px) {
     width: 90%;
+    margin: 30% auto;
   }
 `;
 

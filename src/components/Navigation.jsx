@@ -36,7 +36,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 100%;
+  height: 8vh;
 `;
 
 const LeftWrapper = styled.div`

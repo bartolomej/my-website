@@ -14,32 +14,28 @@ function Router () {
   const location = useLocation();
 
   const pageTransitions = useTransition(location, location => location.pathname, {
-    from: { opacity: 0, transform: 'translate3d(0,100%,0)' },
-    enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-    leave: { opacity: 0, transform: 'translate3d(0,-50%,0)' },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
   });
 
-  return (
-    <>
+  return pageTransitions.map(({ item: location, props, key }) => (
+    <Page key={key} style={props}>
       <NavWrapper bcg={location.pathname === '/' ? 'black' : theme.dark}>
         <Navigation current={location.pathname}/>
       </NavWrapper>
-      {pageTransitions.map(({ item: location, props, key }) => (
-        <Page key={key} style={props}>
-          <Switch location={location}>
-            <Route path="/" exact component={Home}/>
-            <Route path="/experience" component={Experience}/>
-            {projects.map(p => <Route key={p.path} path={p.path} component={Coding}/>)}
-          </Switch>
-        </Page>
-      ))}
-    </>
-  )
+      <Switch location={location}>
+        <Route path="/" exact component={Home}/>
+        <Route path="/experience" component={Experience}/>
+        {projects.map(p => <Route key={p.path} path={p.path} component={Coding}/>)}
+      </Switch>
+    </Page>
+  ))
 }
 
 const Page = styled(animated.div)`
   position: absolute;
-  top: 8vh;
+  height: 100vh;
   width: 100vw;
   background: ${props => props.theme.dark};
 `;

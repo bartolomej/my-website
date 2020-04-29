@@ -31,12 +31,12 @@ function Photo ({ src, caption, orientation }) {
 
   function handleOpen () {
     setOpen(true);
-    //disableBodyScroll(document.querySelector('body'));
+    disableBodyScroll(document.querySelector('body'));
   }
 
   function handleClose () {
     setOpen(false);
-    //enableBodyScroll(document.querySelector('body'));
+    enableBodyScroll(document.querySelector('body'));
   }
 
   return (
@@ -169,7 +169,7 @@ const CloseButton = styled(animated.button)`
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 4;
+  z-index: 5;
   color: ${props => props.theme.lightText};
 `;
 

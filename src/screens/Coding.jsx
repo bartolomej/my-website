@@ -37,7 +37,7 @@ function Coding () {
 
 const ProjectWrapper = styled.div`
   width: 60%;
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     width: unset;
   }
 `;

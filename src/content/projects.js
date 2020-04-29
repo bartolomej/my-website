@@ -11,7 +11,7 @@ import pendulumDynamics from '../assets/projects/pendulum-dynamics.mp4';
 import juliaSet from '../assets/projects/julia-set.mp4';
 import moduloArithmetics from '../assets/projects/modulo-arithmetics.mp4';
 import simplePendulum from '../assets/projects/simple-pendulum.mp4';
-
+import bsTeams from '../assets/projects/bs-teams.mp4';
 // project groups assets
 import mobilePreview from '../assets/mobile.png';
 
@@ -209,6 +209,20 @@ const websites = [
       "browser-game"
     ]
   },
+  {
+    "title": "BsTeams",
+    "description": "We, as a team of 8 young passionate developers, product managers and designers developed this website during a workshop at Business Solutions d.o.o.",
+    "repo": "https://github.com/jakic12/bs-teams",
+    "preview": {
+      "url": bsTeams,
+      "type": "video"
+    },
+    "tags": [
+      "workshop",
+      "reactjs",
+      "product-website"
+    ]
+  }
 ]
 
 const mobile = [

@@ -8,6 +8,7 @@ import Coding from "./screens/Coding";
 import Navigation from "./components/Navigation";
 import { theme } from "./style";
 import Experience from "./screens/Experience";
+import { Background } from "./animations";
 
 
 function Router () {
@@ -21,9 +22,10 @@ function Router () {
 
   return pageTransitions.map(({ item: location, props, key }) => (
     <Page key={key} style={props}>
-      <NavWrapper bcg={location.pathname === '/' ? 'black' : theme.dark}>
-        <Navigation current={location.pathname}/>
-      </NavWrapper>
+      <BackgroundWrapper>
+        <Background spacing={50} color={theme.lightText}/>
+      </BackgroundWrapper>
+      <Navigation current={location.pathname}/>
       <Switch location={location}>
         <Route path="/" exact component={Home}/>
         <Route path="/experience" component={Experience}/>
@@ -40,14 +42,13 @@ const Page = styled(animated.div)`
   background: ${props => props.theme.dark};
 `;
 
-const NavWrapper = styled.div`
-  height: 8vh;
-  background: ${props => props.bcg || 'black'};
-  position: absolute;
+const BackgroundWrapper = styled.div`
+  position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 1;
 `;
 
 export default Router;

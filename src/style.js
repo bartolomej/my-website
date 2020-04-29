@@ -7,7 +7,7 @@ const colors = {
   eerieBlack: 'rgb(26,28,30)',
   radicalRed: 'rgb(255,56,96)',
   royalBlue: 'rgba(10, 36, 99, 1)',
-  hkaki: 'rgb(198,177,152)',
+  hkaki: 'rgba(198,177,152, 1)',
   babyPowder: 'rgba(247, 247, 242, 1)'
 }
 
@@ -24,7 +24,7 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  margin: 20% auto;
+  margin: 12% auto;
   @media (max-width: 700px) {
     width: 90%;
     margin: 30% auto;

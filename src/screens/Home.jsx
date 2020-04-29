@@ -63,7 +63,7 @@ function Home () {
 }
 
 const LandingWrapper = styled.div`
-  height: 92vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: row;

@@ -7,7 +7,7 @@ import UseAnimations from "react-useanimations";
 
 function Navigation ({ current }) {
 
-  const RouterLink = ({to, children}) => (
+  const RouterLink = ({ to, children }) => (
     <RLink iscurrent={current === to} to={to}>
       {children}
     </RLink>
@@ -32,6 +32,11 @@ function Navigation ({ current }) {
 }
 
 const Container = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
   padding: 0 20px;
   display: flex;
   flex-direction: row;

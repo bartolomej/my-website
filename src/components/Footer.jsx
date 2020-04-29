@@ -33,19 +33,18 @@ function Footer () {
 const Container = styled.footer`
   height: 40vh;
   width: 100%;
-  z-index: 0;
+  z-index: 2;
   display: flex;
   position: relative;
   overflow: hidden;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 0 20px 10px #131516;;
+  box-shadow: 0 0 40px 20px black;
 `;
 
 const Background = styled.img`
   top: -30%;
-  opacity: 0.2;
   position: absolute;
   right: 0;
   left: 0;

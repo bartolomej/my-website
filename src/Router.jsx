@@ -5,9 +5,9 @@ import { animated, useTransition } from 'react-spring'
 import Home from "./screens/Home";
 import projects from "./content/projects";
 import Coding from "./screens/Coding";
-import Navigation from "./components/Navigation";
+import Header from "./components/Header";
 import { theme } from "./style";
-import Experience from "./screens/Experience";
+import Skills from "./screens/Skills";
 import { Background } from "./animations";
 
 
@@ -25,10 +25,10 @@ function Router () {
       <BackgroundWrapper>
         <Background spacing={50} color={theme.lightText}/>
       </BackgroundWrapper>
-      <Navigation current={location.pathname}/>
+      <Header current={location.pathname}/>
       <Switch location={location}>
         <Route path="/" exact component={Home}/>
-        <Route path="/experience" component={Experience}/>
+        <Route path="/skills" component={Skills}/>
         {projects.map(p => <Route key={p.path} path={p.path} component={Coding}/>)}
       </Switch>
     </Page>

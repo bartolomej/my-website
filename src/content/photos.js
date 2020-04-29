@@ -19,15 +19,15 @@ export default [
   },
   {
     "src": fractal2,
-    "caption": ""
+    "caption": "Twisty fractal :)"
   },
   {
     "src": fractal3,
-    "caption": ""
+    "caption": "Curly fractal :)"
   },
   {
     "src": fractal4,
-    "caption": ""
+    "caption": "Another fractal :)"
   },
   {
     "src": sunrise,
@@ -47,23 +47,23 @@ export default [
   },
   {
     "src": tree,
-    "caption": "",
+    "caption": "Forest in Slovenian Alps.",
     "orientation": "portrait"
   },
   {
     "src": modrej,
-    "caption": "",
+    "caption": "View over my home valley.",
   },
   {
     "src": capricorn,
-    "caption": "",
+    "caption": "This animal is called 'Kozorog' in Slovenian. Guess what, that's also my last name :)",
   },
   {
     "src": lighthouse,
-    "caption": "",
+    "caption": "Lighthouse in Croatia.",
   },
   {
     "src": mountains,
-    "caption": "",
+    "caption": "Slovenian mountains.",
   },
 ]

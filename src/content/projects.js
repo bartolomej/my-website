@@ -12,8 +12,12 @@ import juliaSet from '../assets/projects/julia-set.mp4';
 import moduloArithmetics from '../assets/projects/modulo-arithmetics.mp4';
 import simplePendulum from '../assets/projects/simple-pendulum.mp4';
 import bsTeams from '../assets/projects/bs-teams.mp4';
+import pustUTminuBo from '../assets/projects/pust-u-tminu-bo-plakat.jpg';
 // project groups assets
 import mobilePreview from '../assets/mobile.png';
+import wedding from '../assets/gallery/wedding.jpg';
+import weddingVideo1 from '../assets/projects/wedding-1.mp4';
+import weddingVideo2 from '../assets/projects/wedding-2.mp4';
 
 
 const mathProjects = [
@@ -243,11 +247,54 @@ const mobile = [
       "mobile-app"
     ]
   },
-]
+];
+
+const film = [
+  {
+    "title": "Wedding video 2",
+    "description": "I filmed my cousins wedding",
+    "preview": {
+      "url": weddingVideo2,
+      "type": "video",
+    },
+    "tags": [
+      "wedding",
+      "film",
+      "video-editing"
+    ]
+  },
+  {
+    "title": "Wedding video 1",
+    "description": "Me and my friend Tilen Miklavic filmed and edited a wedding video for a local client.",
+    "preview": {
+      "url": weddingVideo1,
+      "type": "video",
+    },
+    "tags": [
+      "wedding",
+      "film",
+      "video-editing"
+    ]
+  },
+  {
+    "title": "Documentary Film",
+    "description": "We, as a group of 3 young film makers filmed, produced and edited local documentary film, which takes a look at the history of a local tradition. The film is called 'Pust u Tminu Bo!'.",
+    "url": "https://www.facebook.com/Pust.u.tminu.bo/",
+    "preview": {
+      "url": pustUTminuBo,
+      "type": "image",
+    },
+    "tags": [
+      "wedding",
+      "film",
+      "video-editing"
+    ]
+  },
+];
 
 const projects = [
   {
-    "title": "Math Projects",
+    "title": "Math related Projects",
     "path": "/math",
     "description": "Coding projects related to mathematics and physics.",
     "projects": mathProjects,
@@ -256,7 +303,7 @@ const projects = [
       "type": "video",
     },
     "tags": [
-      "go-lang",
+      "mathematics",
       "fractals",
       "web-simulations",
     ]
@@ -291,6 +338,21 @@ const projects = [
       "android",
       "ios",
       "nodejs"
+    ]
+  },
+  {
+    "title": "Film making",
+    "path": "/film",
+    "description": "Film making projects I worked on from 2016 - 2018.",
+    "projects": film,
+    "preview": {
+      "url": wedding,
+      "type": "image",
+    },
+    "tags": [
+      "wedding-videos",
+      "filming",
+      "documentary",
     ]
   },
 ]

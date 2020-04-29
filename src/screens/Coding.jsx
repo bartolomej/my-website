@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Section, SectionTitle } from "../style";
 import { getProjectGroup } from "../content/projects";
@@ -10,6 +10,10 @@ import Footer from "../components/Footer";
 function Coding () {
   let match = useRouteMatch();
   const group = getProjectGroup(match.path);
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [])
 
   return (
     <>

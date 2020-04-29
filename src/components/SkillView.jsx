@@ -3,14 +3,14 @@ import styled from "styled-components";
 import Preview from "./Preview";
 
 
-function ExperienceView ({ title, experience, tools, description, previews }) {
+function SkillView ({ title, tools, description, previews }) {
 
   return (
     <Container>
       <TextWrapper>
         <Title>{title}</Title>
         <IconsWrapper>
-          {tools.map(t => <Icon alt={t.title} src={t.icon}/>)}
+          {tools.map((t, i) => <Icon key={i} alt={t.title} src={t.icon}/>)}
         </IconsWrapper>
         <Description>
           {description}
@@ -18,7 +18,7 @@ function ExperienceView ({ title, experience, tools, description, previews }) {
       </TextWrapper>
       <ImagesWrapper>
         {previews && previews.map(p => (
-          <PreviewWrapper>
+          <PreviewWrapper key={p.url}>
             <Preview
               height={p.size || 200}
               key={p.url}
@@ -44,6 +44,7 @@ const Container = styled.div`
 
 const TextWrapper = styled.div`
   flex: 0.5;
+  backdrop-filter: blur(5px);
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -90,4 +91,4 @@ const Description = styled.p`
   color: ${props => props.theme.lightText};
 `;
 
-export default ExperienceView;
+export default SkillView;

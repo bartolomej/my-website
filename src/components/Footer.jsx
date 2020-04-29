@@ -10,20 +10,24 @@ function Footer () {
     <Container>
       <Background alt="" src={julia}/>
       <SocialMediaWrapper>
-        <Link href="https://www.github.com/bartolomej">
-          <UseAnimations animationKey="github" size={40} />
+        <Link rel="noreferrer" href="https://www.github.com/bartolomej">
+          <AnimatedIcon animationKey="github" size={40} />
+          Github
         </Link>
-        <Link href="https://www.instagram.com/mejkozorog/">
-          <UseAnimations animationKey="instagram" size={40} />
+        <Link rel="noreferrer" href="https://www.instagram.com/mejkozorog/">
+          <AnimatedIcon animationKey="instagram" size={40} />
+          Instagram
         </Link>
-        <Link href="https://www.linkedin.com/in/bartolomej-kozorog-55419610b">
-          <UseAnimations animationKey="linkedin" size={40} />
+        <Link rel="noreferrer" href="https://www.linkedin.com/in/bartolomej-kozorog-55419610b">
+          <AnimatedIcon animationKey="linkedin" size={40} />
+          LinkedIn
         </Link>
-        <Link href="https://www.twitter.com/mkozorog">
-          <UseAnimations animationKey="twitter" size={40} />
+        <Link rel="noreferrer" href="https://www.twitter.com/mkozorog">
+          <AnimatedIcon animationKey="twitter" size={40} />
+          Twitter
         </Link>
       </SocialMediaWrapper>
-      <Link href={"https://bartolomej.github.io/portfolio-2019/"}>
+      <Link rel="noreferrer" style={{marginTop: 40}} href={"https://bartolomej.github.io/portfolio-2019/"}>
         Last year's portfolio.
       </Link>
     </Container>
@@ -40,7 +44,7 @@ const Container = styled.footer`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 0 40px 20px black;
+  box-shadow: 0 0 120px 50px black;
 `;
 
 const Background = styled.img`
@@ -60,11 +64,17 @@ const SocialMediaWrapper = styled.div`
   width: 60%;
 `;
 
+const AnimatedIcon = styled(UseAnimations)`
+  height: 60px;
+`;
+
 const Link = styled.a`
   color: ${props => props.theme.lightText};
   transition: 0.3s all ease;
   font-weight: bold;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &:hover {
     color: ${props => props.theme.vibrant};
     transform: scale(1.1);

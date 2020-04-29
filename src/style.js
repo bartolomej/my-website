@@ -7,7 +7,7 @@ const colors = {
   eerieBlack: 'rgb(26,28,30)',
   radicalRed: 'rgb(255,56,96)',
   royalBlue: 'rgba(10, 36, 99, 1)',
-  hkaki: 'rgba(198,177,152, 1)',
+  hkaki: 'rgb(198,177,152)',
   babyPowder: 'rgba(247, 247, 242, 1)'
 }
 

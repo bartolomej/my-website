@@ -71,7 +71,7 @@ const LandingWrapper = styled.div`
   position: relative;
   overflow: hidden;
   background: black;
-  box-shadow: 0 0 40px 20px black;
+  box-shadow: 0 0 120px 50px black;
 `;
 
 const Background = styled.img`

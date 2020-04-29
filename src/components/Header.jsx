@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import UseAnimations from "react-useanimations";
 
 
-function Navigation ({ current }) {
+function Header ({ current }) {
 
   const RouterLink = ({ to, children }) => (
     <RLink iscurrent={current === to} to={to}>
@@ -22,7 +22,7 @@ function Navigation ({ current }) {
       </LeftWrapper>
       <RightWrapper>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/experience">Experiences</RouterLink>
+        <RouterLink to="/skills">Skills</RouterLink>
         <ExternalLink rel="noreferrer" href="https://github.com/bartolomej">
           <UseAnimations style={{ display: 'flex' }} animationKey="github" size={30}/>
         </ExternalLink>
@@ -31,7 +31,7 @@ function Navigation ({ current }) {
   )
 }
 
-const Container = styled.div`
+const Container = styled.header`
   position: absolute;
   top: 0;
   left: 0;
@@ -42,6 +42,9 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   height: 8vh;
+  @media (max-width: 700px) {
+    height: 12vh;
+  }
 `;
 
 const LeftWrapper = styled.div`
@@ -66,7 +69,7 @@ const LinkStyle = css`
   &:hover {
     color: ${props => props.theme.vibrant};
   }
-  @media (max-width: 400px) {
+  @media (max-width: 300px) {
     font-size: 0.8em;
   }
 `;
@@ -84,4 +87,4 @@ const Logo = styled(logo)`
   width: 45px;
 `;
 
-export default Navigation;
+export default Header;

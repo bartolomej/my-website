@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import UseAnimations from "react-useanimations";
 
 function Preview ({ isFocused = false, type, background, overflow, url, title, play = false, height = 300 }) {
   const videoRef = React.useRef();
@@ -25,7 +26,8 @@ function Preview ({ isFocused = false, type, background, overflow, url, title, p
   }
 
   return (
-    <PreviewInner h={height} bcg={background} overflow={overflow}>
+    <Container h={height} bcg={background} overflow={overflow}>
+      <Loading animationKey="loading" />
       {type === 'image' ? (
         <Image isfocused={isFocused} alt={title} src={url}/>
       ) : (
@@ -33,13 +35,15 @@ function Preview ({ isFocused = false, type, background, overflow, url, title, p
           <source src={url} type="video/mp4"/>
         </Video>
       )}
-    </PreviewInner>
+    </Container>
   )
 }
 
-const PreviewInner = styled.div`
+const Container = styled.div`
   height: ${props => `${props.h}px`};
   max-width: 500px;
+  backdrop-filter: blur(5px);
+  position: relative;
   background: ${props => props.bcg || 'transparent'};
   justify-content: center;
   display: flex;
@@ -48,6 +52,18 @@ const PreviewInner = styled.div`
   @media (max-width: 700px) {
     height: 100%;
   }
+`;
+
+const Loading = styled(UseAnimations)`
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  top: 0;
+  bottom: 0;
+  width: 60px !important;
+  height: 60px;
+  margin: auto;
+  color: ${props => props.theme.lightText};
 `;
 
 const Image = styled.img`

@@ -81,6 +81,7 @@ function Photo ({ src, caption, orientation }) {
             </FocusWrapper>
           )
         )}
+        <Loading animationKey="loading" />
         <Image
           isFocused={focus && caption}
           blur={caption}
@@ -118,6 +119,18 @@ const Image = styled.img`
     transform: scale(1.1);
     filter: ${props => props.blur ? 'blur(4px) grayscale(1) brightness(0.5)' : 'brightness(1.3)'};
   }
+`;
+
+const Loading = styled(UseAnimations)`
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  top: 0;
+  bottom: 0;
+  width: 60px !important;
+  height: 60px;
+  margin: auto;
+  color: ${props => props.theme.lightText};
 `;
 
 const FocusWrapper = styled(animated.div)`

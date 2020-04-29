@@ -45,9 +45,10 @@ function Project ({ title, description, tags, preview, url, repo, reverse = fals
 
 const Container = styled.div`
   display: flex;
+  backdrop-filter: blur(5px);
   flex-direction: ${props => props.reverse ? 'row-reverse' : 'row'};
   align-items: center;
-  padding: 60px 0;
+  margin: 100px 0;
   @media (max-width: 1100px) {
     flex-direction: column-reverse;
   }
@@ -58,9 +59,7 @@ const TextWrapper = styled.div`
   flex-direction: row;
   ${props => props.reverse ? 'margin-left: 40px;' : 'margin-right: 40px;'};
   @media (max-width: 1100px) {
-    margin: 30px 0 0;
-  }
-  @media (max-width: 700px) {
+    margin: 20px 0 0;
     width: 100%;
   }
 `;

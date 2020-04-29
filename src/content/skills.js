@@ -123,15 +123,15 @@ export default [
     "previews": [
       {
         "url": herokuLogs,
-        "type": "image"
+        "type": "image",
       },
       {
         "url": postman,
-        "type": "image"
+        "type": "image",
       },
       {
         "url": backendCode,
-        "type": "image"
+        "type": "image",
       },
     ]
   },
@@ -145,7 +145,6 @@ export default [
       tools["yarn"],
       tools["redux"],
       tools["typescript"],
-      tools["jest"]
     ],
     "previews": [
       {

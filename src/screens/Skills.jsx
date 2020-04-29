@@ -1,23 +1,22 @@
 import React from "react";
 import { Section, SectionTitle } from "../style";
-import experience from "../content/experience";
-import ExperienceView from "../components/ExperienceView";
+import experience from "../content/skills";
+import SkillView from "../components/SkillView";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 
-function Experience () {
+function Skills () {
 
   return (
     <>
       <Section>
-        <SectionTitle>My Experiences</SectionTitle>
+        <SectionTitle>My Skills</SectionTitle>
         <ExperiencesWrapper>
           {experience.map(e => (
-            <ExperienceView
+            <SkillView
               key={e.title}
               title={e.title}
               tools={e.tools}
-              experience={e.experience}
               previews={e.previews}
               description={e.description}
             />
@@ -32,4 +31,4 @@ function Experience () {
 const ExperiencesWrapper = styled.div``;
 
 
-export default Experience;
+export default Skills;

@@ -4,7 +4,7 @@ import { Route, Switch, useLocation } from 'react-router-dom'
 import { animated, useTransition } from 'react-spring'
 import Home from "./screens/Home";
 import projects from "./content/projects";
-import Coding from "./screens/Coding";
+import Projects from "./screens/Projects";
 import Header from "./components/Header";
 import { theme } from "./style";
 import Skills from "./screens/Skills";
@@ -29,7 +29,7 @@ function Router () {
       <Switch location={location}>
         <Route path="/" exact component={Home}/>
         <Route path="/skills" component={Skills}/>
-        {projects.map(p => <Route key={p.path} path={p.path} component={Coding}/>)}
+        {projects.map(p => <Route key={p.path} path={p.path} component={Projects}/>)}
       </Switch>
     </Page>
   ))

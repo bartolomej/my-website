@@ -13,6 +13,8 @@ import moduloArithmetics from '../assets/projects/modulo-arithmetics.mp4';
 import simplePendulum from '../assets/projects/simple-pendulum.mp4';
 import bsTeams from '../assets/projects/bs-teams.mp4';
 import pustUTminuBo from '../assets/projects/pust-u-tminu-bo-plakat.jpg';
+import randomCode from '../assets/projects/random-code.mp4';
+import wikipediaNetwork from '../assets/projects/wikipedia-network.mp4';
 // project groups assets
 import mobilePreview from '../assets/mobile.png';
 import wedding from '../assets/gallery/wedding.jpg';
@@ -23,7 +25,7 @@ import weddingVideo2 from '../assets/projects/wedding-2.mp4';
 const mathProjects = [
   {
     "title": "Path Finding",
-    "description": "Simple web visualization of 2 path finding algorithms.",
+    "description": "Simple web visualization of 2 path finding algorithms. Made for a school project.",
     "repo": "https://github.com/bartolomej/path-finding",
     "preview": {
       "url": pathFinding,
@@ -37,7 +39,7 @@ const mathProjects = [
   },
   {
     "title": "Planets Simulation",
-    "description": "Web solar system playground. Create new planet with initial velocities and watch how the solar system evolves.",
+    "description": "Web solar system playground. Create new planets and observe how the solar system evolves with time.",
     "preview": {
       "url": planetSimulation,
       "type": "video"
@@ -52,7 +54,7 @@ const mathProjects = [
   },
   {
     "title": "Vector Field",
-    "description": "2D dynamical vector field playground. Input equations and watch vectors evolve through time.",
+    "description": "2D dynamical vector field playground. Input equations and observe field evolution with time.",
     "preview": {
       "url": vectorField,
       "type": "video"
@@ -66,7 +68,7 @@ const mathProjects = [
   },
   {
     "title": "Julia Set Art",
-    "description": "A tool for rendering videos and images of Julia Set fractal. Written in GO.",
+    "description": "A tool for rendering videos and images of Julia Set fractal. Written in GO language.",
     "url": "https://bartolomej.github.io/complex-set-art/",
     "repo": "https://github.com/bartolomej/complex-set-art",
     "preview": {
@@ -82,7 +84,7 @@ const mathProjects = [
   },
   {
     "title": "Julia Set",
-    "description": "Julia Set web interactive playground. Change hyper parameter C value and observe how the fractal changes.",
+    "description": "This is a julia set interactive web playground. Change hyper parameter and observe how the fractal changes.",
     "url": "https://github.com/bartolomej/julia-set",
     "repo": "https://github.com/bartolomej/julia-set",
     "preview": {
@@ -97,7 +99,7 @@ const mathProjects = [
   },
   {
     "title": "Pendulum Dynamics",
-    "description": "",
+    "description": "Pendulum system dynamics with 'phase space' visualization.",
     "url": "https://bartolomej.github.io/pendulum-dynamics/",
     "repo": "https://github.com/bartolomej/pendulum-dynamics",
     "preview": {
@@ -157,7 +159,7 @@ const mathProjects = [
 const websites = [
   {
     "title": "Awesome Search",
-    "description": "I build this website for a local translation agency.",
+    "description": "This is a search engine for a huge open source collection of awesome stuff <a href=\"https://awesome.re\">Awesome Lists</a>. (work in progress)",
     "preview": {
       "url": awesomeSearch,
       "type": "video"
@@ -172,7 +174,7 @@ const websites = [
     ]
   },
   {
-    "title": "Translator",
+    "title": "Translator Website",
     "description": "I build this website for a local translation agency.",
     "preview": {
       "url": translator,
@@ -215,7 +217,7 @@ const websites = [
   },
   {
     "title": "BsTeams",
-    "description": "We, as a team of 8 young passionate developers, product managers and designers developed this website during a workshop at Business Solutions d.o.o.",
+    "description": "We, as a team of 8 young passionate developers, product managers and designers developed this website during a <a href=\"https://www.talenthub.si/\">Next Talent Hub</a> workshop at <a href=\"https://www.b-s.si/\">Business Solutions</a>.",
     "repo": "https://github.com/jakic12/bs-teams",
     "preview": {
       "url": bsTeams,
@@ -225,6 +227,33 @@ const websites = [
       "workshop",
       "reactjs",
       "product-website"
+    ]
+  },
+  {
+    "title": "Wikipedia Network",
+    "description": "Visualize wikipedia pages as a graph.",
+    "repo": "https://github.com/bartolomej/wikipedia-network",
+    "preview": {
+      "url": wikipediaNetwork,
+      "type": "video"
+    },
+    "tags": [
+      "wikipedia",
+      "graph-visualization",
+      "network"
+    ]
+  },
+  {
+    "title": "Random Code",
+    "description": "A collection of some random coding stuff that isn't that significant.",
+    "preview": {
+      "url": randomCode,
+      "type": "video"
+    },
+    "tags": [
+      "fourier",
+      "circle-collision",
+      "random"
     ]
   }
 ]
@@ -252,7 +281,7 @@ const mobile = [
 const film = [
   {
     "title": "Wedding video 2",
-    "description": "I filmed my cousins wedding",
+    "description": "I filmed and edited my cousins wedding. This was my second wedding video project.",
     "preview": {
       "url": weddingVideo2,
       "type": "video",
@@ -265,7 +294,7 @@ const film = [
   },
   {
     "title": "Wedding video 1",
-    "description": "Me and my friend Tilen Miklavic filmed and edited a wedding video for a local client.",
+    "description": "Me and my friend <a href=\"https://www.instagram.com/tilen_miklavic/\">Tilen Miklavic</a> filmed and edited a wedding video for a local client. My first wedding video project.",
     "preview": {
       "url": weddingVideo1,
       "type": "video",

@@ -25,7 +25,7 @@ export default function (elementRef) {
   function onScroll (e) {
     const ele = elementRef.current;
     if (elementRef.current) {
-      const entryPoint = window.scrollY + (window.innerHeight * (2 / 3));
+      const entryPoint = window.scrollY + (window.innerHeight * (1 / 2));
       const exitPoint = window.scrollY + (window.innerHeight / 6);
       if (ele.offsetTop < entryPoint && ele.offsetTop > exitPoint) {
         setFocused(true);

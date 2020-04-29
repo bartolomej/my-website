@@ -7,7 +7,7 @@ import { useRouteMatch } from "react-router-dom";
 import Footer from "../components/Footer";
 
 
-function Coding () {
+function Projects () {
   let match = useRouteMatch();
   const group = getProjectGroup(match.path);
 
@@ -42,8 +42,8 @@ function Coding () {
 const ProjectWrapper = styled.div`
   width: 60%;
   @media (max-width: 700px) {
-    width: unset;
+    width: 98%;
   }
 `;
 
-export default Coding;
+export default Projects;

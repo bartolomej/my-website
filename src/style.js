@@ -1,12 +1,11 @@
-// https://coolors.co/1a1c1e-ff3860-c6b198-f7f7f2
-
 import styled from "styled-components";
 
+// https://coolors.co/1a1c1e-ff3860-ff9a58-c6b198-f7f7f2
 
 const colors = {
   eerieBlack: 'rgb(26,28,30)',
   radicalRed: 'rgb(255,56,96)',
-  royalBlue: 'rgba(10, 36, 99, 1)',
+  bone: '#FF9A58',
   hkaki: 'rgb(198,177,152)',
   babyPowder: 'rgba(247, 247, 242, 1)'
 }
@@ -14,7 +13,7 @@ const colors = {
 export const theme = {
   dark: colors.eerieBlack,
   vibrant: colors.radicalRed,
-  primary: colors.royalBlue,
+  link: colors.bone,
   lightText: colors.hkaki,
   light: colors.babyPowder
 }

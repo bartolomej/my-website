@@ -19,6 +19,7 @@ import figma from '../assets/tools/figma.png';
 import premierePro from '../assets/tools/premiere-pro.png';
 import afterEffects from '../assets/tools/after-effects.png';
 import wedding from '../assets/gallery/wedding.jpg';
+import onSet from '../assets/experiences/film/onset.JPG';
 // screenshots
 import backendCode from '../assets/experiences/backend/backend-code.png';
 import reactCode from '../assets/experiences/website/react-code.png';
@@ -198,6 +199,11 @@ export default [
     "previews": [
       {
         "url": wedding,
+        "type": "image",
+        "size": 300
+      },
+      {
+        "url": onSet,
         "type": "image",
         "size": 300
       }

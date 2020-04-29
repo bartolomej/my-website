@@ -14,7 +14,8 @@ function Project ({ title, description, tags, preview, url, repo, reverse = fals
       <TextWrapper reverse={reverse}>
         <Title>{title}</Title>
         <TagsView tags={tags}/>
-        <Description>{description}</Description>
+        {/** Parse description as html to enable inner links. **/}
+        <Description dangerouslySetInnerHTML={{__html: description}}/>
         <ButtonsWrapper>
           {url && (
             <Button target="_blank" href={url}>
@@ -48,8 +49,9 @@ const Container = styled.div`
   backdrop-filter: blur(5px);
   flex-direction: ${props => props.reverse ? 'row-reverse' : 'row'};
   align-items: center;
-  margin: 100px 0;
+  margin: 20% 0;
   @media (max-width: 1100px) {
+    margin: 100px 0;
     flex-direction: column-reverse;
   }
 `;
@@ -109,6 +111,9 @@ const Description = styled.p`
   line-height: 1.7;
   max-width: 400px;
   margin: 5px 0;
+  a {
+    color: ${props => props.theme.link};
+  }
 `;
 
 export default Project;

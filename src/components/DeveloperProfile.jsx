@@ -51,37 +51,35 @@ function DeveloperProfile ({ avatar, fullName, bio, commits, followers, follower
   const isFocused = useFocus(containerRef, true);
 
   return (
-    <Container>
-      <Photo
-        size={200}
-        styles={'border-radius: 50%; margin-bottom: 30px;'}
-        action={PHOTO_ACTIONS.OPEN_URL}
-        url={profileUrl}
-        src={avatar}
-        caption={'Visit my Github profile'}
-      />
-      {bio.map((paragraph, i) => <Description key={i}>{paragraph}</Description>)}
-      <StatsWrapper>
-        <StatsElement target="_blank" href={commitsUrl}>
-          <span>{commits}</span>
-          <span>Git commits in one year</span>
-        </StatsElement>
-        <StatsElement target="_blank" href={followersUrl}>
-          <span>{followers}</span>
-          <span>Github followers</span>
-        </StatsElement>
-      </StatsWrapper>
+    <>
+      <Container>
+        <Photo
+          size={200}
+          styles={'border-radius: 50%; margin-bottom: 30px;'}
+          action={PHOTO_ACTIONS.OPEN_URL}
+          url={profileUrl}
+          src={avatar}
+          caption={'Visit my Github profile'}
+        />
+        {bio.map((paragraph, i) => (
+          <>
+            {paragraph.title && <Subtitle>{paragraph.title}</Subtitle>}
+            <Description key={i}>{paragraph.text}</Description>
+          </>
+        ))}
+      </Container>
+      <Subtitle>Programming languages I use</Subtitle>
       <LanguageStatsWrapper ref={containerRef}>
         {languages.sort(compareLanguage).filter(l => LANGUAGES[l.name] !== undefined).map(l => (
           <LanguageVis
             key={l.name}
             show={isFocused}
             name={l.name}
-            percentage={l.percentage}
+            percentage={l.percentage * 1.4}
           />
         ))}
       </LanguageStatsWrapper>
-    </Container>
+    </>
   )
 }
 
@@ -119,6 +117,15 @@ const Container = styled.div`
   }
 `;
 
+const Subtitle = styled.h4`
+  font-size: 1.5em;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: ${props => props.theme.light};
+  line-height: 1.2;
+  text-align: center;
+`;
+
 const Description = styled.p`
   color: ${props => props.theme.lightText};
   font-size: 1.3em;
@@ -126,32 +133,6 @@ const Description = styled.p`
   text-align: center;
   @media (max-width: 700px) {
     line-height: 1.3;
-  }
-`;
-
-const StatsWrapper = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
-  width: 100%;
-  margin: 20px 0;
-`;
-
-const StatsElement = styled.a`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &:hover {
-    div { color: ${props => props.theme.vibrant} }  
-  }
-  span:nth-child(1) {
-    font-weight: bold;
-    font-size: 2em;
-    line-height: 1;
-    color: ${props => props.theme.light};
-  }
-  span:nth-child(2) {
-    color: ${props => props.theme.lightText};
   }
 `;
 

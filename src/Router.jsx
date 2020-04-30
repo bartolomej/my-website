@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 
 function Router () {
   const location = useLocation();
-  const [height, setHeight] = useState(0);
+  const [height, setHeight] = useState(null);
 
   const updateHeight = () => setHeight(document.querySelector('#container').clientHeight);
 

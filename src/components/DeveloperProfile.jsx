@@ -54,7 +54,7 @@ function DeveloperProfile ({ avatar, fullName, bio, commits, followers, follower
     <Container>
       <Photo
         size={200}
-        styles={'border-radius: 50%;'}
+        styles={'border-radius: 50%; margin-bottom: 30px;'}
         action={PHOTO_ACTIONS.OPEN_URL}
         url={profileUrl}
         src={avatar}
@@ -121,7 +121,7 @@ const Container = styled.div`
 
 const Description = styled.p`
   color: ${props => props.theme.lightText};
-  font-size: 1.4em;
+  font-size: 1.3em;
   margin: 10px 0;
   text-align: center;
   @media (max-width: 700px) {

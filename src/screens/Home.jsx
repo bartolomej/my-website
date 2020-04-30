@@ -19,7 +19,7 @@ function Home () {
         <Background alt="" src={julia}/>
         <TopRightBackground alt="" src={julia}/>
         <TextWrapper>
-          <HelloText>Hi, my name is</HelloText>
+          <ShortAboutMe>Hi, my name is</ShortAboutMe>
           <Title>Bartolomej</Title>
           <ShortAboutMe>
             I’m a computer science student from Slovenia. I like coding, photography and mathematics,..
@@ -112,11 +112,6 @@ const TextWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const HelloText = styled.p`
-  font-family: 'Space Mono', monospace;
-  color: ${props => props.theme.lightText};
 `;
 
 const Title = styled.h1`

@@ -104,8 +104,9 @@ const Icon = styled.img`
 `;
 
 const Description = styled.p`
-  line-height: 1.2;
-  font-size: 1.2em;
+  line-height: 1.4;
+  font-size: 1.3em;
+  margin-top: 20px;
   color: ${props => props.theme.lightText};
 `;
 

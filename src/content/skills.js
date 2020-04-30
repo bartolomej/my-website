@@ -25,6 +25,8 @@ import reactCode from '../assets/skills/frontend/react-code.png';
 import herokuLogs from '../assets/skills/backend/heroku-logs.png';
 import postman from '../assets/skills/backend/postman.png';
 import mobileDesign from '../assets/skills/frontend/mobile-design.png';
+import reactDev from '../assets/skills/frontend/react-development.png';
+import reactNativeDev from '../assets/skills/frontend/rn-development.png';
 import websiteDesign from '../assets/skills/frontend/website-design.png';
 import mobile from '../assets/mobile.png';
 
@@ -149,6 +151,10 @@ export default [
         "url": websiteDesign,
         "type": "image",
       },
+      {
+        "url": reactDev,
+        "type": "image",
+      },
     ]
   },
   {
@@ -163,11 +169,15 @@ export default [
     ],
     "previews": [
       {
-        "url": mobile,
+        "url": mobileDesign,
         "type": "image"
       },
       {
-        "url": mobileDesign,
+        "url": reactNativeDev,
+        "type": "image"
+      },
+      {
+        "url": mobile,
         "type": "image"
       },
     ]

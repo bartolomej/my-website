@@ -63,7 +63,7 @@ const LinkStyle = css`
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.4em;
   color: ${props => props.theme.lightText};
   transition: 0.6s all ease;
   &:hover {
@@ -76,8 +76,11 @@ const LinkStyle = css`
 
 const RLink = styled(Link)`
   ${LinkStyle};
-  margin-right: 20px;
+  margin-right: 50px;
   ${props => props.iscurrent ? `color: ${props.theme.vibrant}` : ''};
+  @media (max-width: 700px) {
+    margin-right: 20px;
+  }
 `;
 
 const ExternalLink = styled.a`${LinkStyle}`;

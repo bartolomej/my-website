@@ -5,8 +5,12 @@ import UseAnimations from "react-useanimations";
 import useFocus from "../useFocus";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
+export const PHOTO_ACTIONS = {
+  OPEN_URL: 0,
+  SHOW_PHOTO: 1
+}
 
-function Photo ({ src, caption, orientation }) {
+function Photo ({ src, size, caption, styles, orientation, url, action = PHOTO_ACTIONS.SHOW_PHOTO }) {
   const ref = React.useRef();
   const focus = useFocus(ref);
   const [isOpen, setOpen] = useState(false);
@@ -30,13 +34,19 @@ function Photo ({ src, caption, orientation }) {
   });
 
   function handleOpen () {
-    setOpen(true);
-    disableBodyScroll(document.querySelector('body'));
+    if (action === PHOTO_ACTIONS.SHOW_PHOTO) {
+      setOpen(true);
+      disableBodyScroll(document.querySelector('body'));
+    } else {
+      window.open(url, '_blank');
+    }
   }
 
   function handleClose () {
-    setOpen(false);
-    enableBodyScroll(document.querySelector('body'));
+    if (action === PHOTO_ACTIONS.SHOW_PHOTO) {
+      setOpen(false);
+      enableBodyScroll(document.querySelector('body'));
+    }
   }
 
   return (
@@ -69,7 +79,7 @@ function Photo ({ src, caption, orientation }) {
           </OpenContainer>
         )
       )}
-      <Container ref={ref} key={src} onClick={handleOpen}>
+      <Container size={size} customStyles={styles} ref={ref} key={src} onClick={handleOpen}>
         {captionTransitions.map(({ item, key, props }) =>
           item && (
             <FocusWrapper key={key} style={props}>
@@ -99,16 +109,14 @@ const Container = styled.div`
   position: relative;
   mix-blend-mode: exclusion;
   color: ${props => props.theme.dark};
-  width: 300px;
-  height: 300px;
+  width: ${props => (props.size || 300) + 'px'};
+  height: ${props => (props.size || 300) + 'px'};
   overflow: hidden;
   display: flex;
   justify-content: center;
   border-radius: 10px;
   margin: 10px;
-  @media (max-width: 700px) {
-    width: 85%;
-  }
+  ${props => props.customStyles};
 `;
 
 const Image = styled.img`

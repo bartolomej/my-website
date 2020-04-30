@@ -104,7 +104,10 @@ const tools = {
 export default [
   {
     "title": "Backend development",
-    "description": "Backend development is one of my favorite things to do as a developer. I like thinking in terms of systems: how systems behave, recover, communicate...",
+    "description": [
+      `I started with backend development in Node.js around ${new Date().getFullYear() - 2017} years ago. It's one of my favorite disciplines in software development space.`,
+      `I have experience in software testing, building REST APIs, writing well structured backend code, etc,.. Since I started I've developed 4 backend apps, that expose REST APIs, communicate with database and other external services,..`
+    ],
     "tools": [
       tools["nodejs"],
       tools["mysql"],

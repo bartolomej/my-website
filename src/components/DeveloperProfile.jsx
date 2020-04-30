@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import UseAnimations from "react-useanimations";
 import { animated, useSpring } from 'react-spring'
 // language icons
 import js from '../assets/tools/javascript.png';
@@ -11,57 +10,69 @@ import css from '../assets/tools/css.png';
 import html from '../assets/tools/html.png';
 import useFocus from "../useFocus";
 import { colorWithOpacity } from "../style";
+import Photo, { PHOTO_ACTIONS } from "./Photo";
 
 
 const LANGUAGES = {
   "JavaScript": {
     icon: js,
-    color: 'rgba(240,219,78,0.5)'
+    color: 'rgba(240,219,78,0.5)',
+    url: 'https://en.wikipedia.org/wiki/JavaScript'
   },
   "Java": {
     icon: java,
-    color: 'rgba(208,42,44,0.5)'
+    color: 'rgba(208,42,44,0.5)',
+    url: 'https://en.wikipedia.org/wiki/Java_(programming_language)'
   },
   "Go": {
     icon: go,
-    color: 'rgba(105,215,229,0.5)'
+    color: 'rgba(105,215,229,0.5)',
+    url: 'https://en.wikipedia.org/wiki/Go_(programming_language)'
   },
   "TypeScript": {
     icon: typescript,
-    color: 'rgba(0,121,204,0.5)'
+    color: 'rgba(0,121,204,0.5)',
+    url: 'https://en.wikipedia.org/wiki/TypeScript'
   },
   "HTML": {
     icon: html,
-    color: 'rgba(229,77,38,0.5)'
+    color: 'rgba(229,77,38,0.5)',
+    url: 'https://en.wikipedia.org/wiki/HTML'
   },
   "CSS": {
     icon: css,
-    color: 'rgba(20,114,182,0.5)'
+    color: 'rgba(20,114,182,0.5)',
+    url: 'https://en.wikipedia.org/wiki/Cascading_Style_Sheets'
   }
 }
 
-function DeveloperProfile ({ avatar, fullName, description, commits, followers, followersUrl, commitsUrl, languages, profileUrl }) {
+function DeveloperProfile ({ avatar, fullName, bio, commits, followers, followersUrl, commitsUrl, languages, profileUrl }) {
   const containerRef = React.useRef();
   const isFocused = useFocus(containerRef, true);
 
   return (
     <Container>
-      <Avatar alt="Github avatar" src={avatar}/>
-      <Name>{fullName}</Name>
-      <Description>{description}</Description>
+      <Photo
+        size={200}
+        styles={'border-radius: 50%;'}
+        action={PHOTO_ACTIONS.OPEN_URL}
+        url={profileUrl}
+        src={avatar}
+        caption={'Visit my Github profile'}
+      />
+      {bio.map((paragraph, i) => <Description key={i}>{paragraph}</Description>)}
       <StatsWrapper>
         <StatsElement target="_blank" href={commitsUrl}>
           <span>{commits}</span>
-          <span>This years commits</span>
+          <span>Git commits in one year</span>
         </StatsElement>
         <StatsElement target="_blank" href={followersUrl}>
           <span>{followers}</span>
-          <span>My followers</span>
+          <span>Github followers</span>
         </StatsElement>
       </StatsWrapper>
-      <Subtitle>Programming Language Experience:</Subtitle>
       <LanguageStatsWrapper ref={containerRef}>
-        {languages.map(l => (
+        {languages.sort(compareLanguage).filter(l => LANGUAGES[l.name] !== undefined).map(l => (
           <LanguageVis
             key={l.name}
             show={isFocused}
@@ -70,12 +81,12 @@ function DeveloperProfile ({ avatar, fullName, description, commits, followers, 
           />
         ))}
       </LanguageStatsWrapper>
-      <VisitLink href={profileUrl}>
-        <UseAnimations animationKey="github" size={40}/>
-        Visit my Github profile
-      </VisitLink>
     </Container>
   )
+}
+
+function compareLanguage (a, b) {
+  return b.percentage - a.percentage
 }
 
 function LanguageVis ({ show, percentage, name }) {
@@ -84,7 +95,7 @@ function LanguageVis ({ show, percentage, name }) {
   return (
     <LanguageElement>
       <LanguageTextSide txtColor={LANGUAGES[name].color}>
-        <span>{name}</span>
+        <a rel="noopener noreferrer" target="_blank" href={LANGUAGES[name].url}>{name}</a>
       </LanguageTextSide>
       <LanguageGraphSide>
         <LanguagePercentage
@@ -99,33 +110,21 @@ function LanguageVis ({ show, percentage, name }) {
 }
 
 const Container = styled.div`
-  width: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const Avatar = styled.img`
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-`;
-
-const Name = styled.h3`
-  color: ${props => props.theme.light};
-  font-size: 2em;
-`;
-
-const Subtitle = styled.h4`
-  color: ${props => props.theme.light};
-  font-size: 1.4em;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const Description = styled.p`
   color: ${props => props.theme.lightText};
   font-size: 1.4em;
+  margin: 10px 0;
+  text-align: center;
   @media (max-width: 700px) {
-    text-align: center;
     line-height: 1.3;
   }
 `;
@@ -165,9 +164,13 @@ const LanguageStatsWrapper = styled.div`
 const LanguageElement = styled.div`
   display: flex;
   flex-direction: row;
+  margin: 15px 0;
   img {
     width: 30px;
     height: 30px;
+  }
+  @media (max-width: 700px) {
+    margin: 10px 0;
   }
 `;
 
@@ -176,10 +179,13 @@ const LanguageTextSide = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  span {
+  a {
     font-weight: bold;
     font-size: 1.3em;
     color: ${props => colorWithOpacity(props.txtColor, 1) || props.theme.light};
+  }
+  a:hover {
+    color: ${props => props.theme.light};
   }
   @media (max-width: 700px) {
     flex: 2;
@@ -198,22 +204,6 @@ const LanguagePercentage = styled(animated.div)`
   background: ${props => props.bcg};
   width: ${props => props.percentage}%;
   height: 80%;
-`;
-
-const VisitLink = styled.a`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: ${props => props.theme.light};
-  transition: 0.6s all ease;
-  margin-top: 20px;
-  &:hover {
-    div {
-      transform: scale(1.1);
-      color: ${props => props.theme.vibrant};
-    }
-  }
 `;
 
 export default DeveloperProfile;

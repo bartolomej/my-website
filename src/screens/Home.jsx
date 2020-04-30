@@ -8,6 +8,7 @@ import photos from "../content/photos";
 import Photo from "../components/Photo";
 import text from '../content/text';
 import DeveloperProfile from "../components/DeveloperProfile";
+import github from '../content/github.json';
 
 
 function Home () {
@@ -29,20 +30,13 @@ function Home () {
         <DeveloperProfile
           avatar={'https://avatars2.githubusercontent.com/u/36109955?v=4'}
           fullName={'Bartolomej Kozorog'}
-          description={text.extensive_about_me}
+          bio={text.extensive_about_me}
           commitsUrl={'https://github.com/bartolomej?tab=repositories'}
           followersUrl={'https://github.com/bartolomej?tab=followers'}
           profileUrl={'https://github.com/bartolomej'}
-          commits={1200}
-          followers={4}
-          languages={[
-            { name: 'JavaScript', percentage: 70 },
-            { name: 'TypeScript', percentage: 30 },
-            { name: 'HTML', percentage: 10 },
-            { name: 'CSS', percentage: 15 },
-            { name: 'Java', percentage: 20 },
-            { name: 'Go', percentage: 4 }
-          ]}
+          commits={github.commits}
+          followers={github.followers}
+          languages={github.languages}
         />
       </Section>
       <Section>

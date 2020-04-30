@@ -1,0 +1,43 @@
+{
+  "avatar": "https://avatars2.githubusercontent.com/u/36109955?v=4",
+  "username": "bartolomej",
+  "fullName": "Bartolomej Kozorog",
+  "followers": 4,
+  "bio": "I'm a CS student in Nova Gorica. I develop backend / frontend apps, also like to do math. My languages of choice are JavaScript, TypeScript, Java, Go.",
+  "registered": "2018-02-03T16:55:07.000Z",
+  "commits": 1297,
+  "languages": [
+    {
+      "name": "Java",
+      "percentage": 10
+    },
+    {
+      "name": "JavaScript",
+      "percentage": 53.333333333333336
+    },
+    {
+      "name": "Other",
+      "percentage": 10
+    },
+    {
+      "name": "Go",
+      "percentage": 3.3333333333333335
+    },
+    {
+      "name": "TypeScript",
+      "percentage": 10
+    },
+    {
+      "name": "HTML",
+      "percentage": 3.3333333333333335
+    },
+    {
+      "name": "CSS",
+      "percentage": 6.666666666666667
+    },
+    {
+      "name": "C++",
+      "percentage": 3.3333333333333335
+    }
+  ]
+}

@@ -1,23 +1,31 @@
 import React, { useEffect } from "react";
 import BackgroundEffect from "./background";
 
-export function Background ({ spacing, size = 5, color }) {
+export function BackgroundAnimation ({ spacing, size = 5, color, style, width, height, speed }) {
   const containerRef = React.useRef();
   const animationRef = React.useRef();
 
   useEffect(() => {
+    if (animationRef.current) {
+      animationRef.current.setDimensions(width, height);
+    }
+  }, [height, width]);
+
+  useEffect(() => {
     if (containerRef.current) {
-      const animation = new BackgroundEffect(
+      animationRef.current = new BackgroundEffect(
         containerRef.current,
         spacing,
         size,
-        color
+        color,
+        width,
+        height,
+        speed
       );
-      animation.init();
-      animationRef.current = animation;
+      animationRef.current.init();
     }
     return () => animationRef.current.destroy();
   }, [containerRef]);
 
-  return <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
+  return <div className="background-animation" ref={containerRef} style={style} />
 }

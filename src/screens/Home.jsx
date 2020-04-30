@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import Footer from "../components/Footer";
 import { Section, SectionTitle } from "../style";
 import julia from "../assets/juliaset.png";
 import projects from "../content/projects";
@@ -10,22 +9,17 @@ import Photo from "../components/Photo";
 
 
 function Home () {
+
   return (
     <>
       <LandingWrapper>
         <Background alt="" src={julia}/>
+        <TopRightBackground alt="" src={julia}/>
         <TextWrapper>
-          <HelloText>
-            Hi, my name is
-          </HelloText>
-          <Title>
-            Bartolomej Kozorog
-          </Title>
+          <HelloText>Hi, my name is</HelloText>
+          <Title>Bartolomej</Title>
           <ShortAboutMe>
             I’m a computer science student from Slovenia. I like coding, photography and mathematics,..
-          </ShortAboutMe>
-          <ShortAboutMe>
-            Follow me on <GithubLink target="_blank" href="https://github.com/bartolomej">Github</GithubLink>.
           </ShortAboutMe>
         </TextWrapper>
       </LandingWrapper>
@@ -57,33 +51,47 @@ function Home () {
           ))}
         </PhotoWrapper>
       </Section>
-      <Footer/>
     </>
   );
 }
 
-const LandingWrapper = styled.div`
+const LandingWrapper = styled.section`
   height: 100vh;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   position: relative;
   overflow: hidden;
   background: black;
-  box-shadow: 0 0 120px 50px black;
+  z-index: 0;
+`;
+
+const TopRightBackground = styled.img`
+  position: absolute;
+  width: 50vw;
+  top: 0;
+  right: 0;
+  filter: blur(2px);
+  transform: rotate(-20deg);
+  @media (max-width: 1200px) {
+    width: 40vw;
+  }
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const Background = styled.img`
   position: absolute;
-  top: 0;
   bottom: 0;
   filter: blur(2px);
+  @media (max-width: 700px) {
+    height: 100vh;
+    left: -40%;
+  }
 `;
 
 const TextWrapper = styled.div`
   flex: 1;
-  height: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +105,7 @@ const HelloText = styled.p`
 
 const Title = styled.h1`
   text-shadow: 3px 3px ${props => props.theme.lightText};
-  font-size: 4em;
+  font-size: 5em;
   color: ${props => props.theme.vibrant};
   @media (max-width: 700px) {
     text-align: center;
@@ -108,18 +116,13 @@ const Title = styled.h1`
 
 const ShortAboutMe = styled.p`
   font-family: 'Space Mono', monospace;
-  max-width: 600px;
+  max-width: 500px;
   text-align: center;
   margin-top: 5px;
-  font-size: 1em;
+  font-size: 1.3em;
   color: ${props => props.theme.lightText};
-`;
-
-const GithubLink = styled.a`
-  font-size: 1.2em;
-  color: ${props => props.theme.vibrant};
-  &:hover{
-    color: ${props => props.theme.vibrant}
+  @media (max-width: 700px) {
+    font-size: 1.1em;
   }
 `;
 

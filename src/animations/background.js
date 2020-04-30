@@ -1,17 +1,20 @@
 export default class BackgroundEffect {
 
-  constructor (container, spacing = 50, size = 10, color = 'rgba(0,0,0,1)') {
+  constructor (container, spacing = 50, size = 10, color = 'rgba(0,0,0,1)', width, height, speed) {
     this.container = container;
     this.spacing = spacing;
     this.size = size;
     this.time = 0;
     this.color = color;
+    this.height = height;
+    this.width = width;
+    this.speed = speed || 0.01;
   }
 
   init () {
     this.canvas = document.createElement('canvas');
-    this.canvas.height = this.container.clientHeight;
-    this.canvas.width = this.container.clientWidth;
+    this.canvas.height = this.height || this.container.clientHeight;
+    this.canvas.width = this.width || this.container.clientWidth;
     this.ctx = this.canvas.getContext('2d');
     this.container.appendChild(this.canvas);
     this.initDots();
@@ -19,9 +22,19 @@ export default class BackgroundEffect {
     this.animation = requestAnimationFrame(this.render.bind(this));
   }
 
+  setDimensions (width, height) {
+    if (width) {
+      this.width = width;
+    }
+    if (height) {
+      this.height = height;
+    }
+    this.onResize();
+  }
+
   onResize () {
-    this.canvas.height = this.container.clientHeight;
-    this.canvas.width = this.container.clientWidth;
+    this.canvas.height = this.height || this.container.clientHeight;
+    this.canvas.width = this.width || this.container.clientWidth;
     this.initDots();
   }
 
@@ -57,7 +70,7 @@ export default class BackgroundEffect {
       }
     }
 
-    this.time += 0.01;
+    this.time += this.speed;
     requestAnimationFrame(this.render.bind(this));
   }
 

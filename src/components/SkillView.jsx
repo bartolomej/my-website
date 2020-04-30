@@ -7,27 +7,29 @@ function SkillView ({ title, tools, description, previews }) {
 
   return (
     <Container>
-      <TextWrapper>
-        <Title>{title}</Title>
-        <IconsWrapper>
-          {tools.map((t, i) => <Icon key={i} alt={t.title} src={t.icon}/>)}
-        </IconsWrapper>
-        <Description>
-          {description}
-        </Description>
-      </TextWrapper>
-      <ImagesWrapper>
-        {previews && previews.map(p => (
-          <PreviewWrapper key={p.url}>
+      <TextSide>
+        <TextWrapper>
+          <Title>{title}</Title>
+          <IconsWrapper>
+            {tools.map((t, i) => <Icon key={i} alt={t.title} src={t.icon}/>)}
+          </IconsWrapper>
+          <Description>
+            {description}
+          </Description>
+        </TextWrapper>
+      </TextSide>
+      <PreviewSide>
+        {previews && previews.map((p,i) => (
+          <PreviewWrapper index={i} total={previews.length} key={p.url}>
             <Preview
-              height={p.size || 200}
+              height={300}
               key={p.url}
               type={p.type}
               url={p.url}
             />
           </PreviewWrapper>
         ))}
-      </ImagesWrapper>
+      </PreviewSide>
     </Container>
   )
 }
@@ -35,35 +37,51 @@ function SkillView ({ title, tools, description, previews }) {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 10% 0;
+  align-items: center;
+  height: 100vh;
   @media (max-width: 700px) {
     flex-direction: column;
     margin: 30% 0;
+    height: unset;
   }
 `;
 
-const TextWrapper = styled.div`
+const TextSide = styled.div`
   flex: 0.5;
-  backdrop-filter: blur(5px);
   justify-content: center;
   display: flex;
   flex-direction: column;
 `;
 
-const ImagesWrapper = styled.div`
+const TextWrapper = styled.div`
+  backdrop-filter: blur(5px);
+`;
+
+const PreviewSide = styled.div`
   flex: 1;
+  height: 70%;
+  position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 `;
 
 const PreviewWrapper = styled.div`
-  margin-left: 20px;
-  margin-bottom: 20px;
+  position: absolute;
+  transition: 0.6s all ease;
+  top: ${props => `${props.index / props.total * 100}%`};
+  left: ${props => `${props.index / props.total * 100}%`};
   @media (max-width: 700px) {
     margin: 20px 0 0;
+    position: unset;
   }
+  ${!window.isMobile.any ? 
+    `&:hover {
+      transform: scale(1.1);
+      z-index: 5;
+    }` 
+  : ''};
 `;
 
 const Title = styled.h2`

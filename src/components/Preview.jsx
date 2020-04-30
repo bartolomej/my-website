@@ -41,8 +41,6 @@ function Preview ({ isFocused = false, type, background, overflow, url, title, p
 
 const Container = styled.div`
   height: ${props => `${props.h}px`};
-  max-width: 500px;
-  backdrop-filter: blur(5px);
   position: relative;
   background: ${props => props.bcg || 'transparent'};
   justify-content: center;

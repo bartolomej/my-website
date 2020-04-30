@@ -1,31 +1,31 @@
 // common
-import typescript from '../assets/tools/typescript-plain.png';
-import yarn from '../assets/tools/yarn-original.png';
+import typescript from '../assets/tools/typescript.png';
+import yarn from '../assets/tools/yarn.png';
 // backend development
-import nodejs from '../assets/tools/nodejs-plain.png';
-import mysql from '../assets/tools/mysql-plain.png';
-import heroku from '../assets/tools/heroku-plain.png';
+import nodejs from '../assets/tools/nodejs.png';
+import mysql from '../assets/tools/mysql.png';
+import heroku from '../assets/tools/heroku.png';
 import jest from '../assets/tools/jest.png';
 // web development
-import react from '../assets/tools/react-original.png';
-import redux from '../assets/tools/redux-original.png';
+import react from '../assets/tools/reactjs.png';
+import redux from '../assets/tools/redux.png';
 import netlify from '../assets/tools/netlify.png';
-import webpack from '../assets/tools/webpack-original.png';
+import webpack from '../assets/tools/webpack.png';
 // ui design
-import dribble from '../assets/tools/dribble.png';
-import behance from '../assets/tools/behance.png';
 import figma from '../assets/tools/figma.png';
 // film making
 import premierePro from '../assets/tools/premiere-pro.png';
 import afterEffects from '../assets/tools/after-effects.png';
 import wedding from '../assets/gallery/wedding.jpg';
-import onSet from '../assets/experiences/film/onset.JPG';
+import onSet from '../assets/skills/film/onset.JPG';
+import capricorn from '../assets/gallery/capricorn.jpg';
 // screenshots
-import backendCode from '../assets/experiences/backend/backend-code.png';
-import reactCode from '../assets/experiences/website/react-code.png';
-import herokuLogs from '../assets/experiences/backend/heroku-logs.png';
-import postman from '../assets/experiences/backend/postman.png';
-import figmaBoard from '../assets/experiences/design/figma.png';
+import backendCode from '../assets/skills/backend/backend-code.png';
+import reactCode from '../assets/skills/frontend/react-code.png';
+import herokuLogs from '../assets/skills/backend/heroku-logs.png';
+import postman from '../assets/skills/backend/postman.png';
+import mobileDesign from '../assets/skills/frontend/mobile-design.png';
+import websiteDesign from '../assets/skills/frontend/website-design.png';
 import mobile from '../assets/mobile.png';
 
 const tools = {
@@ -84,16 +84,6 @@ const tools = {
     "title": "React Native",
     "description": "I love developing apps (that don't require top notch performance) in React Native."
   },
-  "dribble": {
-    "icon": dribble,
-    "title": "Dribble",
-    "description": ""
-  },
-  "behance": {
-    "icon": behance,
-    "title": "Behance",
-    "description": ""
-  },
   "figma": {
     "icon": figma,
     "title": "Figma",
@@ -151,7 +141,10 @@ export default [
       {
         "url": reactCode,
         "type": "image",
-        "size": 300
+      },
+      {
+        "url": websiteDesign,
+        "type": "image",
       },
     ]
   },
@@ -162,31 +155,18 @@ export default [
       tools["react-native"],
       tools["redux"],
       tools["typescript"],
-      tools["jest"],
+      tools["figma"],
       tools["yarn"],
     ],
     "previews": [
       {
         "url": mobile,
-        "type": "image",
-        "size": 400
-      }
-    ]
-  },
-  {
-    "title": "UI Design",
-    "description": "I'm not a designer, but I do fully design my own apps. For that I use Figma prototyping tool to sketch some quick mockups of my design.",
-    "tools": [
-      tools["dribble"],
-      tools["behance"],
-      tools["figma"],
-    ],
-    "previews": [
+        "type": "image"
+      },
       {
-        "url": figmaBoard,
-        "type": "image",
-        "size": 300
-      }
+        "url": mobileDesign,
+        "type": "image"
+      },
     ]
   },
   {
@@ -198,15 +178,17 @@ export default [
     ],
     "previews": [
       {
-        "url": wedding,
-        "type": "image",
-        "size": 300
-      },
-      {
         "url": onSet,
         "type": "image",
-        "size": 300
-      }
+      },
+      {
+        "url": capricorn,
+        "type": "image",
+      },
+      {
+        "url": wedding,
+        "type": "image",
+      },
     ]
   }
 ]

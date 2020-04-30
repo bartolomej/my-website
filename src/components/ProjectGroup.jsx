@@ -22,9 +22,11 @@ function ProjectGroup ({ title, description, tags, preview, path }) {
         play={isFocused}
         isFocused={isFocused}
       />
-      <Title>{title}</Title>
-      <TagsView color={theme.lightText} tags={tags}/>
-      <Description>{description}</Description>
+      <TextWrapper>
+        <Title>{title}</Title>
+        <TagsView color={theme.lightText} tags={tags}/>
+        <Description>{description}</Description>
+      </TextWrapper>
     </Container>
   )
 }
@@ -32,7 +34,22 @@ function ProjectGroup ({ title, description, tags, preview, path }) {
 const Container = styled(Link)`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 20px;
+  @media (max-width: 1500px) {
+    flex-direction: row-reverse;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+const TextWrapper = styled.div`
+  @media (max-width: 1500px) {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.h3`

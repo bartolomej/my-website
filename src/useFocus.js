@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
  * This hook determines when target element is focused.
  * Works for both 'mobile' and 'desktop' mode.
  */
-export default function (elementRef) {
+export default function (elementRef, forceFocusOnScroll = false) {
   const [isFocused, setFocused] = useState(false);
 
   useEffect(() => {
     // dependant on a tiny 'isMobile' javascript library (check index.html)
-    if (window.isMobile.any) {
+    if (window.isMobile.any || forceFocusOnScroll) {
       window.addEventListener('scroll', onScroll);
       return () => window.removeEventListener('scroll', onScroll);
     } else {

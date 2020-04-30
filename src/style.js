@@ -31,10 +31,9 @@ export const Section = styled.section`
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 2.5em;
+  font-size: 3em;
   color: ${props => props.theme.vibrant};
   margin-bottom: 20px;
-  text-shadow: 1px 1px ${props => props.theme.lightText};
   @media (max-width: 700px) {
     text-align: center;
     line-height: 1.2;

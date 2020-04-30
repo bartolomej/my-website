@@ -1,30 +1,28 @@
 import React from 'react';
 import styled from "styled-components";
 import UseAnimations from "react-useanimations";
-import julia from '../assets/juliaset.png'
 
 
 function Footer () {
 
   return (
-    <Container>
-      <Background alt="" src={julia}/>
+    <Container id="footer">
       <SocialMediaWrapper>
         <Link rel="noreferrer" href="https://www.github.com/bartolomej">
           <AnimatedIcon animationKey="github" size={40} />
-          Github
+          <span>Github</span>
         </Link>
         <Link rel="noreferrer" href="https://www.instagram.com/mejkozorog/">
           <AnimatedIcon animationKey="instagram" size={40} />
-          Instagram
+          <span>Instagram</span>
         </Link>
         <Link rel="noreferrer" href="https://www.linkedin.com/in/bartolomej-kozorog-55419610b">
           <AnimatedIcon animationKey="linkedin" size={40} />
-          LinkedIn
+          <span>LinkedIn</span>
         </Link>
         <Link rel="noreferrer" href="https://www.twitter.com/mkozorog">
           <AnimatedIcon animationKey="twitter" size={40} />
-          Twitter
+          <span>Twitter</span>
         </Link>
       </SocialMediaWrapper>
       <Link rel="noreferrer" style={{marginTop: 40}} href={"https://bartolomej.github.io/portfolio-2019/"}>
@@ -44,17 +42,7 @@ const Container = styled.footer`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 0 120px 50px black;
-`;
-
-const Background = styled.img`
-  top: -30%;
-  position: absolute;
-  right: 0;
-  left: 0;
-  width: 100vw;
-  -webkit-filter: blur(2px);
-  filter: blur(2px)
+  backdrop-filter: blur(5px);
 `;
 
 const SocialMediaWrapper = styled.div`
@@ -78,6 +66,9 @@ const Link = styled.a`
   &:hover {
     color: ${props => props.theme.vibrant};
     transform: scale(1.1);
+  }
+  @media (max-width: 700px) {
+    span { display: none; }
   }
 `;
 

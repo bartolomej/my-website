@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { Section, SectionTitle } from "../style";
 import julia from "../assets/juliaset.png";
@@ -6,6 +6,8 @@ import projects from "../content/projects";
 import ProjectGroup from "../components/ProjectGroup";
 import photos from "../content/photos";
 import Photo from "../components/Photo";
+import text from '../content/text';
+import DeveloperProfile from "../components/DeveloperProfile";
 
 
 function Home () {
@@ -23,6 +25,26 @@ function Home () {
           </ShortAboutMe>
         </TextWrapper>
       </LandingWrapper>
+      <Section>
+        <DeveloperProfile
+          avatar={'https://avatars2.githubusercontent.com/u/36109955?v=4'}
+          fullName={'Bartolomej Kozorog'}
+          description={text.extensive_about_me}
+          commitsUrl={'https://github.com/bartolomej?tab=repositories'}
+          followersUrl={'https://github.com/bartolomej?tab=followers'}
+          profileUrl={'https://github.com/bartolomej'}
+          commits={1200}
+          followers={4}
+          languages={[
+            { name: 'JavaScript', percentage: 70 },
+            { name: 'TypeScript', percentage: 30 },
+            { name: 'HTML', percentage: 10 },
+            { name: 'CSS', percentage: 15 },
+            { name: 'Java', percentage: 20 },
+            { name: 'Go', percentage: 4 }
+          ]}
+        />
+      </Section>
       <Section>
         <SectionTitle id="projects">My Projects</SectionTitle>
         <ProjectWrapper>
@@ -132,6 +154,9 @@ const ProjectWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  @media (max-width: 1500px) {
+    flex-direction: column;
+  }
 `;
 
 const PhotoWrapper = styled.div`

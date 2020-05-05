@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { animated, useTransition } from "react-spring";
 import UseAnimations from "react-useanimations";
@@ -10,10 +10,17 @@ export const PHOTO_ACTIONS = {
   SHOW_PHOTO: 1
 }
 
-function Photo ({ src, size, caption, styles, orientation, url, action = PHOTO_ACTIONS.SHOW_PHOTO }) {
+function Photo ({ src, previewSrc, size, caption, styles, orientation, url, action = PHOTO_ACTIONS.SHOW_PHOTO }) {
   const ref = React.useRef();
   const focus = useFocus(ref);
   const [isOpen, setOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      previewSrc().then(img => setPreviewImage(img.default))
+    }
+  }, [isOpen]);
 
   const imageTransitions = useTransition(isOpen, null, {
     from: { opacity: 0, transform: 'scale(0.2)' },
@@ -74,7 +81,7 @@ function Photo ({ src, size, caption, styles, orientation, url, action = PHOTO_A
           <OpenContainer key={key} style={props}>
             <OpenedImage
               alt={caption}
-              src={src}
+              src={previewImage}
             />
           </OpenContainer>
         )

@@ -7,6 +7,10 @@ import { theme } from "./style";
 import { BrowserRouter } from "react-router-dom";
 import Router from "./Router";
 
+// TODO: resize preview images to around 300x300 px
+// TODO: optimize animations
+// TODO: delivery via cdn ?
+
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>

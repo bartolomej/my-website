@@ -61,6 +61,7 @@ function Home () {
             <Photo
               key={p.src}
               src={p.src}
+              previewSrc={p.largeSrc}
               caption={p.caption}
               orientation={p.orientation}
             />

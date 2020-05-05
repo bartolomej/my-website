@@ -17,7 +17,7 @@ import figma from '../assets/tools/figma.png';
 import premierePro from '../assets/tools/premiere-pro.png';
 import afterEffects from '../assets/tools/after-effects.png';
 import wedding from '../assets/gallery/wedding.jpg';
-import onSet from '../assets/skills/film/onset.JPG';
+import onSet from '../assets/skills/film/onset.jpg';
 import capricorn from '../assets/gallery/capricorn.jpg';
 // screenshots
 import backendCode from '../assets/skills/backend/backend-code.png';

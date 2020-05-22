@@ -1,6 +1,6 @@
 export default class BackgroundEffect {
 
-  constructor (container, spacing = 50, size = 10, color = 'rgba(0,0,0,1)', width, height, speed) {
+  constructor (container, spacing = 50, size = 10, color = 'rgba(0,0,0,1)', width, height, speed = 0.01) {
     this.container = container;
     this.spacing = spacing;
     this.size = size;
@@ -8,7 +8,7 @@ export default class BackgroundEffect {
     this.color = color;
     this.height = height;
     this.width = width;
-    this.speed = speed || 0.01;
+    this.speed = speed;
   }
 
   init () {
@@ -19,7 +19,12 @@ export default class BackgroundEffect {
     this.container.appendChild(this.canvas);
     this.initDots();
     window.addEventListener('resize', this.onResize.bind(this));
-    this.animation = requestAnimationFrame(this.render.bind(this));
+    console.log(this.speed)
+    if (Math.abs(this.speed) > 0) {
+      this.animation = requestAnimationFrame(this.render.bind(this));
+    } else {
+      this.render();
+    }
   }
 
   setDimensions (width, height) {
@@ -36,6 +41,9 @@ export default class BackgroundEffect {
     this.canvas.height = this.height || this.container.clientHeight;
     this.canvas.width = this.width || this.container.clientWidth;
     this.initDots();
+    if (this.speed === 0) {
+      this.render();
+    }
   }
 
   initDots () {
@@ -70,8 +78,10 @@ export default class BackgroundEffect {
       }
     }
 
-    this.time += this.speed;
-    requestAnimationFrame(this.render.bind(this));
+    if (Math.abs(this.speed) > 0) {
+      this.time += this.speed;
+      requestAnimationFrame(this.render.bind(this));
+    }
   }
 
 }

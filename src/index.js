@@ -10,6 +10,8 @@ import Router from "./Router";
 // TODO: resize preview images to around 300x300 px
 // TODO: optimize animations
 // TODO: delivery via cdn ?
+// TODO: videos don't load on iPhones
+// TODO: background visible on previewing images on mobile (because of 100vh)
 
 ReactDOM.render(
   <React.StrictMode>

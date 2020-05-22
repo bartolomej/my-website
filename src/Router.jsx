@@ -27,7 +27,7 @@ function Router () {
           width={window.innerWidth}
           height={height}
           spacing={50}
-          speed={0.03}
+          speed={0}
           style={{ position: 'absolute', filter: 'blur(1px)' }}
           color={theme.lightText}
         />

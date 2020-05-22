@@ -78,7 +78,7 @@ const LandingWrapper = styled.section`
   position: relative;
   overflow: hidden;
   background: black;
-  z-index: 0;
+  z-index: 1;
 `;
 
 const TopRightBackground = styled.img`

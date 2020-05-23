@@ -61,6 +61,7 @@ function DeveloperProfile ({ avatar, fullName, bio, commits, followers, follower
           src={avatar}
           caption={'Visit my Github profile'}
         />
+        <Title>{fullName}</Title>
         {bio.map((paragraph, i) => (
           <>
             {paragraph.title && <Subtitle>{paragraph.title}</Subtitle>}
@@ -115,6 +116,15 @@ const Container = styled.div`
   @media (max-width: 700px) {
     width: 100%;
   }
+`;
+
+const Title = styled.h2`
+  font-size: 2.2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: ${props => props.theme.vibrant};
+  line-height: 1.4;
+  text-align: center;
 `;
 
 const Subtitle = styled.h4`

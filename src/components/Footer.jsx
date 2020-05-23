@@ -7,6 +7,7 @@ function Footer () {
 
   return (
     <Container id="footer">
+
       <SocialMediaWrapper>
         <Link rel="noreferrer" href="https://www.github.com/bartolomej">
           <AnimatedIcon animationKey="github" size={40} />

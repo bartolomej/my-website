@@ -31,7 +31,7 @@ function Preview ({ isFocused = false, type, background, overflow, url, title, p
       {type === 'image' ? (
         <Image isfocused={isFocused} alt={title} src={url}/>
       ) : (
-        <Video ref={videoRef} isfocused={isFocused} loop>
+        <Video ref={videoRef} isfocused={isFocused} loop muted>
           <source src={url} type="video/mp4"/>
         </Video>
       )}

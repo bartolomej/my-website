@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Generative Art",
+    "description": "My generative art experiments \uD83C\uDFA8",
+    "demo_url": "https://bartolomej.github.io/generative-art/",
+    "repo_url": "https://github.com/bartolomej/generative-art",
+    "tags": [
+      "generative",
+      "creative-coding"
+    ],
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "tech": [
+      "Three.js"
+    ]
+  },
+  {
+    "title": "AwesomeSearch",
+    "description": "Search the largest awesome list collections \uD83D\uDD0D",
+    "demo_url": "https://awesomesearch.in",
+    "repo_url": "https://github.com/bartolomej/awesomesearch.website",
+    "tags": [
+      "awesome-list",
+      "search-engine"
+    ],
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "tech": [
+      "Node.js",
+      "Redis",
+      "Mysql",
+      "React.js"
+    ]
+  }
+]

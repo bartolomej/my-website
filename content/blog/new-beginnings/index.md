@@ -32,7 +32,7 @@ way. On her way she met a copy.
 But nothing the copy said could convince her and so it didn’t take long until a
 few insidious Copy Writers ambushed her, made her drunk with
 [Longe and Parole](http://google.com) and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
+they abused her for their projectsList again and again. And if she hasn’t been
 rewritten, then they are still using her.
 
 > Far far away, behind the word mountains, far from the countries Vokalia and
@@ -70,7 +70,7 @@ copy.
 
 But nothing the copy said could convince her and so it didn’t take long until a
 few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
+and dragged her into their agency, where they abused her for their projectsList
 again and again. And if she hasn’t been rewritten, then they are still using
 her. Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts.
@@ -105,4 +105,4 @@ would be the word "and" and the Little Blind Text should turn around and return
 to its own, safe country. But nothing the copy said could convince her and so it
 didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
 with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.
+for their projectsList again and again.

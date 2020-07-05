@@ -9,6 +9,9 @@ module.exports = {
     siteUrl: `https://bartolomej.site`,
     social: {
       twitter: `mejkoz`,
+      instagram: 'mejkozorog',
+      linkedIn: 'bartolomej',
+      github: 'bartolomej'
     },
   },
   plugins: [
@@ -36,7 +39,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],

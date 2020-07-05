@@ -1,49 +1,69 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled";
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
+import UseAnimations from "react-useanimations";
+import { ThemeContext, ThemeLayout } from "../utils/theme";
+import Navigation from "./navigation";
 
 const Layout = ({ location, title, children }) => {
-  const path = location.pathname;
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author {
+            name
+            summary
+          }
+          description
+          social {
+            github
+            instagram
+            linkedIn
+            twitter
+          }
+          title
+        }
+      }
+    }
+  `);
+  const social = data.site.siteMetadata.social;
+
   return (
-    <div>
-      <Navigation>
-        <PageLink loc={path} to="/">Bartolomej</PageLink>
-        <div>
-          <PageLink loc={path} to="/projects">Projects</PageLink>
-          <PageLink loc={path} to="/blog">Blog</PageLink>
-          <PageLink loc={path} to="/skills">My Skills</PageLink>
-          <PageLink loc={path} to="/gallery">Gallery</PageLink>
-        </div>
-      </Navigation>
-      <main>{children}</main>
-      <Footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </Footer>
-    </div>
+    <ThemeContext.Consumer>
+      {theme => (
+        <ThemeLayout theme={theme}>
+          <Navigation theme={theme} location={location.pathname} />
+          <main>{children}</main>
+          <Footer>
+            <SocialLink href={`https://github.com/${social.github}`} target="_blank">
+              <UseAnimations animationKey='github' size={40}/>
+            </SocialLink>
+            <SocialLink href={`https://instagram.com/${social.instagram}`} target="_blank">
+              <UseAnimations animationKey='instagram' size={40}/>
+            </SocialLink>
+            <SocialLink href={`https://linkedin.com/in/${social.linkedIn}`} target="_blank">
+              <UseAnimations animationKey='linkedin' size={40}/>
+            </SocialLink>
+            <SocialLink href={`https://twitter.com/${social.twitter}`} target="_blank">
+              <UseAnimations animationKey='twitter' size={40}/>
+            </SocialLink>
+          </Footer>
+        </ThemeLayout>
+      )}
+    </ThemeContext.Consumer>
   )
 }
 
-const Navigation = styled.nav`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+const Footer = styled.footer`
   margin: 0 auto;
-  max-width: ${rhythm(35)};
-  height: 8vh;
-`;
-
-const PageLink = styled(Link)`
-  margin-left: ${p => p.to !== '/' ? '15px' : ''};
-  ${p => p.loc === p.to ? `color: red`: ''}
-`;
-
-const Footer = styled.div`
-  margin: 50px auto;
+  padding: 50px 0;
   max-width: ${rhythm(24)};
+  display: flex;
+`;
+
+const SocialLink = styled.a`
+  margin: auto;
 `;
 
 export default Layout

@@ -39,7 +39,7 @@ export default Gallery;
 
 export const query = graphql`
   query {
-    allFile (filter: { relativeDirectory: {eq: "gallery"}}) {
+    allFile (filter:{ relativeDirectory: {eq: "gallery"}}, sort: {order: DESC, fields: relativePath}) {
       nodes {
         childImageSharp {
           thumb: fluid(maxWidth: 270, maxHeight: 270) {

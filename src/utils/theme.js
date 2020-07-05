@@ -1,0 +1,76 @@
+import React from "react";
+import styled from "@emotion/styled";
+import { css, Global } from "@emotion/core";
+
+
+const color = {
+  light: '#F5F7FB',
+  dark: '#2A363B',
+  orange: '#FF847C',
+  red: '#E84A5F',
+  amaranth: '#ee0e51',
+  gold: '#FECEA8',
+  white: 'white'
+};
+
+export const themes = {
+  light: {
+    background: color.light,
+    foreground: color.dark,
+    link: color.red
+  },
+  dark: {
+    background: color.dark,
+    foreground: color.light,
+    link: color.red
+  },
+}
+
+export const ThemeContext = React.createContext({
+  name: 'light',
+  props: themes.light,
+  updateTheme: () => {}
+});
+
+export function ThemeProvider ({ children }) {
+  const [theme, setTheme] = React.useState("light")
+
+  return (
+    <ThemeContext.Provider
+      value={{
+        name: theme,
+        props: themes[theme],
+        updateTheme: setTheme,
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  )
+}
+
+export const ThemeLayout = ({ children, theme }) => (
+  <ThemeWrapper theme={theme}>
+    <Global
+      styles={css`
+        body {
+          background-color: ${themes[theme.name].background};
+          overflow: hidden;
+        }
+        button {
+          border: none;
+          background: none;
+        }
+      `}
+    />
+    {children}
+  </ThemeWrapper>
+)
+export const ThemeWrapper = styled.div`
+  color: ${p => p.theme.props.foreground};
+  background-color: ${p => p.theme.props.background};
+  transition: all 0.4s ease;
+  min-height: 100vh;
+  & a {
+    color: ${p => p.theme.props.link};
+  }
+`;

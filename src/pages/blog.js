@@ -42,7 +42,7 @@ const BlogIndex = ({ data, location }) => {
 const Article = styled.article`
   margin: 0 auto;
   max-width: ${rhythm(26)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+  padding: ${rhythm(0.1)} ${rhythm(3 / 4)};
 `;
 
 const Title = styled.h3`

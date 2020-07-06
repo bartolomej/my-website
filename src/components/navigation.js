@@ -60,6 +60,7 @@ const LinkWrapper = styled.div`
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     background: ${p => p.theme.props.background};
     padding: 30px 0;
   }
@@ -67,24 +68,30 @@ const LinkWrapper = styled.div`
 
 const ThemeSwitch = styled(ReactSwitch)`
   @media (max-width: 700px) {
-    margin: 15px auto;
+    margin: 50px auto;
   }
 `;
 
 const OpenButton = styled.button`
   display: none;
   z-index: 3;
+  & > div {
+    width: 30px;
+    height: 30px;
+  }
   @media (max-width: 700px) {
     display: unset;
+    padding: 10px;
+    margin-top: 10px;
   }
 `;
 
 const PageLink = styled(Link)`
-  margin-left: ${p => p.to !== '/' ? '15px' : ''};
+  margin-left: ${p => p.to !== '/' ? '20px' : ''};
   margin-right: ${p => p.to === '/gallery' ? '20px' : ''};
   ${p => p.loc === p.to ? `color: red` : ''};
   @media (max-width: 700px) {
-    padding: 10px 0;
+    padding: 20px 0;
   }
 `;
 

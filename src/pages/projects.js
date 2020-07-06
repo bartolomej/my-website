@@ -5,6 +5,7 @@ import projectsList from '../../content/projects/list.json';
 import { rhythm } from "../utils/typography";
 import { graphql } from "gatsby";
 import { Video as GatsbyVideo } from 'gatsby-video'
+import SEO from "../components/seo";
 
 
 function Projects ({ data, location }) {
@@ -22,6 +23,10 @@ function Projects ({ data, location }) {
 
   return (
     <Layout location={location}>
+      <SEO
+        title="My Projects"
+        description="A place where I showcase some of my finest projects."
+      />
       <Wrapper>
         {projectsList.map((p, i) => (
           <ProjectItem r={i % 2 === 0} key={p.title}>
@@ -56,7 +61,7 @@ const Wrapper = styled.div`
   max-width: 60%;
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
   @media (max-width: 1000px) {
-    max-width: 90%;
+    max-width: 100%;
   }
 `;
 

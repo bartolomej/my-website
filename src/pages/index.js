@@ -2,10 +2,12 @@ import React from 'react';
 import Layout from "../components/layout";
 import styled from "@emotion/styled";
 import { rhythm } from "../utils/typography";
+import SEO from "../components/seo";
 
 function Index ({ data, location }) {
   return (
     <Layout location={location}>
+      <SEO title={"Home"} />
       <Header>
         <Title>Bartolomej Kozorog</Title>
         <Description>I'm a young passionate developer from Slovenia.</Description>

@@ -67,6 +67,7 @@ export const ThemeLayout = ({ children, theme }) => (
         button {
           border: none;
           background: none;
+          cursor: pointer;
         }
       `}
     />

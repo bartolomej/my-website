@@ -5,6 +5,7 @@ import skillsList from '../../content/skills/list.json'
 import { rhythm } from "../utils/typography";
 import { graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
+import SEO from "../components/seo";
 
 
 const toolsIcons = {
@@ -34,6 +35,10 @@ function Skills ({ data, location }) {
 
   return (
     <Layout location={location}>
+      <SEO
+        title="My Skills"
+        description="A list of my skills and experiences."
+      />
       <Wrapper>
         {skillsList.map((s,i) => (
           <>
@@ -93,14 +98,14 @@ const TextSide = styled.div`
 `;
 
 const ImageSide = styled.div`
-  flex: 1;
+  flex: 1.5;
   position: relative;
 `;
 
 const ImageWrapper = styled.div`
   --y0: ${p => - ((p.l - 1) * p.dy) / 3}px;
   position: absolute;
-  width: 100%;
+  width: 80%;
   transition: 0.3s ease-in all;
   transform: translateY(calc(${p => (p.i * p.dy)}px + var(--y0))) translateX(${p => p.i * p.dx}px);
   & > div {
@@ -129,6 +134,15 @@ export const query = graphql`
       }
     }
     website: allFile(filter: {relativeDirectory: {eq: "skills/website"}}) {
+      nodes {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    mobile: allFile(filter: {relativeDirectory: {eq: "skills/mobile"}}) {
       nodes {
         childImageSharp {
           fluid {

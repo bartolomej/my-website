@@ -1,22 +1,21 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+date: "2020-07-06T22:12:03.284Z"
+description: "My first blog post. Hello World !"
 ---
 
-This is my first post on my new fake blog! How exciting!
+## This is a test title
 
-I'm sure I'll write a lot more interesting things in the future.
+And this is a test paragraph.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
+```js
+function test () {
+  console.log('This is a test block of code');
+}
+```
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+I don't know what are you doing here ... thanks for reading my first blog I guess. Appreciate it very much.
 
-![Chinese Salty Egg](./salty_egg.jpg)
+Here is a cat gif. This me expressing my love for you. Oh and thanks for reading btw.
+
+<div style="width:100%;height:0;padding-bottom:111%;position:relative;"><iframe src="https://giphy.com/embed/v6aOjy0Qo1fIA" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/v6aOjy0Qo1fIA">via GIPHY</a></p>

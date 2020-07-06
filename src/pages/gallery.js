@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 0 auto;
   max-width: ${rhythm(40)};
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
@@ -42,7 +42,7 @@ export const query = graphql`
     allFile (filter:{ relativeDirectory: {eq: "gallery"}}, sort: {order: DESC, fields: relativePath}) {
       nodes {
         childImageSharp {
-          thumb: fluid(maxWidth: 270, maxHeight: 270) {
+          thumb: fluid(maxWidth: 270, maxHeight: 270, quality: 60) {
             ...GatsbyImageSharpFluid
           }
           full: fluid(maxWidth: 1024) {

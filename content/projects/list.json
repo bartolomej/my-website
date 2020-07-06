@@ -1,6 +1,7 @@
 [
   {
     "title": "Generative Art",
+    "video": "generative-art",
     "description": "My generative art experiments \uD83C\uDFA8",
     "demo_url": "https://bartolomej.github.io/generative-art/",
     "repo_url": "https://github.com/bartolomej/generative-art",
@@ -19,6 +20,7 @@
   },
   {
     "title": "AwesomeSearch",
+    "video": "awesomesearch",
     "description": "Search the largest awesome list collections \uD83D\uDD0D",
     "demo_url": "https://awesomesearch.in",
     "repo_url": "https://github.com/bartolomej/awesomesearch.website",

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css, Global } from "@emotion/core";
+import { ThemeProvider as EmotionProvider } from 'emotion-theming';
 
 
 const color = {
@@ -10,19 +11,24 @@ const color = {
   red: '#E84A5F',
   amaranth: '#ee0e51',
   gold: '#FECEA8',
-  white: 'white'
+  white: 'white',
+  opacity: (hexColor, value) => `${hexColor}${Math.round(value * 255).toString(16)}`
 };
 
 export const themes = {
   light: {
+    name: 'light',
     background: color.light,
     foreground: color.dark,
-    link: color.red
+    link: color.red,
+    ...color
   },
   dark: {
+    name: 'dark',
     background: color.dark,
     foreground: color.light,
-    link: color.red
+    link: color.red,
+    ...color
   },
 }
 
@@ -43,7 +49,9 @@ export function ThemeProvider ({ children }) {
         updateTheme: setTheme,
       }}
     >
-      {children}
+      <EmotionProvider theme={themes[theme]}>
+        {children}
+      </EmotionProvider>
     </ThemeContext.Provider>
   )
 }

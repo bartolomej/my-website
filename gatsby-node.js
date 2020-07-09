@@ -1,10 +1,5 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const ffmpeg = require('@ffmpeg-installer/ffmpeg');
-
-exports.onPreInit = () => {
-  console.log('ffmeg: ', ffmpeg.path, ffmpeg.version);
-}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions

@@ -1,7 +1,7 @@
 [
   {
     "title": "Generative Art",
-    "video": "generative-art",
+    "image": "generative-art.png",
     "description": "My generative art experiments \uD83C\uDFA8",
     "demo_url": "https://bartolomej.github.io/generative-art/",
     "repo_url": "https://github.com/bartolomej/generative-art",
@@ -20,7 +20,7 @@
   },
   {
     "title": "AwesomeSearch",
-    "video": "awesomesearch",
+    "image": "awesomesearch.png",
     "description": "Search the largest awesome list collections \uD83D\uDD0D",
     "demo_url": "https://awesomesearch.in",
     "repo_url": "https://github.com/bartolomej/awesomesearch.website",
@@ -37,6 +37,24 @@
       "Node.js",
       "Redis",
       "Mysql",
+      "React.js"
+    ]
+  },
+  {
+    "title": "Translator Agency",
+    "image": "translator.png",
+    "description": "Landing website that I build for a local translational agency.",
+    "demo_url": "https://prevajalec.eu",
+    "tags": [
+      "agency-website",
+      "landing-website"
+    ],
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "tech": [
       "React.js"
     ]
   }

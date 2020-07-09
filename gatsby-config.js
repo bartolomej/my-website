@@ -15,7 +15,6 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-transformer-ffmpeg`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,

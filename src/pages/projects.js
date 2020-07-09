@@ -4,21 +4,19 @@ import styled from "@emotion/styled";
 import projectsList from '../../content/projects/list.json';
 import { rhythm } from "../utils/typography";
 import { graphql } from "gatsby";
-import { Video as GatsbyVideo } from 'gatsby-video'
 import SEO from "../components/seo";
+import GatsbyImage from "gatsby-image";
 
 
 function Projects ({ data, location }) {
 
-  const getVideos = name => {
-    const nodes = data.allFile.nodes;
-    for (let n of nodes) {
-      if (new RegExp(name).test(n.relativePath)) {
-        const videos = n.childVideoFfmpeg;
-        return [videos.webm, videos.mp4];
+  const getImage = fileName => {
+    for (let node of data.allFile.nodes) {
+      if (new RegExp(fileName).test(node.relativePath)) {
+        return node.childImageSharp.fluid;
       }
     }
-    throw new Error(`Video ${name} not found`);
+    throw new Error(`File ${fileName} not matched`);
   }
 
   return (
@@ -41,14 +39,9 @@ function Projects ({ data, location }) {
                 <LinkBtn r={i % 2 === 0} href={p.repo_url} target="_blank">Github repo</LinkBtn>
               </div>
             </TextWrapper>
-            <VideoWrapper>
-              <Video
-                autoPlay
-                muted
-                loop
-                sources={getVideos(p.video)}
-              />
-            </VideoWrapper>
+            <ImageWrapper>
+              <GatsbyImage fluid={getImage(p.image)}/>
+            </ImageWrapper>
           </ProjectItem>
         ))}
       </Wrapper>
@@ -127,46 +120,21 @@ const LinkBtn = styled.a`
   }
 `;
 
-const VideoWrapper = styled.div`
+const ImageWrapper = styled.div`
   flex: 1;
-  & > div > div { border-radius: 8px; }
-`;
-
-const Video = styled(GatsbyVideo)`
-  transition: 0.3s ease-in all;
-  &:hover {
-    transform: scale(1.1);
-    filter: brightness(1.1);
-  }
+  & > div { border-radius: 8px; }
 `;
 
 export default Projects;
 
 export const query = graphql`
-  query MyQuery {
-    allFile(filter: {relativeDirectory: {eq: "projects"}}) {
+  query Photos {
+    allFile(filter: {relativeDirectory: {eq: "projects/photos"}}) {
       nodes {
-        relativePath
-        childVideoFfmpeg {
-          webm: transcode(outputOptions: ["-crf 20", "-b:v 0"], maxWidth: 900, maxHeight: 480, fileExtension: "webm", codec: "libvpx-vp9") {
-            width
-            src
-            presentationMaxWidth
-            presentationMaxHeight
-            originalName
-            height
-            fileExtension
-            aspectRatio
-          }
-          mp4: transcode(maxWidth: 900, maxHeight: 480, fileExtension: "mp4", codec: "libx264") {
-            width
-            src
-            presentationMaxWidth
-            presentationMaxHeight
-            originalName
-            height
-            fileExtension
-            aspectRatio
+        relativePath,
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
           }
         }
       }

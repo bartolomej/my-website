@@ -12,8 +12,9 @@ const color = {
   amaranth: '#ee0e51',
   gold: '#FECEA8',
   white: 'white',
-  opacity: (hexColor, value) => `${hexColor}${Math.round(value * 255).toString(16)}`
 };
+
+export const opacity = (hexColor, value) => `${hexColor}${Math.round(value * 255).toString(16)}`
 
 export const themes = {
   light: {
@@ -39,7 +40,7 @@ export const ThemeContext = React.createContext({
 });
 
 export function ThemeProvider ({ children }) {
-  const [theme, setTheme] = React.useState("light")
+  const [theme, setTheme] = React.useState("light");
 
   return (
     <ThemeContext.Provider
@@ -74,6 +75,7 @@ export const ThemeLayout = ({ children, theme }) => (
     {children}
   </ThemeWrapper>
 )
+
 export const ThemeWrapper = styled.div`
   color: ${p => p.theme.props.foreground};
   background-color: ${p => p.theme.props.background};

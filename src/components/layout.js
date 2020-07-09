@@ -2,8 +2,8 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled";
 import { rhythm } from "../utils/typography"
+import { opacity, ThemeContext, ThemeLayout } from "../utils/theme";
 import UseAnimations from "react-useanimations";
-import { ThemeContext, ThemeLayout } from "../utils/theme";
 import Navigation from "./navigation";
 import gatsby from '../assets/gatsby.svg';
 
@@ -57,7 +57,7 @@ const Layout = ({ location, title, children }) => {
               Made with ❤️ by {author.name} &copy; {new Date().getFullYear()}
             </CopyWrapper>
             <GatsbyLink href="https://www.gatsbyjs.org/">
-              <img alt="Gatsby" src={gatsby} />
+              <img alt="Gatsby" src={gatsby}/>
               Build using Gatsby Framework.
             </GatsbyLink>
           </Footer>
@@ -69,7 +69,7 @@ const Layout = ({ location, title, children }) => {
 
 const Main = styled.main`
   min-height: 70vh;
-  border-bottom: 2px dotted ${p => p.theme.opacity(p.theme.gold, 0.4)};
+  border-bottom: 2px dotted ${p => opacity(p.theme.gold, 0.4)};
 `;
 
 const Footer = styled.footer`

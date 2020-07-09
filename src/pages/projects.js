@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import projectsList from '../../content/projects/list.json';
 import { rhythm } from "../utils/typography";
 import { graphql } from "gatsby";
+import { opacity } from "../utils/theme";
 import SEO from "../components/seo";
 import GatsbyImage from "gatsby-image";
 
@@ -31,7 +32,8 @@ function Projects ({ data, location }) {
             <TextWrapper r={i % 2 === 0}>
               <h3>{p.title}</h3>
               <TagWrapper>
-                {p.tags.map(t => <Tag r={i % 2 === 0} target="_blank" href={`https://github.com/topics/${t}`}>{t}</Tag>)}
+                {p.tags.map(t => <Tag r={i % 2 === 0} target="_blank"
+                                      href={`https://github.com/topics/${t}`}>{t}</Tag>)}
               </TagWrapper>
               <p>{p.description}</p>
               <div>
@@ -97,10 +99,10 @@ const Tag = styled.a`
   color: ${p => p.theme.link};
   margin-right: ${p => !p.r ? '5px' : '0'};
   margin-left: ${p => p.r ? '5px' : '0'};
-  background: ${p => p.theme.opacity(p.theme.link, 0.2)};
+  background: ${p => opacity(p.theme.link, 0.2)};
   box-shadow: none;
   &:hover {
-    background: ${p => p.theme.opacity(p.theme.link, 0.8)};
+    background: ${p => opacity(p.theme.link, 0.8)};
     color: ${p => p.theme.white};
   }
 `;

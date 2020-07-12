@@ -71,7 +71,6 @@ const CloseButton = styled.button`
 `;
 
 const FullImage = styled(GatsbyImage)`
-  height: 100%;
   width: 100%;
 `;
 
@@ -104,7 +103,7 @@ export const query = graphql`
           thumb: fluid(maxWidth: 270, maxHeight: 270, quality: 60) {
             ...GatsbyImageSharpFluid
           }
-          full: fluid(maxWidth: 1024) {
+          full: fluid {
             ...GatsbyImageSharpFluid
           }
         }

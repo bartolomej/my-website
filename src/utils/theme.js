@@ -61,6 +61,9 @@ export const ThemeLayout = ({ children, theme }) => (
   <ThemeWrapper theme={theme}>
     <Global
       styles={css`
+        * {
+          z-index: 1;
+        }
         body {
           background-color: ${themes[theme.name].background};
           overflow: hidden;
@@ -69,6 +72,13 @@ export const ThemeLayout = ({ children, theme }) => (
           border: none;
           background: none;
           cursor: pointer;
+        }
+        a {
+          box-shadow: inset 0 -2px;
+          transition: 0.2s ease-in box-shadow;
+        }
+        a:hover {
+          box-shadow: inset 0 -10px ${theme.props.gold};
         }
       `}
     />

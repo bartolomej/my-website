@@ -32,13 +32,21 @@ function Projects ({ data, location }) {
             <TextWrapper r={i % 2 === 0}>
               <h3>{p.title}</h3>
               <TagWrapper>
-                {p.tags.map(t => <Tag r={i % 2 === 0} target="_blank"
-                                      href={`https://github.com/topics/${t}`}>{t}</Tag>)}
+                {p.tags.map(t => (
+                  <Tag
+                    r={i % 2 === 0}
+                    target="_blank"
+                    href={`https://github.com/topics/${t}`}>{t}</Tag>
+                ))}
               </TagWrapper>
               <p>{p.description}</p>
               <div>
-                <LinkBtn r={i % 2 === 0} href={p.demo_url} target="_blank">Visit demo</LinkBtn>
-                <LinkBtn r={i % 2 === 0} href={p.repo_url} target="_blank">Github repo</LinkBtn>
+                {p.demo_url && (
+                  <LinkBtn r={i % 2 === 0} href={p.demo_url} target="_blank">Visit demo</LinkBtn>
+                )}
+                {p.repo_url && (
+                  <LinkBtn r={i % 2 === 0} href={p.repo_url} target="_blank">Github repo</LinkBtn>
+                )}
               </div>
             </TextWrapper>
             <ImageWrapper>
@@ -46,6 +54,9 @@ function Projects ({ data, location }) {
             </ImageWrapper>
           </ProjectItem>
         ))}
+        <GHLink target="_blank" href={`https://github.com/${data.site.siteMetadata.social.github}`}>
+          Visit my Github profile to view more projects 😃
+        </GHLink>
       </Wrapper>
     </Layout>
   )
@@ -53,6 +64,9 @@ function Projects ({ data, location }) {
 
 const Wrapper = styled.div`
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 60%;
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
   @media (max-width: 1000px) {
@@ -75,6 +89,10 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: ${p => p.r ? 'right' : 'left'};
+  @media (min-width: 1000px) {
+    padding-right: ${p => !p.r ? '50px': '0'};
+    padding-left: ${p => p.r ? '50px': '0'};
+  }
   @media (max-width: 1000px) {
     margin-bottom: 50px;
   }
@@ -100,7 +118,8 @@ const Tag = styled.a`
   margin-right: ${p => !p.r ? '5px' : '0'};
   margin-left: ${p => p.r ? '5px' : '0'};
   background: ${p => opacity(p.theme.link, 0.2)};
-  box-shadow: none;
+  transition: 0.2s ease-in all;
+  box-shadow: none !important;
   &:hover {
     background: ${p => opacity(p.theme.link, 0.8)};
     color: ${p => p.theme.white};
@@ -120,11 +139,27 @@ const LinkBtn = styled.a`
       box-shadow: inset 0px -50px ${p => p.theme.link};
       color: ${p => p.theme.white};
   }
+  &:active {
+    transform: scale(1.05);
+  }
 `;
 
 const ImageWrapper = styled.div`
   flex: 1;
-  & > div { border-radius: 8px; }
+  & > div { 
+    transition: 0.3s ease-in all;
+    border-radius: 8px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+  }
+  & > div:hover {
+    transform: translateY(-6px) scale(1.05);
+  }
+`;
+
+const GHLink = styled.a`
+  @media (max-width: 700px) {
+    font-size: 0.7rem;
+  }
 `;
 
 export default Projects;
@@ -138,6 +173,13 @@ export const query = graphql`
           fluid {
             ...GatsbyImageSharpFluid
           }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        social {
+          github
         }
       }
     }

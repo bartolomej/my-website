@@ -1,7 +1,7 @@
 [
   {
+    "id": "backend",
     "title": "Backend development",
-    "folder": "backend",
     "description": [
       "I started with backend development in Node.js by the age of 16. It's one of my favorite disciplines in software development space.",
       "I have experience in software testing, building REST APIs, writing well structured backend code, etc,.. Since I started I've developed 4 backend apps, that expose REST APIs, communicate with database and other external services,.."
@@ -11,12 +11,11 @@
       "mysql",
       "heroku",
       "jest"
-    ],
-    "previews": []
+    ]
   },
   {
+    "id": "website",
     "title": "Web Development",
-    "folder": "website",
     "description": "I've developed many web apps mostly in vanilla JS and React.js.",
     "tools": [
       "react",
@@ -25,13 +24,11 @@
       "yarn",
       "redux",
       "typescript"
-    ],
-    "previews": [
     ]
   },
   {
+    "id": "mobile",
     "title": "Mobile development",
-    "folder": "mobile",
     "description": "I started mobile development in 2018. Since then I developed several React Native apps.",
     "tools": [
       "react-native",
@@ -39,25 +36,23 @@
       "typescript",
       "figma",
       "yarn"
-    ],
-    "previews": []
+    ]
   },
   {
-    "title": "Photography",
-    "folder": "photography",
-    "description": "I do photography mostly for fun in my free time or when I go on trips.",
-    "tools": [
-      "photoshop"
-    ],
-    "previews": []
-  },
-  {
+    "id": "film",
     "title": "Film making",
-    "folder": "film",
     "description": "I was a very passionate film maker back in primary school and at the beginning of high school. I professionally filmed 3 weddings and helped edited a movie that screened in our local theater 3 times.",
     "tools": [
       "premiere-pro",
       "after-effects"
+    ]
+  },
+  {
+    "id": "photography",
+    "title": "Photography",
+    "description": "I do photography mostly for fun in my free time or when I go on trips.",
+    "tools": [
+      "photoshop"
     ]
   }
 ]

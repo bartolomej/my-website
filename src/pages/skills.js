@@ -42,15 +42,15 @@ function Skills ({ data, location }) {
       <Wrapper>
         {skillsList.map((s,i) => (
           <>
-            <SkillItem key={s.title}>
+            <SkillItem id={s.id} key={s.title}>
               <TextSide>
                 <h3>{s.title}</h3>
                 <div>{s.tools.map(t => <ToolIcon alt={t} src={toolsIcons[t]}/>)}</div>
                 <p>{s.description}</p>
               </TextSide>
               <ImageSide>
-                {data[s.folder] && data[s.folder].nodes.map((n, i) => (
-                  <ImageWrapper i={i} dy={100} dx={50} l={data[s.folder].nodes.length}>
+                {data[s.id] && data[s.id].nodes.map((n, i) => (
+                  <ImageWrapper i={i} dy={100} dx={50} l={data[s.id].nodes.length}>
                     <GatsbyImage key={i} fluid={n.childImageSharp.fluid}/>
                   </ImageWrapper>
                 ))}
@@ -68,17 +68,21 @@ const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 70%;
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
     max-width: 90%;
+  }
+  
+  @media (max-width: 900px) {
+    max-width: 100%;
   }
 `;
 
 const SkillItem = styled.article`
   display: flex;
-  padding-bottom: 30vh;
-  padding-top: 10vh;
+  padding: 20vh 0;
   @media (max-width: 900px) {
     flex-direction: column;
+    padding-top: 0;
     padding-bottom: 70vh;
   }
 `;
@@ -100,6 +104,11 @@ const TextSide = styled.div`
 const ImageSide = styled.div`
   flex: 1.5;
   position: relative;
+  @media (min-width: 700px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -143,6 +152,24 @@ export const query = graphql`
       }
     }
     mobile: allFile(filter: {relativeDirectory: {eq: "skills/mobile"}}) {
+      nodes {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    film: allFile(filter: {relativeDirectory: {eq: "skills/film"}}) {
+      nodes {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    photography: allFile(filter: {relativeDirectory: {eq: "skills/photography"}}) {
       nodes {
         childImageSharp {
           fluid {

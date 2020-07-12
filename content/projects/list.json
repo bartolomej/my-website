@@ -1,8 +1,8 @@
 [
   {
-    "title": "Generative Art",
+    "title": "Generative Art 🎨",
     "image": "generative-art.png",
-    "description": "My generative art experiments \uD83C\uDFA8",
+    "description": "A collection of my little generative art experiments. They are not much for now, but I really enjoy making them.",
     "demo_url": "https://bartolomej.github.io/generative-art/",
     "repo_url": "https://github.com/bartolomej/generative-art",
     "tags": [
@@ -19,9 +19,9 @@
     ]
   },
   {
-    "title": "AwesomeSearch",
+    "title": "AwesomeSearch 🔍",
     "image": "awesomesearch.png",
-    "description": "Search the largest awesome list collections \uD83D\uDD0D",
+    "description": "This is a search engine for the awesome lists. I build it for the final high school project, because I wished there was a user friendly and visually oriented search for this awesome collection.",
     "demo_url": "https://awesomesearch.in",
     "repo_url": "https://github.com/bartolomej/awesomesearch.website",
     "tags": [
@@ -41,9 +41,9 @@
     ]
   },
   {
-    "title": "Translator Agency",
+    "title": "Translator Agency 🌍",
     "image": "translator.png",
-    "description": "Landing website that I build for a local translational agency.",
+    "description": "Landing website that I build for a local translational agency. This is actually my first website that I build professionally for a client.",
     "demo_url": "https://prevajalec.eu",
     "tags": [
       "agency-website",

@@ -56,6 +56,7 @@ const LinkWrapper = styled.div`
     display: ${p => p.isOpen ? `flex` : 'none'};
     position: absolute;
     flex-direction: column;
+    justify-content: center;
     z-index: 2;
     top: 0;
     left: 0;

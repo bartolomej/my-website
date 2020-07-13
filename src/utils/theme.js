@@ -61,8 +61,8 @@ export function ThemeProvider ({ children }) {
   )
 }
 
-export const ThemeLayout = ({ children, theme }) => (
-  <ThemeWrapper theme={theme}>
+export const ThemeLayout = ({ children, theme, innerRef }) => (
+  <ThemeWrapper ref={innerRef} theme={theme}>
     <Global
       styles={css`
         * {

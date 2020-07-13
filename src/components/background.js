@@ -1,20 +1,26 @@
 import React from "react";
 
 
-function Background ({ color = 'rgb(100,100,100)', spacing = 50, size = 10, animate = true }) {
+function Background ({ color = 'rgb(100,100,100)', spacing = 50, size = 10, animate = true, height }) {
   const field = React.useRef();
   const ref = React.useRef();
 
   React.useEffect(() => {
-    ref.current.style.height = '100%';
+    ref.current.style.height = height ? `${height}px` : '100%';
     ref.current.style.width = '100%';
-    const f = new Field(ref.current, spacing, size, color, animate);
+    const f = new Field(ref.current, spacing, size, color, animate, height);
     f.init();
     field.current = f;
     return () => {
       f.destroy();
     }
   }, [ref]);
+
+  React.useEffect(() => {
+    if (field.current && height) {
+      field.current.height = height;
+    }
+  }, [height]);
 
   return <div id="background" ref={ref}/>
 }
@@ -34,8 +40,22 @@ class Field {
     return this.canvas.width;
   }
 
+  set width (w) {
+    this.canvas.width = w;
+    if (!this.animate) {
+      this.render();
+    }
+  }
+
   get height () {
     return this.canvas.height;
+  }
+
+  set height (h) {
+    this.canvas.height = h;
+    if (!this.animate) {
+      this.render();
+    }
   }
 
   init () {

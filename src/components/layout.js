@@ -7,7 +7,7 @@ import Background from "./background";
 import Footer from "./footer";
 
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -29,10 +29,20 @@ const Layout = ({ location, title, children }) => {
     }
   `);
 
+  const ref = React.useRef();
+  const [height, setHeight] = React.useState(null);
+
+
+  React.useEffect(() => {
+    if (ref.current) {
+      setHeight(ref.current.clientHeight)
+    }
+  }, [ref]);
+
   return (
     <ThemeContext.Consumer>
       {theme => (
-        <ThemeLayout theme={theme}>
+        <ThemeLayout innerRef={ref} theme={theme}>
           <Navigation theme={theme} location={location.pathname}/>
           <Main>{children}</Main>
           <Footer
@@ -40,7 +50,11 @@ const Layout = ({ location, title, children }) => {
             author={data.site.siteMetadata.author}
           />
           <CanvasContainer>
-            <Background animate={false} color={`rgb(149,138,177)`} size={5} />
+            <Background
+              height={height}
+              animate={false}
+              color={`rgb(149,138,177)`} size={5}
+            />
           </CanvasContainer>
         </ThemeLayout>
       )}
@@ -55,7 +69,7 @@ const Main = styled.main`
 `;
 
 const CanvasContainer = styled.div`
-  position: fixed;
+  position: absolute;
   z-index: 0;
   top: 0;
   bottom: 0;

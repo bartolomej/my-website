@@ -119,6 +119,7 @@ const PageLink = styled(Link)`
   ${p => p.loc === p.to ? `color: red` : ''};
   @media (max-width: 700px) {
     padding: 20px 0;
+    margin: 0 20px;
   }
 `;
 

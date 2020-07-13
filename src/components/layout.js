@@ -39,9 +39,9 @@ const Layout = ({ location, title, children }) => {
             social={data.site.siteMetadata.social}
             author={data.site.siteMetadata.author}
           />
-          <BackgroundWrapper>
+          <CanvasContainer>
             <Background animate={false} color={`rgb(149,138,177)`} size={5} />
-          </BackgroundWrapper>
+          </CanvasContainer>
         </ThemeLayout>
       )}
     </ThemeContext.Consumer>
@@ -54,13 +54,14 @@ const Main = styled.main`
   border-bottom: 2px dotted ${p => opacity(p.theme.gold, 0.4)};
 `;
 
-const BackgroundWrapper = styled.div`
+const CanvasContainer = styled.div`
   position: fixed;
   z-index: 0;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  pointer-events: none;
   & canvas {
     animation: 1s ease-in intro forwards;
   }

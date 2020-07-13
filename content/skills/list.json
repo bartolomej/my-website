@@ -21,9 +21,7 @@
     "description": "I've developed many web apps mostly in vanilla JS and React.js.",
     "tools": [
       "react",
-      "webpack",
       "netlify",
-      "yarn",
       "redux",
       "typescript",
       "webstorm"
@@ -37,8 +35,7 @@
       "react-native",
       "redux",
       "typescript",
-      "figma",
-      "yarn"
+      "figma"
     ]
   },
   {

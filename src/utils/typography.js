@@ -1,20 +1,24 @@
 import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import fairyGatesTheme from 'typography-theme-fairy-gates'
 
-Wordpress2016.overrideThemeStyles = () => {
+
+fairyGatesTheme.overrideThemeStyles = () => {
   return {
-    "a.gatsby-resp-image-link": {
-      boxShadow: `none`,
-    },
     "a": {
-      boxShadow: 'none'
-    }
+      textShadow: `none`,
+      backgroundImage: 'none'
+    },
+
   }
 }
 
-delete Wordpress2016.googleFonts
-
-const typography = new Typography(Wordpress2016)
+const typography = new Typography({
+  ...fairyGatesTheme,
+  headerFontFamily: ['Montserrat'],
+  bodyFontFamily: ['Quicksand','BlinkMacSystemFont','-apple-system','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue','Helvetica','Arial','sans-serif'],
+  bodyWeight: 400,
+  boldWeight: 700
+})
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {

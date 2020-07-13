@@ -6,28 +6,10 @@ import { rhythm } from "../utils/typography";
 import { graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import SEO from "../components/seo";
+import Tool from "../components/tool";
 
 
-const toolsIcons = {
-  "react-native": require("../assets/tools/react.png"),
-  "react": require("../assets/tools/react.png"),
-  "after-effects": require("../assets/tools/after-effects.png"),
-  "figma": require("../assets/tools/figma.png"),
-  "go": require("../assets/tools/go.png"),
-  "heroku": require("../assets/tools/heroku.png"),
-  "java": require("../assets/tools/java.png"),
-  "jest": require("../assets/tools/jest.png"),
-  "mysql": require("../assets/tools/mysql.png"),
-  "netlify": require("../assets/tools/netlify.png"),
-  "nodejs": require("../assets/tools/nodejs.png"),
-  "premiere-pro": require("../assets/tools/premiere-pro.png"),
-  "photoshop": require("../assets/tools/photoshop.png"),
-  "redux": require("../assets/tools/redux.png"),
-  "typescript": require("../assets/tools/typescript.png"),
-  "webpack": require("../assets/tools/webpack.png"),
-  "yarn": require("../assets/tools/yarn.png"),
-  "webstorm": require("../assets/tools/webstorm.png"),
-}
+
 
 function Skills ({ data, location }) {
 
@@ -38,22 +20,24 @@ function Skills ({ data, location }) {
         description="A list of my skills and experiences."
       />
       <Wrapper>
-        {skillsList.map((s,i) => (
+        {skillsList.map((s, i) => (
           <>
-            <SkillItem id={s.id} key={s.title}>
+            <SkillGroup id={s.id} key={s.title}>
               <TextSide>
                 <h3>{s.title}</h3>
-                <div>{s.tools.map(t => <ToolIcon alt={t} src={toolsIcons[t]}/>)}</div>
+                <div>{s.tools.map(key => <Tool toolKey={key}/>)}</div>
                 <p>{s.description}</p>
               </TextSide>
               <ImageSide>
                 {data[s.id] && data[s.id].nodes.map((n, i) => (
-                  <ImageWrapper key={i} i={i} dy={100} dx={50} l={data[s.id].nodes.length}>
-                    <GatsbyImage fluid={n.childImageSharp.fluid}/>
-                  </ImageWrapper>
+                  <OuterImage i={i} l={data[s.id].nodes.length} key={i}>
+                    <InnerImage>
+                      <GatsbyImage fluid={n.childImageSharp.fluid}/>
+                    </InnerImage>
+                  </OuterImage>
                 ))}
               </ImageSide>
-            </SkillItem>
+            </SkillGroup>
             {i !== skillsList.length - 1 && <hr/>}
           </>
         ))}
@@ -63,41 +47,34 @@ function Skills ({ data, location }) {
 }
 
 const Wrapper = styled.div`
-  margin: 0 auto;
-  max-width: 70%;
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
-  @media (max-width: 1200px) {
-    max-width: 90%;
-  }
-  
-  @media (max-width: 900px) {
-    max-width: 100%;
+  hr {
+    height: 2px;
   }
 `;
 
-const SkillItem = styled.article`
+const SkillGroup = styled.article`
   display: flex;
   padding: 20vh 0;
+  width: 70%;
+  margin: 0 auto;
   @media (max-width: 900px) {
     flex-direction: column;
-    padding-top: 0;
-    padding-bottom: 70vh;
+    width: 100%;
+    padding: 5vh 0;
   }
 `;
 
-const ToolIcon = styled.img`
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  @media (max-width: 700px) {
-    width: 25px;
-    height: 25px;
-  }
-`;
 
 const TextSide = styled.div`
   flex: 1;
   padding-right: 50px;
+  h3 {
+    font-size: 1.8rem;
+  }
+  & > div {
+    margin: 8px 0;
+  }
   @media (max-width: 900px) {
     padding-right: 0;
   }
@@ -105,29 +82,34 @@ const TextSide = styled.div`
 
 const ImageSide = styled.div`
   flex: 1.5;
-  position: relative;
-  @media (min-width: 700px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  @media (max-width: 700px) {
+    padding-top: 50px;
   }
 `;
 
-const ImageWrapper = styled.div`
-  --y0: ${p => - ((p.l - 1) * p.dy) / 3}px;
-  position: absolute;
-  width: 80%;
-  transition: 0.3s ease-in all;
-  transform: translateY(calc(${p => (p.i * p.dy)}px + var(--y0))) translateX(${p => p.i * p.dx}px);
-  & > div {
+const OuterImage = styled.div`
+  margin-top: ${p => (p.i ) * 20}%;
+  width: 15%;
+  position: sticky;
+`;
+
+const InnerImage = styled.div`
+  height: 250px;
+   & > div {
     box-shadow: 0 10px 20px rgba(0,0,0,.2);
     border-radius: 8px;
+    position: absolute !important;
+    width: 400px;
+    transition: 0.3s ease-in all;
   }
-  &:hover {
-    transform: translateY(calc(${p => (p.i * p.dy)}px + var(--y0))) translateX(${p => p.i * 50}px) translateY(-5%);
+  & > div:hover {
+    transform: translateY(-20px);
   }
-  @media (max-width: 900px) {
-    --y0: 0px;
+  @media (max-width: 700px) {
+    & > div {
+      width: 300px;
+    }
   }
 `;
 

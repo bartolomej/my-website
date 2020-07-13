@@ -8,6 +8,7 @@ import { Link } from "gatsby";
 import UseAnimations from "react-useanimations";
 import { CSSTransition } from 'react-transition-group';
 import mobile from 'is-mobile';
+import logo from '../assets/logo.svg';
 import "../utils/animations.css"
 
 function Navigation ({ location, theme }) {
@@ -34,7 +35,9 @@ function Navigation ({ location, theme }) {
 
   return (
     <Container>
-      <PageLink loc={location} to="/">Bartolomej</PageLink>
+      <HomeLink loc={location} to="/">
+        <Logo src={logo} />
+      </HomeLink>
       <OpenButton onClick={() => setOpen(!isOpen)}>
         <UseAnimations animationKey="menu4" size={30}/>
       </OpenButton>
@@ -65,6 +68,7 @@ const Container = styled.nav`
   @media (max-width: 700px) {
     margin: 0 10px;
     padding: 0;
+    height: 12vh;
   }
 `;
 
@@ -100,9 +104,13 @@ const OpenButton = styled.button`
   }
   @media (max-width: 700px) {
     display: unset;
-    padding: 10px;
-    margin-top: 10px;
   }
+`;
+
+const HomeLink = styled(Link)`
+  box-shadow: none;
+  display: flex;
+  align-items: center;
 `;
 
 const PageLink = styled(Link)`
@@ -112,6 +120,12 @@ const PageLink = styled(Link)`
   @media (max-width: 700px) {
     padding: 20px 0;
   }
+`;
+
+const Logo = styled.img`
+  width: 40px;
+  height: 40px;
+  margin: 0;
 `;
 
 export default Navigation;

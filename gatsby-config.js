@@ -1,12 +1,23 @@
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://bartolomej.site',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
   siteMetadata: {
     title: `Bartolomej's website`,
     author: {
       name: `Bartolomej Kozorog`,
+      birthDate: '8.2.2001',
       summary: `Young and passionate software developer from Slovenia.`,
     },
     description: `I'm a young and passionate software developer from Slovenia. This is a place where I showcase my work, ideas and art that I make.`,
-    siteUrl: `https://bartolomej.site`,
+    siteUrl,
+    email: 'bartolomej.kozorog@gmail.com',
     social: {
       twitter: `mejkoz`,
       instagram: 'mejkozorog',
@@ -15,6 +26,28 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }],
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+        },
+      },
+    },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -59,10 +92,10 @@ module.exports = {
         name: `Bartolomej's website`,
         short_name: `Bartolomej's website`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: '#F5F7FB',
+        theme_color: '#E84A5F',
         display: `minimal-ui`,
-        // icon: `content/assets/gatsby-icon.png`,
+        icon: `static/favicon.ico`,
       },
     },
     `gatsby-plugin-react-helmet`,

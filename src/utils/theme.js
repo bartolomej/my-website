@@ -4,14 +4,14 @@ import { css, Global } from "@emotion/core";
 import { ThemeProvider as EmotionProvider } from 'emotion-theming';
 
 
-const color = {
+export const color = {
   light: '#F5F7FB',
   dark: '#2A363B',
   orange: '#FF847C',
   red: '#E84A5F',
   amaranth: '#ee0e51',
   gold: '#FECEA8',
-  white: 'white',
+  white: '#FFFFFF',
 };
 
 export const opacity = (hexColor, value) => `${hexColor}${Math.round(value * 255).toString(16)}`
@@ -20,6 +20,8 @@ export const themes = {
   light: {
     name: 'light',
     background: color.light,
+    headingText: color.dark,
+    bodyText: color.dark,
     foreground: color.dark,
     link: color.red,
     ...color
@@ -27,6 +29,8 @@ export const themes = {
   dark: {
     name: 'dark',
     background: color.dark,
+    headingText: color.red,
+    bodyText: color.light,
     foreground: color.light,
     link: color.red,
     ...color
@@ -65,7 +69,7 @@ export const ThemeLayout = ({ children, theme }) => (
           z-index: 1;
         }
         body {
-          background-color: ${themes[theme.name].background};
+          background-color: ${theme.props.background};
           overflow: hidden;
         }
         button {
@@ -79,6 +83,12 @@ export const ThemeLayout = ({ children, theme }) => (
         }
         a:hover {
           box-shadow: inset 0 -10px ${theme.props.gold};
+        }
+        h1,h2,h3 {
+          color: ${theme.props.headingText};
+        }
+        p {
+          color: ${theme.props.bodyText};
         }
       `}
     />

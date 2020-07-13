@@ -67,7 +67,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 60%;
+  max-width: 70%;
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
   @media (max-width: 1000px) {
     max-width: 100%;

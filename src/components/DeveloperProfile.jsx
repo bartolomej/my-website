@@ -61,13 +61,6 @@ function DeveloperProfile ({ avatar, fullName, bio, commits, followers, follower
           src={avatar}
           caption={'Visit my Github profile'}
         />
-        <Title>{fullName}</Title>
-        {bio.map((paragraph, i) => (
-          <>
-            {paragraph.title && <Subtitle>{paragraph.title}</Subtitle>}
-            <Description key={i}>{paragraph.text}</Description>
-          </>
-        ))}
       </Container>
       <Subtitle>Programming languages I use</Subtitle>
       <LanguageStatsWrapper ref={containerRef}>

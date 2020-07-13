@@ -10,7 +10,9 @@
       "nodejs",
       "mysql",
       "heroku",
-      "jest"
+      "jest",
+      "java",
+      "webstorm"
     ]
   },
   {
@@ -23,7 +25,8 @@
       "netlify",
       "yarn",
       "redux",
-      "typescript"
+      "typescript",
+      "webstorm"
     ]
   },
   {

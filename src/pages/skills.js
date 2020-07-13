@@ -11,9 +11,6 @@ import SEO from "../components/seo";
 const toolsIcons = {
   "react-native": require("../assets/tools/react.png"),
   "react": require("../assets/tools/react.png"),
-  "babel": require("../assets/tools/babel.png"),
-  "behance": require("../assets/tools/behance.png"),
-  "dribble": require("../assets/tools/dribble.png"),
   "after-effects": require("../assets/tools/after-effects.png"),
   "figma": require("../assets/tools/figma.png"),
   "go": require("../assets/tools/go.png"),
@@ -28,7 +25,8 @@ const toolsIcons = {
   "redux": require("../assets/tools/redux.png"),
   "typescript": require("../assets/tools/typescript.png"),
   "webpack": require("../assets/tools/webpack.png"),
-  "yarn": require("../assets/tools/webpack.png"),
+  "yarn": require("../assets/tools/yarn.png"),
+  "webstorm": require("../assets/tools/webstorm.png"),
 }
 
 function Skills ({ data, location }) {
@@ -50,8 +48,8 @@ function Skills ({ data, location }) {
               </TextSide>
               <ImageSide>
                 {data[s.id] && data[s.id].nodes.map((n, i) => (
-                  <ImageWrapper i={i} dy={100} dx={50} l={data[s.id].nodes.length}>
-                    <GatsbyImage key={i} fluid={n.childImageSharp.fluid}/>
+                  <ImageWrapper key={i} i={i} dy={100} dx={50} l={data[s.id].nodes.length}>
+                    <GatsbyImage fluid={n.childImageSharp.fluid}/>
                   </ImageWrapper>
                 ))}
               </ImageSide>
@@ -91,6 +89,10 @@ const ToolIcon = styled.img`
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  @media (max-width: 700px) {
+    width: 25px;
+    height: 25px;
+  }
 `;
 
 const TextSide = styled.div`

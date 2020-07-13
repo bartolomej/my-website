@@ -55,6 +55,9 @@ class Field {
   onResize () {
     this.canvas.height = this.container.clientHeight;
     this.canvas.width = this.container.clientWidth;
+    if (!this.animate) {
+      this.render();
+    }
   }
 
   destroy () {

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 import UseAnimations from "react-useanimations";
-import gatsby from "../assets/gatsby.svg";
 import { rhythm } from "../utils/typography";
 
 
@@ -27,10 +26,6 @@ function Footer ({ author, social }) {
         <CopyWrapper>
           Made with ❤️ by {author.name} &copy; {new Date().getFullYear()}
         </CopyWrapper>
-        <GatsbyLink href="https://www.gatsbyjs.org/">
-          <img alt="Gatsby" src={gatsby}/>
-          Build using Gatsby Framework.
-        </GatsbyLink>
       </Inner>
     </Container>
   )
@@ -44,7 +39,7 @@ const Container = styled.footer`
 
 const Inner = styled.div`
   margin: 0 auto;
-  padding: 70px 0;
+  padding: 70px 5px;
   max-width: ${rhythm(24)};
   display: flex;
   flex-direction: column;
@@ -72,23 +67,7 @@ const SocialLink = styled.a`
 const CopyWrapper = styled.span`
   text-align: center;
   margin-top: 30px;
-  font-size: 14px;
-`;
-
-const GatsbyLink = styled.a`
-  margin-top: 30px;
-  font-size: 12px;
-  box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: ${p => p.theme.name === 'dark' ? 'white' : 'black'} !important;
-  & > img { 
-    width: 80px;
-    margin-bottom: 1rem;
-    filter: ${p => p.theme.name === 'dark' ? 'invert(1)' : ''};
-  }
+  font-size: 1rem;
 `;
 
 export default Footer;

@@ -31,7 +31,7 @@ function Gallery ({ data, location }) {
       )}
       <Wrapper>
         {data.allFile.nodes.map((img, i) => (
-          <ImageBtn onClick={() => setOpen(img.childImageSharp.full)}>
+          <ImageBtn key={i} onClick={() => setOpen(img.childImageSharp.full)}>
             <Image key={i} fluid={img.childImageSharp.thumb}/>
           </ImageBtn>
         ))}

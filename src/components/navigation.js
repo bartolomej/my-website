@@ -6,33 +6,49 @@ import sunIcon from "../assets/sun-icon.svg";
 import { rhythm } from "../utils/typography";
 import { Link } from "gatsby";
 import UseAnimations from "react-useanimations";
-
+import { CSSTransition } from 'react-transition-group';
+import mobile from 'is-mobile';
+import "../utils/animations.css"
 
 function Navigation ({ location, theme }) {
   const [isOpen, setOpen] = React.useState(false);
+
+  const Links = () => (
+    <LinkWrapper theme={theme} isOpen={isOpen}>
+      <PageLink loc={location} to="/projects">Projects</PageLink>
+      <PageLink loc={location} to="/blog">Blog</PageLink>
+      <PageLink loc={location} to="/skills">My Skills</PageLink>
+      <PageLink loc={location} to="/gallery">Gallery</PageLink>
+      <ThemeSwitch
+        onChange={() => theme.updateTheme(theme.name === "light" ? "dark" : "light")}
+        checked={theme.name === "dark"}
+        onColor="#222"
+        offColor="#333"
+        checkedIcon={<img src={moonIcon} alt="moon icon"/>}
+        uncheckedIcon={<img src={sunIcon} alt="sun icon"/>}
+        boxShadow="0 0 2px 3px #B38CD9"
+        activeBoxShadow="0 0 2px 3px #dfb3e6"
+      />
+    </LinkWrapper>
+  );
 
   return (
     <Container>
       <PageLink loc={location} to="/">Bartolomej</PageLink>
       <OpenButton onClick={() => setOpen(!isOpen)}>
-        <UseAnimations animationKey="menu4" size={30} />
+        <UseAnimations animationKey="menu4" size={30}/>
       </OpenButton>
-      <LinkWrapper theme={theme} isOpen={isOpen}>
-        <PageLink loc={location} to="/projects">Projects</PageLink>
-        <PageLink loc={location} to="/blog">Blog</PageLink>
-        <PageLink loc={location} to="/skills">My Skills</PageLink>
-        <PageLink loc={location} to="/gallery">Gallery</PageLink>
-        <ThemeSwitch
-          onChange={() => theme.updateTheme(theme.name === "light" ? "dark" : "light")}
-          checked={theme.name === "dark"}
-          onColor="#222"
-          offColor="#333"
-          checkedIcon={<img src={moonIcon} alt="moon icon"/>}
-          uncheckedIcon={<img src={sunIcon} alt="sun icon"/>}
-          boxShadow="0 0 2px 3px #B38CD9"
-          activeBoxShadow="0 0 2px 3px #dfb3e6"
-        />
-      </LinkWrapper>
+      {mobile() && (
+        <CSSTransition
+          in={isOpen}
+          timeout={300}
+          classNames={"nav"}>
+          <Links/>
+        </CSSTransition>
+      )}
+      {!mobile() && (
+        <Links />
+      )}
     </Container>
   )
 }
@@ -45,8 +61,10 @@ const Container = styled.nav`
   margin: 0 auto;
   max-width: ${rhythm(35)};
   height: 8vh;
+  padding: 0 20px;
   @media (max-width: 700px) {
     margin: 0 10px;
+    padding: 0;
   }
 `;
 

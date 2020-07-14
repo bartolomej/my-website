@@ -8,16 +8,15 @@ fairyGatesTheme.overrideThemeStyles = () => {
       textShadow: `none`,
       backgroundImage: 'none'
     },
-
   }
 }
 
 const typography = new Typography({
-  ...fairyGatesTheme,
   headerFontFamily: ['Montserrat'],
   bodyFontFamily: ['Quicksand','BlinkMacSystemFont','-apple-system','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue','Helvetica','Arial','sans-serif'],
   bodyWeight: 400,
-  boldWeight: 700
+  boldWeight: 700,
+  baseFontSize: '20px'
 })
 
 // Hot reload typography in development.

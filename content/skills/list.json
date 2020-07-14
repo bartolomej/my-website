@@ -3,8 +3,9 @@
     "id": "backend",
     "title": "Backend development",
     "description": [
-      "I started with backend development in Node.js by the age of 16. It's one of my favorite disciplines in software development space.",
-      "I have experience in software testing, building REST APIs, writing well structured backend code, etc,.. Since I started I've developed 4 backend apps, that expose REST APIs, communicate with database and other external services,.."
+      "I started with backend development with Node.js in high school. It's one of my favorite disciplines in software development space.",
+      "I have experience in software testing, building REST APIs, writing (*well*) structured backend code, etc,.. ",
+      "I've developed quite a few backend apps for personal projects."
     ],
     "tools": [
       "nodejs",
@@ -18,7 +19,11 @@
   {
     "id": "website",
     "title": "Web Development",
-    "description": "I've developed many web apps mostly in vanilla JS and React.js.",
+    "description": [
+      "Started making basic websites with HTML & CSS during the second year of high school.",
+      "Today I like to play around with my silly ideas and web visualizations.",
+      "I have had some professional experience, but most of the stuff I make for now is just for fun."
+    ],
     "tools": [
       "react",
       "netlify",
@@ -30,7 +35,9 @@
   {
     "id": "mobile",
     "title": "Mobile development",
-    "description": "I started mobile development in 2018. Since then I developed several React Native apps.",
+    "description": [
+      "I made my first Android app in collaboration with my boi jakic12. We (somewhat) successfully build an app that displayed weekly meal menu and schedule for our school."
+    ],
     "tools": [
       "react-native",
       "redux",
@@ -41,7 +48,7 @@
   {
     "id": "film",
     "title": "Film making",
-    "description": "I was a very passionate film maker back in primary school and at the beginning of high school. I professionally filmed 3 weddings and helped edited a movie that screened in our local theater 3 times.",
+    "description": "I was very passionate about film making back in primary school and at the beginning of high school. I professionally filmed a few weddings and helped edited a movie that screened in our local theater.",
     "tools": [
       "premiere-pro",
       "after-effects"
@@ -50,7 +57,9 @@
   {
     "id": "photography",
     "title": "Photography",
-    "description": "I do photography mostly for fun in my free time or when I go on trips.",
+    "description": [
+      "I do photography mostly for fun in my free time or when I go on trips."
+    ],
     "tools": [
       "photoshop"
     ]

@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 
 const SkillGroup = styled.article`
   display: flex;
-  padding: 20vh 0;
+  padding: 12vh 0;
   width: 70%;
   margin: 0 auto;
   @media (max-width: 900px) {
@@ -68,10 +68,10 @@ const SkillGroup = styled.article`
 
 const TextSide = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-right: 50px;
-  h3 {
-    font-size: 1.8rem;
-  }
   & > div {
     margin: 8px 0;
   }
@@ -95,12 +95,12 @@ const OuterImage = styled.div`
 `;
 
 const InnerImage = styled.div`
-  height: 250px;
+  height: 350px;
    & > div {
     box-shadow: 0 10px 20px rgba(0,0,0,.2);
     border-radius: 8px;
     position: absolute !important;
-    width: 400px;
+    width: 600px;
     transition: 0.3s ease-in all;
   }
   & > div:hover {

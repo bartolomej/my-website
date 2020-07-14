@@ -84,6 +84,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
     >
+      <meta name="google-site-verification" content="RwRuJzajY31jPYG0gLcRsgtxLOXOJbpG833_Dcw_XWM" />
       <script type="application/ld+json">{JSON.stringify({
         '@context': site.siteMetadata.siteUrl,
         '@type': 'CreativeWork',

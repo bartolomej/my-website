@@ -62,7 +62,6 @@ const Container = styled.nav`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: ${rhythm(35)};
   height: 8vh;
   padding: 0 20px;
   @media (max-width: 700px) {
@@ -90,6 +89,7 @@ const LinkWrapper = styled.div`
 `;
 
 const ThemeSwitch = styled(ReactSwitch)`
+  margin-left: 20px;
   @media (max-width: 700px) {
     margin: 50px auto;
   }

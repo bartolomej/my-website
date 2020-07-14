@@ -43,7 +43,7 @@ const Article = styled.article`
   margin: 0 auto;
   position: relative;
   max-width: ${rhythm(26)};
-  padding: ${rhythm(0.1)} ${rhythm(3 / 4)};
+  padding: ${rhythm(0.2)} ${rhythm(3 / 4)};
 `;
 
 const Title = styled.h3`

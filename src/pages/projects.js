@@ -76,7 +76,9 @@ const Wrapper = styled.div`
 
 const ProjectItem = styled.article`
   display: flex;
-  padding: 10vh 0;
+  width: 100%;
+  padding-top: 5vh;
+  padding-bottom: 20vh;
   flex-direction: ${p => p.r ? 'row-reverse' : 'row'};
   @media (max-width: 1000px) {
     flex-direction: column;
@@ -90,8 +92,8 @@ const TextWrapper = styled.div`
   justify-content: center;
   text-align: ${p => p.r ? 'right' : 'left'};
   @media (min-width: 1000px) {
-    padding-right: ${p => !p.r ? '50px': '0'};
-    padding-left: ${p => p.r ? '50px': '0'};
+    padding-right: ${p => !p.r ? '60px': '0'};
+    padding-left: ${p => p.r ? '60px': '0'};
   }
   @media (max-width: 1000px) {
     margin-bottom: 50px;
@@ -145,7 +147,7 @@ const LinkBtn = styled.a`
 `;
 
 const ImageWrapper = styled.div`
-  flex: 1;
+  flex: 1.4;
   & > div { 
     transition: 0.3s ease-in all;
     border-radius: 8px; 

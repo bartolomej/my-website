@@ -31,8 +31,11 @@ const Emoji = styled.div`
 
 const Title = styled.h1`
   margin-top: 5px;
+  font-size: 2.2rem;
 `;
 
-const Description = styled.p``;
+const Description = styled.p`
+  font-size: 1.2rem;
+`;
 
 export default Index;

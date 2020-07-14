@@ -6,7 +6,7 @@ import { ThemeProvider as EmotionProvider } from 'emotion-theming';
 
 export const color = {
   light: '#F5F7FB',
-  dark: '#2A363B',
+  dark: '#101419',
   orange: '#FF847C',
   red: '#E84A5F',
   amaranth: '#ee0e51',
@@ -20,7 +20,7 @@ export const themes = {
   light: {
     name: 'light',
     background: color.light,
-    headingText: color.dark,
+    headingText: color.red,
     bodyText: color.dark,
     foreground: color.dark,
     link: color.red,
@@ -69,7 +69,6 @@ export const ThemeLayout = ({ children, theme, innerRef }) => (
           z-index: 1;
         }
         body {
-          background-color: ${theme.props.background};
           overflow: hidden;
         }
         button {
@@ -78,6 +77,7 @@ export const ThemeLayout = ({ children, theme, innerRef }) => (
           cursor: pointer;
         }
         a {
+          text-decoration: none;
           box-shadow: inset 0 -2px;
           transition: 0.2s ease-in box-shadow;
         }
@@ -86,6 +86,9 @@ export const ThemeLayout = ({ children, theme, innerRef }) => (
         }
         h1,h2,h3 {
           color: ${theme.props.headingText};
+        }
+        h3 {
+          font-size: 1.5rem;
         }
         p {
           color: ${theme.props.bodyText};

@@ -20,7 +20,6 @@ function Index ({ data, location }) {
 
 const Header = styled.header`
   margin: 0 auto;
-  min-height: 100vh;
   max-width: ${rhythm(26)};
   padding: ${rhythm(1)} ${rhythm(3 / 4)};
 `;

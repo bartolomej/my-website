@@ -23,7 +23,7 @@ function Skills ({ data, location }) {
             <TextSide>
               <h3>{s.title}</h3>
               <div>{s.tools.map(key => <Tool toolKey={key}/>)}</div>
-              <p>{s.description}</p>
+              {s.description.map(txt => <p dangerouslySetInnerHTML={{__html: txt}}/>)}
             </TextSide>
             <ImageSide>
               {data[s.id] && data[s.id].nodes.map((n, i) => (
@@ -50,13 +50,18 @@ const Wrapper = styled.div`
 
 const SkillGroup = styled.article`
   display: flex;
-  padding: 12vh 0;
+  padding-bottom: 20vh;
   width: 70%;
   margin: 0 auto;
+  @media (max-width: 1300px) {
+    width: 80%;
+  }
+  @media (max-width: 1100px) {
+    width: 90%;
+  }
   @media (max-width: 900px) {
     flex-direction: column;
     width: 100%;
-    padding: 5vh 0;
   }
 `;
 
@@ -66,6 +71,9 @@ const TextSide = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-right: 50px;
+  p {
+    margin-bottom: 0.8rem;
+  }
   & > div {
     margin: 8px 0;
   }
@@ -77,7 +85,7 @@ const TextSide = styled.div`
 const ImageSide = styled.div`
   flex: 1.5;
   display: flex;
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
     padding-top: 50px;
   }
 `;
@@ -101,6 +109,7 @@ const InnerImage = styled.div`
     transform: translateY(-20px);
   }
   @media (max-width: 700px) {
+    height: 300px;
     & > div {
       width: 300px;
     }

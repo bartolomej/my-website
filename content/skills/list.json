@@ -12,8 +12,7 @@
       "mysql",
       "heroku",
       "jest",
-      "java",
-      "webstorm"
+      "java"
     ]
   },
   {
@@ -28,15 +27,14 @@
       "react",
       "netlify",
       "redux",
-      "typescript",
-      "webstorm"
+      "typescript"
     ]
   },
   {
     "id": "mobile",
     "title": "Mobile development",
     "description": [
-      "I made my first Android app in collaboration with my boi jakic12. We (somewhat) successfully build an app that displayed weekly meal menu and schedule for our school."
+      "I made my first Android app in collaboration with my boi <a href=\"https://github.com/jakic12\">jakic12</a>. We (somewhat) successfully build an app that displayed weekly meal menu and schedule for our school."
     ],
     "tools": [
       "react-native",
@@ -48,7 +46,9 @@
   {
     "id": "film",
     "title": "Film making",
-    "description": "I was very passionate about film making back in primary school and at the beginning of high school. I professionally filmed a few weddings and helped edited a movie that screened in our local theater.",
+    "description": [
+      "I was very passionate about film making back in primary school and at the beginning of high school. I professionally filmed a few weddings with my friend <a href=\"https://www.instagram.com/tilen_miklavic/\">Tilen Miklavic</a> and helped edited a movie that screened in our local theater."
+    ],
     "tools": [
       "premiere-pro",
       "after-effects"

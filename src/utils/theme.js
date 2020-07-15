@@ -6,7 +6,9 @@ import { ThemeProvider as EmotionProvider } from 'emotion-theming';
 
 export const color = {
   light: '#F5F7FB',
+  almond: '#e0d3c8',
   dark: '#101419',
+  darkish: '#343440',
   orange: '#FF847C',
   red: '#E84A5F',
   amaranth: '#ee0e51',
@@ -21,7 +23,7 @@ export const themes = {
     name: 'light',
     background: color.light,
     headingText: color.red,
-    bodyText: color.dark,
+    bodyText: color.darkish,
     foreground: color.dark,
     link: color.red,
     ...color
@@ -30,7 +32,7 @@ export const themes = {
     name: 'dark',
     background: color.dark,
     headingText: color.red,
-    bodyText: color.light,
+    bodyText: color.almond,
     foreground: color.light,
     link: color.red,
     ...color
@@ -90,8 +92,14 @@ export const ThemeLayout = ({ children, theme, innerRef }) => (
         h3 {
           font-size: 1.5rem;
         }
-        p {
+        p,span {
           color: ${theme.props.bodyText};
+        }
+        svg {
+          color: ${theme.props.bodyText};
+        }
+        footer, p, svg {
+          transition: all 0.4s ease;
         }
       `}
     />

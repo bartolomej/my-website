@@ -62,11 +62,7 @@ const tools = {
   "typescript": {
     image: require("../assets/tools/typescript.png"),
     url: 'https://www.typescriptlang.org/'
-  },
-  "webstorm": {
-    image: require("../assets/tools/webstorm.png"),
-    url: 'https://www.jetbrains.com/webstorm/'
-  },
+  }
 }
 
 function Tool ({ toolKey }) {
@@ -101,8 +97,8 @@ const Image = styled.img`
   margin: 0;
   transition: 0.3s ease-in all;
   @media (max-width: 700px) {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
   }
 `;
 export default Tool;

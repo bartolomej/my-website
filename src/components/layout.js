@@ -63,7 +63,7 @@ const Layout = ({ location, children }) => {
 }
 
 const Main = styled.main`
-  min-height: 70vh;
+  min-height: 80vh;
   padding-bottom: 80px;
 `;
 

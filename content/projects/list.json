@@ -2,6 +2,7 @@
   {
     "title": "Generative Art 🎨",
     "image": "generative-art.png",
+    "date": "July 2020",
     "description": "A collection of my little generative art experiments. They are not much for now, but I really enjoy making them.",
     "demo_url": "https://bartolomej.github.io/generative-art/",
     "repo_url": "https://github.com/bartolomej/generative-art",
@@ -21,6 +22,7 @@
   {
     "title": "AwesomeSearch 🔍",
     "image": "awesomesearch.png",
+    "date": "June 2020",
     "description": "This is a search engine for the awesome lists. I build it for the final high school project, because I wished there was a user friendly and visually oriented search for this awesome collection.",
     "demo_url": "https://awesomesearch.in",
     "repo_url": "https://github.com/bartolomej/awesomesearch.website",
@@ -43,6 +45,7 @@
   {
     "title": "Translator Agency 🌍",
     "image": "translator.png",
+    "date": "March 2020",
     "description": "Landing website that I build for a local translational agency. This is actually my first website that I build professionally for a client.",
     "demo_url": "https://prevajalec.eu",
     "tags": [
@@ -61,6 +64,7 @@
   {
     "title": "Planet System 🌍",
     "image": "planet-simulation.png",
+    "date": "January 2020",
     "description": "A simple web based planet system simulation. Draws paths of planets and their velocity + acceleration vectors.",
     "demo_url": "https://bartolomej.github.io/planet-system/",
     "repo_url": "https://github.com/bartolomej/planet-system",
@@ -77,6 +81,7 @@
   {
     "title": "Path Finding 🌍",
     "image": "graph-algorithms.png",
+    "date": "February 2020",
     "description": "A simple web based visualization of path finding algorithm. Allows you to generate a maze with backtrack algorithm and solve it with breath first search. Made for a school project.",
     "demo_url": "https://bartolomej.github.io/path-finding/",
     "repo_url": "https://github.com/bartolomej/path-finding",
@@ -94,8 +99,24 @@
     ]
   },
   {
+    "title": "Complex Set Art ♾",
+    "image": "complex-set-art.png",
+    "date": "January 2020",
+    "description": "Fractal graphics rendering program written in Go. This was very fun playing around when I made this in high school. Got some ecstatically pleasing results too.",
+    "demo_url": "https://bartolomej.github.io/complex-set-art/",
+    "repo_url": "https://bartolomej.github.io/complex-set-art/",
+    "tags": [
+      "visualization",
+      "mathematics"
+    ],
+    "languages": [
+      "Go"
+    ]
+  },
+  {
     "title": "Modulo Arithmetics ➗",
     "image": "modulo-arithmetics.png",
+    "date": "October 2019",
     "description": "Visualization of patterns that emerge when computing a modulo of a changing number. Inspired by <a href=\"https://www.youtube.com/watch?v=qhbuKbxJsk8\">Mathologer video</a>.",
     "demo_url": "https://github.com/bartolomej/modulo-arithmetics",
     "repo_url": "https://github.com/bartolomej/modulo-arithmetics",
@@ -112,6 +133,7 @@
   {
     "title": "Julia Set ♾",
     "image": "julia-set.png",
+    "date": "September 2019",
     "description": "Simple web based visualization of julia set. Try changing the hyper parameter <i>C</i> and observe how the set changes.",
     "demo_url": "https://bartolomej.github.io/julia-set/",
     "repo_url": "https://github.com/bartolomej/julia-set",
@@ -126,17 +148,42 @@
     ]
   },
   {
-    "title": "Complex Set Art ♾",
-    "image": "complex-set-art.png",
-    "description": "Fractal graphics rendering program written in Go. This was very fun playing around when I made this in high school. Got some ecstatically pleasing results too.",
-    "demo_url": "https://bartolomej.github.io/complex-set-art/",
-    "repo_url": "https://bartolomej.github.io/complex-set-art/",
+    "title": "SCNG App",
+    "image": "scng-app.png",
+    "date": "August 2019",
+    "description": "Backend API and a mobile app made for the purpose of displaying school schedule and news for our school in Nova Gorica. Sadly this app never went fully live to all people at our school.",
+    "demo_url": "https://bartolomej.github.io/scng-api/",
+    "repo_url": "https://github.com/bartolomej/scng-api",
     "tags": [
       "visualization",
       "mathematics"
     ],
     "languages": [
-      "Go"
+      "JavaScript",
+      "Java",
+      "HTML",
+      "CSS"
+    ],
+    "tech": [
+      "React Native",
+      "Node.js"
+    ]
+  },
+  {
+    "title": "BS Teams Website",
+    "image": "bs-teams.png",
+    "date": "July 2019",
+    "description": "We, as a team of 8 young students, developed a landing website for an imaginary client. This workshop was called <a href=\"https://www.talenthub.si/\">Next Talent Hub</a> and was hosted by an <a href=\"https://www.b-s.si/\">awesome company</a> based in Solkan.",
+    "demo_url": "https://bs-teams.netlify.app/",
+    "repo_url": "https://github.com/bartolomej/bs-teams",
+    "tags": [
+      "website",
+      "workshop"
+    ],
+    "languages": [
+      "React.js",
+      "HTML",
+      "CSS"
     ]
   }
 ]

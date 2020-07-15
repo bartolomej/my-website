@@ -57,5 +57,86 @@
     "tech": [
       "React.js"
     ]
+  },
+  {
+    "title": "Planet System 🌍",
+    "image": "planet-simulation.png",
+    "description": "A simple web based planet system simulation. Draws paths of planets and their velocity + acceleration vectors.",
+    "demo_url": "https://bartolomej.github.io/planet-system/",
+    "repo_url": "https://github.com/bartolomej/planet-system",
+    "tags": [
+      "simulation",
+      "physics"
+    ],
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ]
+  },
+  {
+    "title": "Path Finding 🌍",
+    "image": "graph-algorithms.png",
+    "description": "A simple web based visualization of path finding algorithm. Allows you to generate a maze with backtrack algorithm and solve it with breath first search. Made for a school project.",
+    "demo_url": "https://bartolomej.github.io/path-finding/",
+    "repo_url": "https://github.com/bartolomej/path-finding",
+    "tags": [
+      "agency-website",
+      "landing-website"
+    ],
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "tech": [
+      "React.js"
+    ]
+  },
+  {
+    "title": "Modulo Arithmetics ➗",
+    "image": "modulo-arithmetics.png",
+    "description": "Visualization of patterns that emerge when computing a modulo of a changing number. Inspired by <a href=\"https://www.youtube.com/watch?v=qhbuKbxJsk8\">Mathologer video</a>.",
+    "demo_url": "https://github.com/bartolomej/modulo-arithmetics",
+    "repo_url": "https://github.com/bartolomej/modulo-arithmetics",
+    "tags": [
+      "visualization",
+      "mathematics"
+    ],
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ]
+  },
+  {
+    "title": "Julia Set ♾",
+    "image": "julia-set.png",
+    "description": "Simple web based visualization of julia set. Try changing the hyper parameter <i>C</i> and observe how the set changes.",
+    "demo_url": "https://bartolomej.github.io/julia-set/",
+    "repo_url": "https://github.com/bartolomej/julia-set",
+    "tags": [
+      "visualization",
+      "mathematics"
+    ],
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ]
+  },
+  {
+    "title": "Complex Set Art ♾",
+    "image": "complex-set-art.png",
+    "description": "Fractal graphics rendering program written in Go. This was very fun playing around when I made this in high school. Got some ecstatically pleasing results too.",
+    "demo_url": "https://bartolomej.github.io/complex-set-art/",
+    "repo_url": "https://bartolomej.github.io/complex-set-art/",
+    "tags": [
+      "visualization",
+      "mathematics"
+    ],
+    "languages": [
+      "Go"
+    ]
   }
 ]

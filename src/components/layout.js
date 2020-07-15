@@ -65,7 +65,6 @@ const Layout = ({ location, children }) => {
 const Main = styled.main`
   min-height: 70vh;
   padding-bottom: 80px;
-  border-bottom: 2px dotted ${p => opacity(p.theme.gold, 0.4)};
 `;
 
 const CanvasContainer = styled.div`

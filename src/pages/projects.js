@@ -39,7 +39,7 @@ function Projects ({ data, location }) {
                     href={`https://github.com/topics/${t}`}>{t}</Tag>
                 ))}
               </TagWrapper>
-              <p>{p.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: p.description }} />
               <div>
                 {p.demo_url && (
                   <LinkBtn r={i % 2 === 0} href={p.demo_url} target="_blank">Visit demo</LinkBtn>
@@ -67,9 +67,15 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 70%;
+  max-width: 60%;
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
-  @media (max-width: 1000px) {
+  @media (max-width: 1500px) {
+    max-width: 70%;
+  }
+  @media (max-width: 1100px) {
+    max-width: 90%;
+  }
+  @media (max-width: 700px) {
     max-width: 100%;
   }
 `;

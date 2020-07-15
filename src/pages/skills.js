@@ -9,8 +9,6 @@ import SEO from "../components/seo";
 import Tool from "../components/tool";
 
 
-
-
 function Skills ({ data, location }) {
 
   return (
@@ -20,26 +18,23 @@ function Skills ({ data, location }) {
         description="A list of my skills and experiences."
       />
       <Wrapper>
-        {skillsList.map((s, i) => (
-          <>
-            <SkillGroup id={s.id} key={s.title}>
-              <TextSide>
-                <h3>{s.title}</h3>
-                <div>{s.tools.map(key => <Tool toolKey={key}/>)}</div>
-                <p>{s.description}</p>
-              </TextSide>
-              <ImageSide>
-                {data[s.id] && data[s.id].nodes.map((n, i) => (
-                  <OuterImage i={i} l={data[s.id].nodes.length} key={i}>
-                    <InnerImage>
-                      <GatsbyImage fluid={n.childImageSharp.fluid}/>
-                    </InnerImage>
-                  </OuterImage>
-                ))}
-              </ImageSide>
-            </SkillGroup>
-            {i !== skillsList.length - 1 && <hr/>}
-          </>
+        {skillsList.map(s => (
+          <SkillGroup id={s.id} key={s.title}>
+            <TextSide>
+              <h3>{s.title}</h3>
+              <div>{s.tools.map(key => <Tool toolKey={key}/>)}</div>
+              <p>{s.description}</p>
+            </TextSide>
+            <ImageSide>
+              {data[s.id] && data[s.id].nodes.map((n, i) => (
+                <OuterImage i={i} l={data[s.id].nodes.length} key={i}>
+                  <InnerImage>
+                    <GatsbyImage fluid={n.childImageSharp.fluid}/>
+                  </InnerImage>
+                </OuterImage>
+              ))}
+            </ImageSide>
+          </SkillGroup>
         ))}
       </Wrapper>
     </Layout>
@@ -65,7 +60,6 @@ const SkillGroup = styled.article`
   }
 `;
 
-
 const TextSide = styled.div`
   flex: 1;
   display: flex;
@@ -89,7 +83,7 @@ const ImageSide = styled.div`
 `;
 
 const OuterImage = styled.div`
-  margin-top: ${p => (p.i ) * 20}%;
+  margin-top: ${p => (p.i) * 20}%;
   width: 15%;
   position: sticky;
 `;

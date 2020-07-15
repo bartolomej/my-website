@@ -41,8 +41,7 @@
     "react-useanimations": "1.2.14",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
-    "typography": "^0.16.19",
-    "typography-theme-fairy-gates": "0.16.19"
+    "typography": "^0.16.19"
   },
   "devDependencies": {
     "prettier": "2.0.5"

@@ -22,7 +22,7 @@ const Header = styled.header`
   margin: 0 auto;
   min-height: 100vh;
   max-width: ${rhythm(26)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+  padding: ${rhythm(1)} ${rhythm(3 / 4)};
 `;
 
 const Emoji = styled.div`
@@ -35,7 +35,7 @@ const Title = styled.h1`
 `;
 
 const Description = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 export default Index;

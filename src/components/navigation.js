@@ -116,7 +116,7 @@ const HomeLink = styled(Link)`
 const PageLink = styled(Link)`
   margin-left: ${p => p.to !== '/' ? '20px' : ''};
   margin-right: ${p => p.to === '/gallery' ? '20px' : ''};
-  ${p => p.loc === p.to ? `color: red` : ''};
+  ${p => p.loc === p.to ? `color: ${p.theme.orange} !important; box-shadow: inset 0 -4px;` : ''};
   @media (max-width: 700px) {
     padding: 20px 0;
     margin: 0 20px;

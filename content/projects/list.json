@@ -104,7 +104,7 @@
     "date": "January 2020",
     "description": "Fractal graphics rendering program written in Go. This was very fun playing around when I made this in high school. Got some ecstatically pleasing results too.",
     "demo_url": "https://bartolomej.github.io/complex-set-art/",
-    "repo_url": "https://bartolomej.github.io/complex-set-art/",
+    "repo_url": "https://github.com/bartolomej/complex-set-art/",
     "tags": [
       "visualization",
       "mathematics"
@@ -114,11 +114,33 @@
     ]
   },
   {
+    "title": "Wikipedia Network 📚",
+    "image": "wiki-network.png",
+    "date": "November 2019",
+    "description": "A graph based visualization of related pages on <a href=\"https://www.wikipedia.org/\">Wikipedia</a>. Project was inspired by a similar visualization called <a href=\"https://xefer.com/2011/05/wikipedia\">\"All roads lead to Philosophy\"</a>.",
+    "demo_url": "https://wikipedia-network.herokuapp.com/",
+    "repo_url": "https://github.com/bartolomej/wikipedia-network",
+    "tags": [
+      "visualization",
+      "graph-theory",
+      "wiki"
+    ],
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "tech": [
+      "Node.js",
+      "MySql"
+    ]
+  },
+  {
     "title": "Modulo Arithmetics ➗",
     "image": "modulo-arithmetics.png",
     "date": "October 2019",
     "description": "Visualization of patterns that emerge when computing a modulo of a changing number. Inspired by <a href=\"https://www.youtube.com/watch?v=qhbuKbxJsk8\">Mathologer video</a>.",
-    "demo_url": "https://github.com/bartolomej/modulo-arithmetics",
+    "demo_url": "https://bartolomej.github.io/modulo-arithmetics",
     "repo_url": "https://github.com/bartolomej/modulo-arithmetics",
     "tags": [
       "visualization",

@@ -31,6 +31,7 @@ function Projects ({ data, location }) {
           <ProjectItem r={i % 2 === 0} key={p.title}>
             <TextWrapper r={i % 2 === 0}>
               <h3>{p.title}</h3>
+              <span>{p.date}</span>
               <TagWrapper>
                 {p.tags.map(t => (
                   <Tag
@@ -107,6 +108,9 @@ const TextWrapper = styled.div`
   & > h3 {
     margin-top: 0;
     margin-bottom: 1rem;
+  }
+  & > p > a {
+    color: ${p => p.theme.orange};
   }
 `;
 

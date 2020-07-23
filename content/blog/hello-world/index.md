@@ -16,6 +16,6 @@ function test () {
 
 I don't know what are you doing here ... thanks for reading my first blog I guess. Appreciate it very much.
 
-Here is a cat gif. This me expressing my love for you. Oh and thanks for reading btw.
+Here is a cat gif.
 
 <div style="width:100%;height:0;padding-bottom:111%;position:relative;"><iframe src="https://giphy.com/embed/v6aOjy0Qo1fIA" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/v6aOjy0Qo1fIA">via GIPHY</a></p>

@@ -1,27 +1,27 @@
-import React from 'react';
+import React from "react";
 import Layout from "../components/layout";
 import styled from "@emotion/styled";
 import { rhythm } from "../utils/typography";
 import SEO from "../components/seo";
-import text from '../../content/index.json';
+import text from "../../content/index.json";
 
-function Index ({ data, location }) {
+
+function Index ({ location }) {
   return (
     <Layout location={location}>
-      <SEO title={"Home"} />
+      <SEO title={"Home"}/>
       <Header>
         <Emoji>👋</Emoji>
         <Title>{text.title}</Title>
         <Description>{text.description}</Description>
       </Header>
     </Layout>
-  )
+  );
 }
 
 const Header = styled.header`
   margin: 0 auto;
   max-width: ${rhythm(26)};
-  padding: ${rhythm(1)} ${rhythm(3 / 4)};
 `;
 
 const Emoji = styled.div`

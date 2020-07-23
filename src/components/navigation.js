@@ -3,26 +3,25 @@ import styled from "@emotion/styled";
 import ReactSwitch from "react-switch";
 import moonIcon from "../assets/moon-icon.svg";
 import sunIcon from "../assets/sun-icon.svg";
-import { rhythm } from "../utils/typography";
 import { Link } from "gatsby";
 import UseAnimations from "react-useanimations";
-import { CSSTransition } from 'react-transition-group';
-import mobile from 'is-mobile';
-import logo from '../assets/logo.svg';
-import "../utils/animations.css"
+import { CSSTransition } from "react-transition-group";
+import mobile from "is-mobile";
+import logo from "../assets/logo.svg";
+import "../utils/animations.css";
+import { ThemeContext } from "../utils/theme";
 
-function Navigation ({ location, theme }) {
+
+function Navigation ({ location }) {
   const [isOpen, setOpen] = React.useState(false);
+  const { colorMode, setColorMode } = React.useContext(ThemeContext);
 
-  const Links = () => (
-    <LinkWrapper theme={theme} isOpen={isOpen}>
-      <PageLink loc={location} to="/projects">Projects</PageLink>
-      <PageLink loc={location} to="/blog">Blog</PageLink>
-      <PageLink loc={location} to="/skills">My Skills</PageLink>
-      <PageLink loc={location} to="/gallery">Gallery</PageLink>
+  const ThemeSwitchBtn = () => (
+    // defer theme switch rendering
+    colorMode ? (
       <ThemeSwitch
-        onChange={() => theme.updateTheme(theme.name === "light" ? "dark" : "light")}
-        checked={theme.name === "dark"}
+        onChange={() => setColorMode(colorMode === "light" ? "dark" : "light")}
+        checked={colorMode === "dark"}
         onColor="#222"
         offColor="#333"
         checkedIcon={<img src={moonIcon} alt="moon icon"/>}
@@ -30,33 +29,54 @@ function Navigation ({ location, theme }) {
         boxShadow="0 0 2px 3px #B38CD9"
         activeBoxShadow="0 0 2px 3px #dfb3e6"
       />
+    ) : null
+  );
+
+  const Links = () => (
+    <LinkWrapper>
+      <PageLink loc={location} to="/projects">Projects</PageLink>
+      <PageLink loc={location} to="/blog">Blog</PageLink>
+      <PageLink loc={location} to="/skills">My Skills</PageLink>
+      <PageLink loc={location} to="/gallery">Gallery</PageLink>
+      {!mobile() && <ThemeSwitchBtn/>}
     </LinkWrapper>
   );
 
   return (
-    <Container>
-      <HomeLink loc={location} to="/">
-        <Logo src={logo} />
-      </HomeLink>
-      <OpenButton onClick={() => setOpen(!isOpen)}>
-        <UseAnimations animationKey="menu4" size={30}/>
-      </OpenButton>
+    <>
       {mobile() && (
         <CSSTransition
           in={isOpen}
           timeout={300}
+          unmountOnExit
           classNames={"nav"}>
           <Links/>
         </CSSTransition>
       )}
-      {!mobile() && (
-        <Links />
-      )}
-    </Container>
-  )
+      <Container navOpen={isOpen}>
+        <HomeLink loc={location} to="/">
+          <Logo src={logo}/>
+        </HomeLink>
+        {mobile() && <ThemeSwitchBtn/>}
+        <OpenButton onClick={() => setOpen(!isOpen)}>
+          <UseAnimations animationKey="menu4" size={30}/>
+        </OpenButton>
+        {!mobile() && (
+          <Links/>
+        )}
+      </Container>
+    </>
+  );
 }
 
 const Container = styled.nav`
+  z-index: 2;
+  background: rgba(var(--color-background), 0.6);
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -64,34 +84,36 @@ const Container = styled.nav`
   margin: 0 auto;
   height: 8vh;
   padding: 0 20px;
+  transition: 300ms all;
   @media (max-width: 700px) {
-    margin: 0 10px;
-    padding: 0;
+    padding: 0 10px;
     height: 12vh;
+    ${p => p.navOpen ? `backdrop-filter: none; background: none;` : ""};
   }
 `;
 
 const LinkWrapper = styled.div`
   display: flex;
   @media (max-width: 700px) {
-    display: ${p => p.isOpen ? `flex` : 'none'};
-    position: absolute;
+    display: flex;
+    position: fixed;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     z-index: 2;
-    top: 0;
     left: 0;
     right: 0;
+    top: 0;
     bottom: 0;
-    background: ${p => p.theme.props.background};
-    padding: 30px 0;
+    height: 100vh;
+    backdrop-filter: blur(6px);
+    background: rgba(var(--color-background), 0.6);
+    padding: 80px 20px;
   }
 `;
 
 const ThemeSwitch = styled(ReactSwitch)`
-  margin-left: 20px;
-  @media (max-width: 700px) {
-    margin: 50px auto;
+  @media (min-width: 700px) {
+    margin-left: 20px;
   }
 `;
 
@@ -114,12 +136,14 @@ const HomeLink = styled(Link)`
 `;
 
 const PageLink = styled(Link)`
-  margin-left: ${p => p.to !== '/' ? '20px' : ''};
-  margin-right: ${p => p.to === '/gallery' ? '20px' : ''};
-  ${p => p.loc === p.to ? `color: ${p.theme.orange} !important; box-shadow: inset 0 -4px;` : ''};
+  margin-left: ${p => p.to !== "/" ? "20px" : ""};
+  margin-right: ${p => p.to === "/gallery" ? "20px" : ""};
+  ${p => !new RegExp(p.to).test(p.loc) ? `box-shadow: none;` : ""};
   @media (max-width: 700px) {
     padding: 20px 0;
     margin: 0 20px;
+    box-shadow: none;
+    ${p => p.loc === p.to ? `font-weight: bold; font-size: 1.2rem;` : ""};
   }
 `;
 

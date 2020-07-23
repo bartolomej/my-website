@@ -3,9 +3,9 @@ import "typeface-montserrat"
 import "typeface-merriweather"
 
 import React from "react";
-import { ThemeProvider } from "./src/utils/theme";
+import App from "./src/components/app"
 
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider>{element}</ThemeProvider>
+  <App>{element}</App>
 )

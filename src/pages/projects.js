@@ -1,10 +1,8 @@
-import React from 'react';
+import React from "react";
 import Layout from "../components/layout";
 import styled from "@emotion/styled";
-import projectsList from '../../content/projects/list.json';
-import { rhythm } from "../utils/typography";
+import projectsList from "../../content/projects/list.json";
 import { graphql } from "gatsby";
-import { opacity } from "../utils/theme";
 import SEO from "../components/seo";
 import GatsbyImage from "gatsby-image";
 
@@ -18,7 +16,7 @@ function Projects ({ data, location }) {
       }
     }
     throw new Error(`File ${fileName} not matched`);
-  }
+  };
 
   return (
     <Layout location={location}>
@@ -28,25 +26,26 @@ function Projects ({ data, location }) {
       />
       <Wrapper>
         {projectsList.map((p, i) => (
-          <ProjectItem r={i % 2 === 0} key={p.title}>
-            <TextWrapper r={i % 2 === 0}>
+          <ProjectItem mod2={i % 2 === 0} key={p.title}>
+            <TextWrapper mod2={i % 2 === 0}>
               <h3>{p.title}</h3>
               <span>{p.date}</span>
               <TagWrapper>
                 {p.tags.map(t => (
                   <Tag
-                    r={i % 2 === 0}
+                    key={t}
+                    mod2={i % 2 === 0}
                     target="_blank"
                     href={`https://github.com/topics/${t}`}>{t}</Tag>
                 ))}
               </TagWrapper>
-              <p dangerouslySetInnerHTML={{ __html: p.description }} />
+              <p dangerouslySetInnerHTML={{ __html: p.description }}/>
               <div>
                 {p.demo_url && (
-                  <LinkBtn r={i % 2 === 0} href={p.demo_url} target="_blank">Visit demo</LinkBtn>
+                  <LinkBtn mod2={i % 2 === 0} href={p.demo_url} target="_blank">Visit demo</LinkBtn>
                 )}
                 {p.repo_url && (
-                  <LinkBtn r={i % 2 === 0} href={p.repo_url} target="_blank">Github repo</LinkBtn>
+                  <LinkBtn mod2={i % 2 === 0} href={p.repo_url} target="_blank">Github repo</LinkBtn>
                 )}
               </div>
             </TextWrapper>
@@ -60,7 +59,7 @@ function Projects ({ data, location }) {
         </GHLink>
       </Wrapper>
     </Layout>
-  )
+  );
 }
 
 const Wrapper = styled.div`
@@ -69,7 +68,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 60%;
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
   @media (max-width: 1500px) {
     max-width: 70%;
   }
@@ -84,23 +82,22 @@ const Wrapper = styled.div`
 const ProjectItem = styled.article`
   display: flex;
   width: 100%;
-  padding-top: 5vh;
   padding-bottom: 20vh;
-  flex-direction: ${p => p.r ? 'row-reverse' : 'row'};
+  flex-direction: ${p => p.mod2 ? "row-reverse" : "row"};
   @media (max-width: 1000px) {
     flex-direction: column;
   }
-`
+`;
 
 const TextWrapper = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: ${p => p.r ? 'right' : 'left'};
+  text-align: ${p => p.mod2 ? "right" : "left"};
   @media (min-width: 1000px) {
-    padding-right: ${p => !p.r ? '60px': '0'};
-    padding-left: ${p => p.r ? '60px': '0'};
+    padding-right: ${p => !p.mod2 ? "60px" : "0"};
+    padding-left: ${p => p.mod2 ? "60px" : "0"};
   }
   @media (max-width: 1000px) {
     margin-bottom: 50px;
@@ -110,7 +107,7 @@ const TextWrapper = styled.div`
     margin-bottom: 1rem;
   }
   & > p > a {
-    color: ${p => p.theme.orange};
+    color: rgb(var(--color-light));
   }
 `;
 
@@ -126,15 +123,16 @@ const Tag = styled.a`
   border-radius: 2em;
   padding: 0 10px;
   line-height: 22px;
-  color: ${p => p.theme.link};
-  margin-right: ${p => !p.r ? '5px' : '0'};
-  margin-left: ${p => p.r ? '5px' : '0'};
-  background: ${p => opacity(p.theme.link, 0.2)};
+  color: rgb(var(--color-red));
+  margin-right: ${p => !p.mod2 ? "5px" : "0"};
+  margin-left: ${p => p.mod2 ? "5px" : "0"};
+  background: rgba(var(--color-red), 0.2);
+  backdrop-filter: opacity(0.6);
   transition: 0.2s ease-in all;
   box-shadow: none !important;
   &:hover {
-    background: ${p => opacity(p.theme.link, 0.8)};
-    color: ${p => p.theme.white};
+    background: rgba(var(--color-red), 0.8);
+    color: rgb(var(--color-white));
   }
 `;
 
@@ -142,14 +140,14 @@ const LinkBtn = styled.a`
   padding: 8px 15px;
   border-radius: 5px;
   transition: 0.2s ease-in all;
-  border: 2px solid ${p => p.theme.link};
-  box-shadow: inset 0px -0px ${p => p.theme.link};
-  color: ${p => p.theme.link};
-  margin-right: ${p => !p.r ? '10px' : '0'};
-  margin-left: ${p => p.r ? '10px' : '0'};
+  border: 2px solid rgb(var(--color-red));
+  box-shadow: inset 0px -0px rgb(var(--color-red));
+  color: rgb(var(--color-red));
+  margin-right: ${p => !p.mod2 ? "10px" : "0"};
+  margin-left: ${p => p.mod2 ? "10px" : "0"};
   &:hover {
-      box-shadow: inset 0px -50px ${p => p.theme.link};
-      color: ${p => p.theme.white};
+      box-shadow: inset 0px -50px rgb(var(--color-red));
+      color: rgb(var(--color-white));
   }
   &:active {
     transform: scale(1.05);

@@ -1,15 +1,16 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from "react";
+import { graphql, Link } from "gatsby";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import { rhythm, scale } from "../utils/typography";
 import styled from "@emotion/styled";
 
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pageContext
+  const post = data.markdownRemark;
+  const siteTitle = data.site.siteMetadata.title;
+  const { previous, next } = pageContext;
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -23,7 +24,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             <h1
               style={{
                 marginTop: rhythm(1),
-                marginBottom: 0,
+                marginBottom: 0
               }}
             >
               {post.frontmatter.title}
@@ -32,16 +33,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               style={{
                 ...scale(-1 / 5),
                 display: `block`,
-                marginBottom: rhythm(1),
+                marginBottom: rhythm(1)
               }}
             >
               {post.frontmatter.date}
             </p>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section dangerouslySetInnerHTML={{ __html: post.html }}/>
           <hr
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: rhythm(1)
             }}
           />
         </article>
@@ -53,7 +54,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               flexWrap: `wrap`,
               justifyContent: `space-between`,
               listStyle: `none`,
-              padding: 0,
+              padding: 0
             }}
           >
             <li>
@@ -74,15 +75,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </nav>
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
 const Wrapper = styled.article`
   margin: 0 auto;
   max-width: ${rhythm(26)};
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
   & pre {
-    background: ${p => p.theme.dark};
+    background: rgb(var(--color-codeBlock));
     color: white;
     padding: 10px;
     border-radius: 8px;
@@ -90,7 +91,7 @@ const Wrapper = styled.article`
   }
 `;
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const query = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -110,4 +111,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

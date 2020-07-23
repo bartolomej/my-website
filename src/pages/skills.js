@@ -1,8 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
 import styled from "@emotion/styled";
-import skillsList from '../../content/skills/list.json'
-import { rhythm } from "../utils/typography";
+import skillsList from "../../content/skills/list.json";
 import { graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import SEO from "../components/seo";
@@ -17,36 +16,27 @@ function Skills ({ data, location }) {
         title="My Skills"
         description="A list of my skills and experiences."
       />
-      <Wrapper>
-        {skillsList.map(s => (
-          <SkillGroup id={s.id} key={s.title}>
-            <TextSide>
-              <h3>{s.title}</h3>
-              <div>{s.tools.map(key => <Tool toolKey={key}/>)}</div>
-              {s.description.map(txt => <p dangerouslySetInnerHTML={{__html: txt}}/>)}
-            </TextSide>
-            <ImageSide>
-              {data[s.id] && data[s.id].nodes.map((n, i) => (
-                <OuterImage i={i} l={data[s.id].nodes.length} key={i}>
-                  <InnerImage>
-                    <GatsbyImage fluid={n.childImageSharp.fluid}/>
-                  </InnerImage>
-                </OuterImage>
-              ))}
-            </ImageSide>
-          </SkillGroup>
-        ))}
-      </Wrapper>
+      {skillsList.map(s => (
+        <SkillGroup id={s.id} key={s.title}>
+          <TextSide>
+            <h3>{s.title}</h3>
+            <div>{s.tools.map(key => <Tool key={key} toolKey={key}/>)}</div>
+            {s.description.map((txt, i) => <p key={i} dangerouslySetInnerHTML={{ __html: txt }}/>)}
+          </TextSide>
+          <ImageSide>
+            {data[s.id] && data[s.id].nodes.map((n, i) => (
+              <OuterImage i={i} l={data[s.id].nodes.length} key={i}>
+                <InnerImage>
+                  <GatsbyImage fluid={n.childImageSharp.fluid}/>
+                </InnerImage>
+              </OuterImage>
+            ))}
+          </ImageSide>
+        </SkillGroup>
+      ))}
     </Layout>
-  )
+  );
 }
-
-const Wrapper = styled.div`
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
-  hr {
-    height: 2px;
-  }
-`;
 
 const SkillGroup = styled.article`
   display: flex;
@@ -61,6 +51,7 @@ const SkillGroup = styled.article`
   }
   @media (max-width: 900px) {
     flex-direction: column;
+    padding-bottom: 0;
     width: 100%;
   }
 `;

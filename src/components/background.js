@@ -1,19 +1,19 @@
 import React from "react";
 
 
-function Background ({ color = 'rgb(100,100,100)', spacing = 50, size = 10, animate = true, height }) {
+function Background ({ color = "rgb(100,100,100)", spacing = 50, size = 10, animate = true, height }) {
   const field = React.useRef();
   const ref = React.useRef();
 
   React.useEffect(() => {
-    ref.current.style.height = height ? `${height}px` : '100%';
-    ref.current.style.width = '100%';
+    ref.current.style.height = height ? `${height}px` : "100%";
+    ref.current.style.width = "100%";
     const f = new Field(ref.current, spacing, size, color, animate, height);
     f.init();
     field.current = f;
     return () => {
       f.destroy();
-    }
+    };
   }, [ref]);
 
   React.useEffect(() => {
@@ -22,12 +22,12 @@ function Background ({ color = 'rgb(100,100,100)', spacing = 50, size = 10, anim
     }
   }, [height]);
 
-  return <div id="background" ref={ref}/>
+  return <div id="background" ref={ref}/>;
 }
 
 class Field {
 
-  constructor (container, spacing = 50, size = 10, color = 'rgb(100,100,100)', animate) {
+  constructor (container, spacing = 50, size = 10, color = "rgb(100,100,100)", animate) {
     this.container = container;
     this.spacing = spacing;
     this.size = size;
@@ -59,12 +59,12 @@ class Field {
   }
 
   init () {
-    this.canvas = document.createElement('canvas');
+    this.canvas = document.createElement("canvas");
     this.canvas.height = this.container.clientHeight;
     this.canvas.width = this.container.clientWidth;
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext("2d");
     this.container.appendChild(this.canvas);
-    window.addEventListener('resize', this.onResize.bind(this));
+    window.addEventListener("resize", this.onResize.bind(this));
     if (this.animate) {
       this.animation = requestAnimationFrame(this.render.bind(this));
     } else {
@@ -82,7 +82,7 @@ class Field {
 
   destroy () {
     cancelAnimationFrame(this.animation);
-    window.removeEventListener('resize', this.onResize.bind(this));
+    window.removeEventListener("resize", this.onResize.bind(this));
     this.container.removeChild(this.canvas);
   }
 
@@ -110,8 +110,8 @@ class Field {
 
 function withOpacity (c, o) {
   const [r, g, b] = c
-    .substring(c.indexOf('(') + 1, c.indexOf(')'))
-    .split(',').map(e => parseInt(e.trim()))
+    .substring(c.indexOf("(") + 1, c.indexOf(")"))
+    .split(",").map(e => parseInt(e.trim()));
   return `rgba(${r}, ${g}, ${b}, ${o})`;
 }
 

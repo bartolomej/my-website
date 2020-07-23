@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import Layout from "../components/layout";
-import GatsbyImage from 'gatsby-image';
+import GatsbyImage from "gatsby-image";
 import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import { rhythm } from "../utils/typography";
@@ -23,7 +23,7 @@ function Gallery ({ data, location }) {
             <UseAnimations
               animationKey="plusToX"
               size={50}
-              style={{ transform: 'rotate(45deg)', color: 'white' }}
+              style={{ transform: "rotate(45deg)", color: "white" }}
             />
           </CloseButton>
           <FullImage fluid={open}/>
@@ -37,7 +37,7 @@ function Gallery ({ data, location }) {
         ))}
       </Wrapper>
     </Layout>
-  )
+  );
 }
 
 const Wrapper = styled.div`
@@ -47,7 +47,6 @@ const Wrapper = styled.div`
   justify-content: space-evenly;
   margin: 0 auto;
   max-width: ${rhythm(40)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
 `;
 
 const FullImageWrapper = styled.div`

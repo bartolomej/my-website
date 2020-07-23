@@ -1,10 +1,12 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
-import { opacity, ThemeContext, ThemeLayout } from "../utils/theme";
+import { ThemeContext } from "../utils/theme";
 import Navigation from "./navigation";
 import Background from "./background";
 import Footer from "./footer";
+import { rhythm } from "../utils/typography";
+import GlobalStyles from "../utils/styles";
 
 
 const Layout = ({ location, children }) => {
@@ -32,18 +34,18 @@ const Layout = ({ location, children }) => {
   const ref = React.useRef();
   const [height, setHeight] = React.useState(null);
 
-
   React.useEffect(() => {
     if (ref.current) {
-      setHeight(ref.current.clientHeight)
+      setHeight(ref.current.clientHeight);
     }
   }, [ref]);
 
   return (
     <ThemeContext.Consumer>
-      {theme => (
-        <ThemeLayout innerRef={ref} theme={theme}>
-          <Navigation theme={theme} location={location.pathname}/>
+      {() => (
+        <RootWrapper ref={ref}>
+          <GlobalStyles/>
+          <Navigation location={location.pathname}/>
           <Main>{children}</Main>
           <Footer
             social={data.site.siteMetadata.social}
@@ -56,15 +58,24 @@ const Layout = ({ location, children }) => {
               color={`rgb(149,138,177)`} size={5}
             />
           </CanvasContainer>
-        </ThemeLayout>
+        </RootWrapper>
       )}
     </ThemeContext.Consumer>
-  )
-}
+  );
+};
+
+const RootWrapper = styled.div`
+  background-color: rgb(var(--color-background));
+  transition: all 0.4s ease;
+  min-height: 100vh;
+`;
 
 const Main = styled.main`
-  min-height: 80vh;
-  padding-bottom: 80px;
+  min-height: 100vh;
+  padding: 9vh ${rhythm(3 / 4)};
+  @media (max-width: 700px) {
+    padding: 13vh ${rhythm(3 / 4)};
+  }
 `;
 
 const CanvasContainer = styled.div`
@@ -84,4 +95,4 @@ const CanvasContainer = styled.div`
   }
 `;
 
-export default Layout
+export default Layout;

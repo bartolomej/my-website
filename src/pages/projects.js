@@ -107,7 +107,7 @@ const TextWrapper = styled.div`
     margin-bottom: 1rem;
   }
   & > p > a {
-    color: rgb(var(--color-light));
+    color: rgb(var(--color-link));
   }
 `;
 

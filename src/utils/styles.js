@@ -12,6 +12,7 @@ function GlobalStyles () {
         }
         body {
           overflow: hidden;
+          background: var(--color-background);
         }
         button {
           border: none;

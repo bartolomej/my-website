@@ -51,13 +51,15 @@ const Layout = ({ location, children }) => {
             social={data.site.siteMetadata.social}
             author={data.site.siteMetadata.author}
           />
-          <CanvasContainer>
-            <Background
-              height={height}
-              animate={false}
-              color={`rgb(149,138,177)`} size={5}
-            />
-          </CanvasContainer>
+          {location.pathname !== '/' && (
+            <CanvasContainer>
+              <Background
+                height={height}
+                animate={false}
+                color={`rgb(149,138,177)`} size={5}
+              />
+            </CanvasContainer>
+          )}
         </RootWrapper>
       )}
     </ThemeContext.Consumer>
@@ -72,7 +74,7 @@ const RootWrapper = styled.div`
 
 const Main = styled.main`
   min-height: 100vh;
-  padding: 9vh ${rhythm(3 / 4)};
+  padding: 11vh ${rhythm(3 / 4)};
   @media (max-width: 700px) {
     padding: 13vh ${rhythm(3 / 4)};
   }

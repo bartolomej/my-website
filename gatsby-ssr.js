@@ -36,7 +36,6 @@ function setColorsByTheme () {
   root.style.setProperty(colorModeCssProp, colorMode);
 
   Object.entries(themes).forEach(([name, colorByTheme]) => {
-    console.log(colorByTheme);
     root.style.setProperty(`--color-${name}`, colorByTheme[colorMode]);
   });
   Object.entries(colors).forEach(([name, colorByTheme]) => {

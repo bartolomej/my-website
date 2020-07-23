@@ -6,6 +6,7 @@ export const COLORS = {
   dark: "16, 20, 25",
   darkish: "52, 52, 64",
   darkBlue: "87, 55, 138",
+  lightBlue: "51, 216, 208",
   red: "232, 74, 95",
   gold: "254, 206, 168",
   white: "255, 255, 255"

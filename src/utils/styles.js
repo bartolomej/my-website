@@ -10,9 +10,11 @@ function GlobalStyles () {
         * {
           z-index: 1;
         }
-        body {
+        body, body {
+          background: rgb(var(--color-background));
+          overscroll-behavior-y: none;
           overflow: hidden;
-          background: var(--color-background);
+          scroll-behavior: smooth;
         }
         button {
           border: none;

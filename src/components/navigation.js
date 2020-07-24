@@ -5,14 +5,12 @@ import moonIcon from "../assets/moon-icon.svg";
 import sunIcon from "../assets/sun-icon.svg";
 import { Link } from "gatsby";
 import UseAnimations from "react-useanimations";
-import { CSSTransition } from "react-transition-group";
 import mobile from "is-mobile";
 import logo from "../assets/logo.svg";
-import "../utils/animations.css";
 import { ThemeContext } from "../utils/theme";
 
 
-function Navigation ({ location }) {
+function Navigation ({ location, isTransparent = false }) {
   const [isOpen, setOpen] = React.useState(false);
   const { colorMode, setColorMode } = React.useContext(ThemeContext);
 
@@ -32,28 +30,27 @@ function Navigation ({ location }) {
     ) : null
   );
 
-  const Links = () => (
-    <LinkWrapper>
+  const Links = ({ isMobile }) => isMobile ? (
+    <MobileLinks>
       <PageLink loc={location} to="/projects">Projects</PageLink>
       <PageLink loc={location} to="/blog">Blog</PageLink>
       <PageLink loc={location} to="/skills">My Skills</PageLink>
       <PageLink loc={location} to="/gallery">Gallery</PageLink>
-      {!mobile() && <ThemeSwitchBtn/>}
-    </LinkWrapper>
+    </MobileLinks>
+  ) : (
+    <DesktopLinks>
+      <PageLink loc={location} to="/projects">Projects</PageLink>
+      <PageLink loc={location} to="/blog">Blog</PageLink>
+      <PageLink loc={location} to="/skills">My Skills</PageLink>
+      <PageLink loc={location} to="/gallery">Gallery</PageLink>
+      <ThemeSwitchBtn/>
+    </DesktopLinks>
   );
 
   return (
     <>
-      {mobile() && (
-        <CSSTransition
-          in={isOpen}
-          timeout={300}
-          unmountOnExit
-          classNames={"nav"}>
-          <Links/>
-        </CSSTransition>
-      )}
-      <Container navOpen={isOpen}>
+      {isOpen && <Links isMobile={true}/>}
+      <Container transparent={isTransparent} navOpen={isOpen}>
         <HomeLink loc={location} to="/">
           <Logo src={logo}/>
         </HomeLink>
@@ -61,9 +58,7 @@ function Navigation ({ location }) {
         <OpenButton onClick={() => setOpen(!isOpen)}>
           <UseAnimations animationKey="menu4" size={30}/>
         </OpenButton>
-        {!mobile() && (
-          <Links/>
-        )}
+        <Links isMobile={false}/>
       </Container>
     </>
   );
@@ -71,8 +66,8 @@ function Navigation ({ location }) {
 
 const Container = styled.nav`
   z-index: 2;
-  background: rgba(var(--color-background), 0.6);
-  backdrop-filter: blur(6px);
+  background: ${p => !p.transparent ? "rgba(var(--color-background), 0.6)" : ""};
+  backdrop-filter: ${p => !p.transparent ? "blur(6px);" : ""};
   position: fixed;
   top: 0;
   left: 0;
@@ -82,18 +77,18 @@ const Container = styled.nav`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  height: 8vh;
+  height: 7vh;
   padding: 0 20px;
   transition: 300ms all;
   @media (max-width: 700px) {
     padding: 0 10px;
-    height: 12vh;
+    height: 9vh;
     ${p => p.navOpen ? `backdrop-filter: none; background: none;` : ""};
   }
 `;
 
-const LinkWrapper = styled.div`
-  display: flex;
+const MobileLinks = styled.div`
+  display: none;
   @media (max-width: 700px) {
     display: flex;
     position: fixed;
@@ -108,6 +103,13 @@ const LinkWrapper = styled.div`
     backdrop-filter: blur(6px);
     background: rgba(var(--color-background), 0.6);
     padding: 80px 20px;
+  }
+`;
+
+const DesktopLinks = styled.div`
+  display: none;
+  @media (min-width: 700px) {
+    display: flex;
   }
 `;
 

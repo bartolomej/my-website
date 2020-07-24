@@ -40,18 +40,25 @@ const Layout = ({ location, children }) => {
     }
   }, [ref]);
 
+  const isHome = location.pathname === '/';
+
   return (
     <ThemeContext.Consumer>
       {() => (
-        <RootWrapper ref={ref}>
+        <RootWrapper isHome={isHome} ref={ref}>
           <GlobalStyles/>
-          <Navigation location={location.pathname}/>
-          <Main>{children}</Main>
-          <Footer
-            social={data.site.siteMetadata.social}
-            author={data.site.siteMetadata.author}
+          <Navigation
+            location={location.pathname}
+            isTransparent={isHome}
           />
-          {location.pathname !== '/' && (
+          <Main isHome={isHome}>{children}</Main>
+          {!isHome && (
+            <Footer
+              social={data.site.siteMetadata.social}
+              author={data.site.siteMetadata.author}
+            />
+          )}
+          {!isHome && (
             <CanvasContainer>
               <Background
                 height={height}
@@ -67,16 +74,16 @@ const Layout = ({ location, children }) => {
 };
 
 const RootWrapper = styled.div`
+  overflow: ${p => p.isHome ? 'hidden' : 'inherit'};
   background-color: rgb(var(--color-background));
   transition: all 0.4s ease;
-  min-height: 100vh;
 `;
 
 const Main = styled.main`
-  min-height: 100vh;
-  padding: 11vh ${rhythm(3 / 4)};
+  padding: ${p => p.isHome ? '' : `13vh ${rhythm(3 / 4)}`};
+  min-height: ${p => !p.isHome ? '100vh' : ''};
   @media (max-width: 700px) {
-    padding: 13vh ${rhythm(3 / 4)};
+    padding: 15vh ${rhythm(3 / 4)};
   }
 `;
 

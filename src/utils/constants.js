@@ -34,8 +34,8 @@ export const THEMES = {
     dark: COLORS.gold
   },
   linkHover: {
-    light: COLORS.gold,
-    dark: COLORS.almond
+    light: COLORS.lightBlue,
+    dark: COLORS.lightBlue
   },
   codeBlock: {
     light: COLORS.dark,

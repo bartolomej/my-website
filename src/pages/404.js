@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import styled from "@emotion/styled";
 
 
 const NotFoundPage = ({ data, location }) => {
@@ -11,11 +12,20 @@ const NotFoundPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="404: Not Found"/>
-      <h1>Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <TextWrapper>
+        <h1>Not Found</h1>
+        <p>You just hit a route that doesn't exist... the sadness.</p>
+      </TextWrapper>
     </Layout>
   );
 };
+
+const TextWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 export default NotFoundPage;
 

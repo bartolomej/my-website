@@ -81,7 +81,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 const Wrapper = styled.article`
   margin: 0 auto;
   max-width: ${rhythm(26)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
   & pre {
     background: rgb(var(--color-codeBlock));
     color: white;

@@ -4,13 +4,15 @@ import { ImprovedNoise } from "three/examples/jsm/math/ImprovedNoise";
 
 
 function Animation ({
-  noiseStepFactor = 0.1,
+  noiseStepFactor = 0.04,
   noiseScaleFactor = 20,
-  pathLength = 300,
+  pathLength = 200,
   startRadius = 42,
   radiusStep = 2,
-  nCircles = 50,
+  nCircles = 60,
   startHue = 0,
+  luminosity = 50,
+  saturation = 60,
   hueFactor = 1,
   cameraZ = 150
 }) {
@@ -33,6 +35,8 @@ function Animation ({
         nCircles,
         startHue,
         hueFactor,
+        luminosity,
+        saturation,
         cameraZ
       });
       animRef.current.init();
@@ -46,9 +50,10 @@ function Animation ({
     if (animRef.current) {
       animRef.current.startHue = startHue;
       animRef.current.hueFactor = hueFactor;
+      animRef.current.luminosity = luminosity;
       animRef.current.updateColors();
     }
-  }, [startHue, hueFactor]);
+  }, [startHue, hueFactor, luminosity]);
 
   return <canvas ref={domRef}/>;
 }
@@ -65,6 +70,8 @@ class ThreeAnim {
     nCircles,
     startHue,
     hueFactor,
+    luminosity,
+    saturation,
     cameraZ
   }) {
     this.canvas = canvas;
@@ -75,6 +82,8 @@ class ThreeAnim {
     this.radiusStep = radiusStep;
     this.nCircles = nCircles;
     this.startHue = startHue;
+    this.luminosity = luminosity;
+    this.saturation = saturation;
     this.hueFactor = hueFactor;
     this.cameraZ = cameraZ;
   }
@@ -95,7 +104,40 @@ class ThreeAnim {
   }
 
   _registerListeners () {
-    window.addEventListener("resize", () => this._resize());
+    window.addEventListener("resize", this._resize.bind(this));
+    window.addEventListener("mousemove", this._trackMouse.bind(this));
+    window.addEventListener("touchmove", this._trackMouse.bind(this));
+    window.addEventListener("touchstart", this._trackMouse.bind(this));
+  }
+
+  _trackMouse (e) {
+    // calculate max diagonal distance
+    const maxDist = Math.sqrt(
+      this.canvas.clientWidth ** 2 +
+      this.canvas.clientHeight ** 2
+    ) / 2;
+    const center = {
+      x: this.canvas.clientWidth / 2,
+      y: this.canvas.clientHeight / 2
+    };
+    const pos = {
+      x: e instanceof TouchEvent ? e.touches[0].clientX : e.clientX,
+      y: e instanceof TouchEvent ? e.touches[0].clientY : e.clientY,
+    }
+    const factor = (Math.sqrt(
+      (pos.x - center.x) ** 2 +
+      (pos.y - center.y) ** 2
+    ) / maxDist);
+    const diff = {
+      x: (pos.x - center.x) / center.x,
+      y: (pos.y - center.y) / center.y
+    }
+
+    this.hueFactor = factor * 4;
+    this.camera.position.set(-diff.x * 5, diff.y * 5, this.cameraZ);
+    this.camera.fov = 50 + (factor * 55);
+    this.camera.updateProjectionMatrix();
+    this.updateColors();
   }
 
   _resize () {
@@ -145,7 +187,9 @@ class ThreeAnim {
   updateColors () {
     for (let i = 0; i < this.scene.children.length; i++) {
       this.scene.children[i].material.setValues({
-        color: new THREE.Color(`hsl(${(i + this.startHue) * this.hueFactor}, 100%, 50%)`)
+        color: new THREE.Color(
+          `hsl(${(i * this.hueFactor) + this.startHue}, ${this.saturation}%, ${this.luminosity}%)`
+        )
       });
     }
   }
@@ -162,7 +206,9 @@ class ThreeAnim {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.BufferAttribute(pathArray, 3));
     const material = new THREE.LineBasicMaterial({
-      color: new THREE.Color(`hsl(${(i / 3 + this.startHue) * this.hueFactor}, 100%, 50%)`)
+      color: new THREE.Color(
+        `hsl(${(i / 3 + this.startHue) * this.hueFactor}, ${this.saturation}%, ${this.luminosity}%)`
+      )
     });
     return new THREE.Line(geometry, material);
   }

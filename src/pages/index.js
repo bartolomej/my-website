@@ -23,8 +23,10 @@ function Index ({ location }) {
       <AnimWrapper>
         <Animation
           startRadius={isMobile() ? 1 : 42}
-          hueFactor={colorMode === 'light' ? 3 : 5}
-          startHue={320}
+          nCircles={isMobile() ? 45 : 60}
+          pathLength={isMobile() ? 200 : 350}
+          luminosity={colorMode === 'light' ? 20 : 50}
+          startHue={177}
         />
       </AnimWrapper>
     </Layout>
@@ -34,15 +36,24 @@ function Index ({ location }) {
 const Header = styled.header`
   margin: 0 auto;
   text-align: center;
-  max-width: ${rhythm(20)};
+  max-width: ${rhythm(18)};
   position: absolute;
   z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 50%;
+  height: 500px;
+  display: flex;
+  width: 500px;
+  backdrop-filter: blur(3px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   @media (max-width: 700px) {
     width: 90vw;
-    text-align: left;
+    display: flex;
+    backdrop-filter: none;
   }
 `;
 
@@ -63,8 +74,21 @@ const AnimWrapper = styled.div`
   }
 `;
 
-const Emoji = styled.div`
-  font-size: 2.2em;
+const Emoji = styled.span`
+  font-size: 2.5em;
+  display: inline-block;
+  animation: wave 2s infinite forwards;
+  transform-origin: bottom center;
+  @keyframes wave {
+    0% { transform: rotate(0deg) }
+    20% { transform: rotate(-15deg) }
+    40% { transform: rotate(13deg) }
+    60% { transform: rotate(-10deg) }
+    70% { transform: rotate(8) }
+    80% { transform: rotate(-5) }
+    90% { transform: rotate(3) }
+    100% { transform: rotate(0) }
+  }
 `;
 
 const Title = styled.h1`
@@ -77,7 +101,11 @@ const Title = styled.h1`
 `;
 
 const Description = styled.p`
-  font-size: 1rem;
+  font-size: 1.2rem;
+  width: 70%;
+  @media (max-width: 700px) {
+    width: unset;
+  }
 `;
 
 export default Index;

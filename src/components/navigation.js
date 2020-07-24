@@ -52,7 +52,7 @@ function Navigation ({ location, isTransparent = false }) {
       {isOpen && <Links isMobile={true}/>}
       <Container transparent={isTransparent} navOpen={isOpen}>
         <HomeLink loc={location} to="/">
-          <Logo src={logo}/>
+          <Logo alt="logo" src={logo}/>
         </HomeLink>
         {mobile() && <ThemeSwitchBtn/>}
         <OpenButton onClick={() => setOpen(!isOpen)}>

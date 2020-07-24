@@ -6,6 +6,7 @@ import SEO from "../components/seo";
 import { rhythm, scale } from "../utils/typography";
 import styled from "@emotion/styled";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import "katex/dist/katex.min.css";
 
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {

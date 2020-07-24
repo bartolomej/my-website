@@ -15,7 +15,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO
         banner="blog-banner.png"
-        title="Blog"
+        title="My Blog"
         description="These are my blog posts in the making."
       />
       {posts.map(({ node }) => {

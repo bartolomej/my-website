@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
 
-const SEO = ({ description, lang, meta, title, banner = 'website-banner.png' }) => {
+const SEO = ({ description, lang = 'en', meta, title, banner = 'website-banner.png', isBlogPost = false }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -27,57 +27,36 @@ const SEO = ({ description, lang, meta, title, banner = 'website-banner.png' }) 
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const url = site.siteMetadata.siteUrl;
+  const image = `${site.siteMetadata.siteUrl}/${banner}`;
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang
-      }}
+      htmlAttributes={{ lang }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription
-        },
-        {
-          property: `og:title`,
-          content: title
-        },
-        {
-          property: `og:description`,
-          content: metaDescription
-        },
-        {
-          property: `og:type`,
-          content: `website`
-        },
-        {
-          property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}/${banner}`
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter
-        },
-        {
-          name: `twitter:title`,
-          content: title
-        },
-        {
-          name: `twitter:image`,
-          content: `${site.siteMetadata.siteUrl}/${banner}`
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription
-        }
-      ].concat(meta)}
-    >
+      titleTemplate={`%s | ${site.siteMetadata.title}`}>
+
+      {/* General tags */}
+      <title>{title}</title>
+      <meta name="description" content={metaDescription} />
+      <meta name="image" content={image} />
+      <link rel="canonical" href={url} />
+
+      {/* OpenGraph tags */}
+      <meta property="og:url" content={url} />
+      {isBlogPost ? <meta property="og:type" content="article" /> : null}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={image} />
+
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content={site.siteMetadata.social.twitter} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={image} />
+
+      {/* Structured data and google site verification */}
       <meta name="google-site-verification" content="RwRuJzajY31jPYG0gLcRsgtxLOXOJbpG833_Dcw_XWM"/>
       <script type="application/ld+json">{JSON.stringify({
         "@context": site.siteMetadata.siteUrl,

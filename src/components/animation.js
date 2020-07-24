@@ -186,9 +186,11 @@ class ThreeAnim {
 
   updateColors () {
     for (let i = 0; i < this.scene.children.length; i++) {
+      const hue = (i * this.hueFactor) + this.startHue;
+      if (!Number.isFinite(hue) || Number.isNaN(hue)) continue;
       this.scene.children[i].material.setValues({
         color: new THREE.Color(
-          `hsl(${(i * this.hueFactor) + this.startHue}, ${this.saturation}%, ${this.luminosity}%)`
+          `hsl(${hue}, ${this.saturation}%, ${this.luminosity}%)`
         )
       });
     }

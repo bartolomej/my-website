@@ -83,7 +83,7 @@ const Main = styled.main`
   padding: ${p => p.isHome ? '' : `13vh ${rhythm(3 / 4)}`};
   min-height: ${p => !p.isHome ? '100vh' : ''};
   @media (max-width: 700px) {
-    padding: 15vh ${rhythm(3 / 4)};
+    padding: ${p => p.isHome ? '' : `15vh ${rhythm(3 / 4)};`};
   }
 `;
 

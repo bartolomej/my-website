@@ -9,11 +9,15 @@ import styled from "@emotion/styled";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allMdx.edges;
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts"/>
+      <SEO
+        banner="blog-banner.png"
+        title="Blog"
+        description="These are my blog posts in the making."
+      />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
@@ -59,7 +63,7 @@ export const query = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt

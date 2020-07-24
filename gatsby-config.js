@@ -26,6 +26,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-mdx`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

@@ -13,6 +13,7 @@ function Skills ({ data, location }) {
   return (
     <Layout location={location}>
       <SEO
+        banner="skills-banner.png"
         title="My Skills"
         description="A list of my skills and experiences."
       />

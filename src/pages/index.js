@@ -14,7 +14,10 @@ function Index ({ location }) {
 
   return (
     <Layout location={location}>
-      <SEO title={"Home"}/>
+      <SEO
+        title={"Home"}
+        banner={'website-banner.png'}
+      />
       <Header>
         <Emoji>👋</Emoji>
         <Title>{text.title}</Title>

@@ -21,6 +21,7 @@ function Projects ({ data, location }) {
   return (
     <Layout location={location}>
       <SEO
+        banner="projects-banner.png"
         title="My Projects"
         description="A place where I showcase some of my finest projects."
       />

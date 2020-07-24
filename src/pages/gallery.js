@@ -14,6 +14,7 @@ function Gallery ({ data, location }) {
   return (
     <Layout location={location}>
       <SEO
+        banner="gallery-banner.png"
         title="My Photo Gallery"
         description="A place where I keep some of my finest photos that I've taken or generated."
       />

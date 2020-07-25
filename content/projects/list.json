@@ -1,6 +1,6 @@
 [
   {
-    "title": "Generative Art 🎨",
+    "title": "Generative Art",
     "image": "generative-art.png",
     "date": "July 2020",
     "description": "A collection of my little generative art experiments. They are not much for now, but I really enjoy making them.",
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "title": "AwesomeSearch 🔍",
+    "title": "AwesomeSearch",
     "image": "awesomesearch.png",
     "date": "June 2020",
     "description": "This is a search engine for the awesome lists. I build it for the final high school project, because I wished there was a user friendly and visually oriented search for this awesome collection.",
@@ -43,7 +43,7 @@
     ]
   },
   {
-    "title": "My Second Website 👨‍💻",
+    "title": "My Website 2020",
     "image": "my-website-2020-v1.png",
     "date": "June 2020",
     "description": "The second personal website that I planned to be the website for 2020, but I decided to completely rebuild in <a href=\"https://www.gatsbyjs.org/\">Gatsby.js</a> it after a month, because I wasn't satisfied with the performance.",
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "title": "Translator Agency 🌍",
+    "title": "Translator Agency",
     "image": "translator.png",
     "date": "March 2020",
     "description": "Landing website that I build for a local translational agency. This is actually my first website that I build professionally for a client.",
@@ -82,7 +82,7 @@
     ]
   },
   {
-    "title": "Planet System 🌍",
+    "title": "Planet System",
     "image": "planet-simulation.png",
     "date": "January 2020",
     "description": "A simple web based planet system simulation. Draws paths of planets and their velocity + acceleration vectors.",
@@ -99,7 +99,7 @@
     ]
   },
   {
-    "title": "Path Finding 🌍",
+    "title": "Path Finding",
     "image": "graph-algorithms.png",
     "date": "February 2020",
     "description": "A simple web based visualization of path finding algorithm. Allows you to generate a maze with backtrack algorithm and solve it with breath first search. Made for a school project.",
@@ -119,7 +119,7 @@
     ]
   },
   {
-    "title": "Complex Set Art ♾",
+    "title": "Complex Set Art",
     "image": "complex-set-art.png",
     "date": "January 2020",
     "description": "Fractal graphics rendering program written in Go. This was very fun playing around when I made this in high school. Got some ecstatically pleasing results too.",
@@ -134,7 +134,7 @@
     ]
   },
   {
-    "title": "My First Website 👨‍💻",
+    "title": "My Website 2019",
     "image": "my-website-2019.png",
     "date": "December 2019",
     "description": "My first portfolio website that I built for myself back in 2019. There I host all of my older projects and 2 experimental blog posts.",
@@ -154,7 +154,7 @@
     ]
   },
   {
-    "title": "Wikipedia Network 📚",
+    "title": "Wikipedia Network",
     "image": "wiki-network.png",
     "date": "November 2019",
     "description": "A graph based visualization of related pages on <a href=\"https://www.wikipedia.org/\">Wikipedia</a>. Project was inspired by a similar visualization called <a href=\"https://xefer.com/2011/05/wikipedia\">\"All roads lead to Philosophy\"</a>.",
@@ -176,7 +176,7 @@
     ]
   },
   {
-    "title": "Modulo Arithmetics ➗",
+    "title": "Modulo Arithmetics",
     "image": "modulo-arithmetics.png",
     "date": "October 2019",
     "description": "Visualization of patterns that emerge when computing a modulo of a changing number. Inspired by <a href=\"https://www.youtube.com/watch?v=qhbuKbxJsk8\">Mathologer video</a>.",
@@ -193,7 +193,7 @@
     ]
   },
   {
-    "title": "Julia Set ♾",
+    "title": "Julia Set",
     "image": "julia-set.png",
     "date": "September 2019",
     "description": "Simple web based visualization of julia set. Try changing the hyper parameter <i>C</i> and observe how the set changes.",

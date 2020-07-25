@@ -21,21 +21,24 @@ function Projects ({ data, location }) {
   return (
     <Layout location={location}>
       <SEO
+        path={location.pathname}
         banner="projects-banner.png"
         title="My Projects"
         description="A place where I showcase some of my finest projects."
       />
-      <Wrapper>
+      <h1>My Projects</h1>
+      <ProjectsList>
         {projectsList.map((p, i) => (
           <ProjectItem mod2={i % 2 === 0} key={p.title}>
             <TextWrapper mod2={i % 2 === 0}>
-              <h3>{p.title}</h3>
+              <h2>{p.title}</h2>
               <span>{p.date}</span>
               <TagWrapper>
                 {p.tags.map(t => (
                   <Tag
                     key={t}
                     mod2={i % 2 === 0}
+                    rel="noreferrer"
                     target="_blank"
                     href={`https://github.com/topics/${t}`}>{t}</Tag>
                 ))}
@@ -58,12 +61,12 @@ function Projects ({ data, location }) {
         <GHLink target="_blank" href={`https://github.com/${data.site.siteMetadata.social.github}`}>
           Visit my Github profile to view more projects 😃
         </GHLink>
-      </Wrapper>
+      </ProjectsList>
     </Layout>
   );
 }
 
-const Wrapper = styled.div`
+const ProjectsList = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -124,15 +127,15 @@ const Tag = styled.a`
   border-radius: 2em;
   padding: 0 10px;
   line-height: 22px;
-  color: rgb(var(--color-red));
+  color: rgb(var(--color-tags));
   margin-right: ${p => !p.mod2 ? "5px" : "0"};
   margin-left: ${p => p.mod2 ? "5px" : "0"};
-  background: rgba(var(--color-red), 0.2);
+  background: rgba(var(--color-tags), 0.2);
   backdrop-filter: opacity(0.6);
   transition: 0.2s ease-in all;
   box-shadow: none !important;
   &:hover {
-    background: rgba(var(--color-red), 0.8);
+    background: rgba(var(--color-tags), 0.8);
     color: rgb(var(--color-white));
   }
 `;
@@ -141,14 +144,14 @@ const LinkBtn = styled.a`
   padding: 8px 15px;
   border-radius: 5px;
   transition: 0.2s ease-in all;
-  border: 2px solid rgb(var(--color-red));
-  box-shadow: inset 0px -0px rgb(var(--color-red));
-  color: rgb(var(--color-red));
+  border: 2px solid rgb(var(--color-button));
+  box-shadow: inset 0px -0px rgb(var(--color-button));
+  color: rgb(var(--color-button));
   margin-right: ${p => !p.mod2 ? "10px" : "0"};
   margin-left: ${p => p.mod2 ? "10px" : "0"};
   &:hover {
-      box-shadow: inset 0px -50px rgb(var(--color-red));
-      color: rgb(var(--color-white));
+      box-shadow: inset 0px -50px rgb(var(--color-button));
+      color: rgb(var(--color-buttonTextHover));
   }
   &:active {
     transform: scale(1.05);

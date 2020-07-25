@@ -4,7 +4,14 @@ import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
 
-const SEO = ({ description, lang = 'en', meta, title, banner = 'website-banner.png', isBlogPost = false }) => {
+const SEO = ({
+  description,
+  lang = 'en',
+  path,
+  title,
+  banner = 'website-banner.png',
+  isBlogPost = false,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -40,19 +47,22 @@ const SEO = ({ description, lang = 'en', meta, title, banner = 'website-banner.p
       <title>{title}</title>
       <meta name="description" content={metaDescription} />
       <meta name="image" content={image} />
-      <link rel="canonical" href={url} />
+      <meta name="author" content={site.siteMetadata.author.name} />
+      <link rel="canonical" href={`${url}${path}`} />
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={url} />
-      {isBlogPost ? <meta property="og:type" content="article" /> : null}
-      <meta property="og:title" content={title} />
+      <meta property="og:url" content={`${url}${path}`} />
+      <meta property="og:title" content={`${title} | ${site.siteMetadata.title}`} />
+      <meta property="og:site_name" content={site.siteMetadata.title} />
+      <meta property="og:type" content={isBlogPost ? 'article' : 'website'} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:secure_url" content={image} />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={site.siteMetadata.social.twitter} />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={`${title} | ${site.siteMetadata.title}`} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={image} />
 

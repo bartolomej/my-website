@@ -11,24 +11,35 @@ import { ThemeContext } from "../utils/theme";
 
 function Index ({ location }) {
   const { colorMode } = React.useContext(ThemeContext);
+  const titleRef = React.useRef();
 
   return (
     <Layout location={location}>
       <SEO
+        path={location.pathname}
         title={"Home"}
-        banner={'website-banner.png'}
+        banner={"website-banner.png"}
       />
       <Header>
         <Emoji>👋</Emoji>
-        <Title>{text.title}</Title>
+        <Title ref={titleRef}>{text.title}</Title>
         <Description>{text.description}</Description>
       </Header>
       <AnimWrapper>
         <Animation
-          startRadius={isMobile() ? 1 : 42}
-          nCircles={isMobile() ? 45 : 60}
-          pathLength={isMobile() ? 200 : 350}
-          luminosity={colorMode === 'light' ? 20 : 50}
+          startRadius={isMobile() ? 1 : 50}
+          radiusStep={isMobile() ? 5 : 3}
+          nCircles={isMobile() ? 25 : 45}
+          pathLength={200}
+          luminosity={colorMode === "light" ? 20 : 50}
+          onMouseMove={o => {
+            if (!titleRef.current) return;
+            // update title text shadow
+            // reuse values for performance benefits
+            const abs = Math.sqrt(o.x ** 2 + o.y ** 2);
+            titleRef.current.style.textShadow =
+              `${(o.x / abs) * 5}px ${(o.y / abs) * 5}px 1px rgb(var(--color-headingShadow))`;
+          }}
           startHue={177}
         />
       </AnimWrapper>
@@ -69,9 +80,10 @@ const AnimWrapper = styled.div`
   right: 0;
   z-index: 0;
   & canvas {
-    animation: 1s ease-in intro forwards;
+    animation-delay: 500ms;
+    animation: 2s ease-in animIntro forwards;
   }
-  @keyframes intro {
+  @keyframes animIntro {
     0% { opacity: 0 }
     100% { opacity: 0.8 }
   }
@@ -95,9 +107,9 @@ const Emoji = styled.span`
 `;
 
 const Title = styled.h1`
-  margin-top: 5px;
+  margin: 5px 0 30px 0;
   font-size: 3rem;
-  text-shadow: 3px 3px 1px rgb(var(--color-lightBlue));
+  transition: 50ms text-shadow ease-in-out;
   @media (max-width: 700px) {
     font-size: 2.2rem;
   }

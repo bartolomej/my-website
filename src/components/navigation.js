@@ -22,10 +22,11 @@ function Navigation ({ location, isTransparent = false }) {
         checked={colorMode === "dark"}
         onColor="#222"
         offColor="#333"
-        checkedIcon={<img src={moonIcon} alt="moon icon"/>}
-        uncheckedIcon={<img src={sunIcon} alt="sun icon"/>}
+        checkedIcon={<img src={moonIcon} alt="Dark mode icon"/>}
+        uncheckedIcon={<img src={sunIcon} alt="Light mode icon"/>}
         boxShadow="0 0 2px 3px #B38CD9"
         activeBoxShadow="0 0 2px 3px #dfb3e6"
+        aria-label="Color mode"
       />
     ) : null
   );
@@ -46,7 +47,6 @@ function Navigation ({ location, isTransparent = false }) {
       <ThemeSwitchBtn/>
     </DesktopLinks>
   );
-
   return (
     <>
       {isOpen && <Links isMobile={true}/>}
@@ -55,7 +55,13 @@ function Navigation ({ location, isTransparent = false }) {
           <Logo alt="logo" src={logo}/>
         </HomeLink>
         {mobile() && <ThemeSwitchBtn/>}
-        <OpenButton onClick={() => setOpen(!isOpen)}>
+        <OpenButton
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls="id-gkk1cs"
+          aria-haspopup="dialog"
+          aria-label="Toggle menu"
+          onClick={() => setOpen(!isOpen)}>
           <UseAnimations animationKey="menu4" size={30}/>
         </OpenButton>
         <Links isMobile={false}/>
@@ -140,7 +146,7 @@ const HomeLink = styled(Link)`
 const PageLink = styled(Link)`
   margin-left: ${p => p.to !== "/" ? "20px" : ""};
   margin-right: ${p => p.to === "/gallery" ? "20px" : ""};
-  ${p => !new RegExp(p.to).test(p.loc) ? `box-shadow: none;` : ""};
+  ${p => !new RegExp(p.to).test(p.loc) ? `box-shadow: none;` : `color: rgb(var(--color-navLinkActive))`};
   @media (max-width: 700px) {
     padding: 20px 0;
     margin: 0 20px;

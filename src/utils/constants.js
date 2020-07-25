@@ -1,37 +1,53 @@
-// LIGHT THEME: https://coolors.co/343440-e84a5f-fecea8-f5f7fb
-
 export const COLORS = {
-  light: "245, 247, 251",
-  almond: "224, 211, 200",
-  dark: "16, 20, 25",
-  darkish: "52, 52, 64",
-  darkBlue: "87, 55, 138",
-  lightBlue: "51, 216, 208",
   red: "232, 74, 95",
-  gold: "254, 206, 168",
-  white: "255, 255, 255"
+  white: "255, 255, 255",
+  light: "245, 247, 251",
+  dark: "16, 20, 25",
+  darkish: "83, 83, 101",
+  gunMetal: "34, 41, 51",
+  lightBlue: "173, 189, 218",
 };
 
 export const THEMES = {
-  headingText: {
+  heading: {
     light: COLORS.red,
     dark: COLORS.red
   },
+  headingShadow: {
+    light: COLORS.darkish,
+    dark: COLORS.white
+  },
   bodyText: {
     light: COLORS.darkish,
-    dark: COLORS.almond
+    dark: COLORS.lightBlue
   },
   background: {
     light: COLORS.light,
     dark: COLORS.dark
   },
+  tags: {
+    light: COLORS.dark,
+    dark: COLORS.white
+  },
+  button: {
+    light: COLORS.dark,
+    dark: COLORS.white
+  },
+  buttonTextHover: {
+    light: COLORS.white,
+    dark: COLORS.dark
+  },
   navLink: {
+    light: COLORS.darkish,
+    dark: COLORS.lightBlue
+  },
+  navLinkActive: {
     light: COLORS.red,
-    dark: COLORS.red
+    dark: COLORS.white
   },
   link: {
-    light: COLORS.darkBlue,
-    dark: COLORS.gold
+    light: COLORS.dark,
+    dark: COLORS.white
   },
   linkHover: {
     light: COLORS.lightBlue,
@@ -39,7 +55,7 @@ export const THEMES = {
   },
   codeBlock: {
     light: COLORS.dark,
-    dark: COLORS.dark
+    dark: COLORS.gunMetal
   }
 };
 

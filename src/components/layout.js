@@ -75,8 +75,6 @@ const Layout = ({ location, children }) => {
 
 const RootWrapper = styled.div`
   overflow: ${p => p.isHome ? 'hidden' : 'inherit'};
-  background-color: rgb(var(--color-background));
-  transition: all 0.4s ease;
 `;
 
 const Main = styled.main`
@@ -89,7 +87,7 @@ const Main = styled.main`
 
 const CanvasContainer = styled.div`
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   top: 0;
   bottom: 0;
   left: 0;

@@ -10,16 +10,28 @@ function Footer ({ author, social }) {
     <Container>
       <Inner>
         <SocialWrapper>
-          <SocialLink href={`https://github.com/${social.github}`} target="_blank">
+          <SocialLink
+            title="My Github profile"
+            href={`https://github.com/${social.github}`}
+            target="_blank">
             <UseAnimations animationKey='github' size={30}/>
           </SocialLink>
-          <SocialLink href={`https://instagram.com/${social.instagram}`} target="_blank">
+          <SocialLink
+            title="My Instagram profile"
+            href={`https://instagram.com/${social.instagram}`}
+            target="_blank">
             <UseAnimations animationKey='instagram' size={30}/>
           </SocialLink>
-          <SocialLink href={`https://linkedin.com/in/${social.linkedIn}`} target="_blank">
+          <SocialLink
+            title="My LinkedIn profile"
+            href={`https://linkedin.com/in/${social.linkedIn}`}
+            target="_blank">
             <UseAnimations animationKey='linkedin' size={30}/>
           </SocialLink>
-          <SocialLink href={`https://twitter.com/${social.twitter}`} target="_blank">
+          <SocialLink
+            title="My Twitter profile"
+            href={`https://twitter.com/${social.twitter}`}
+            target="_blank">
             <UseAnimations animationKey='twitter' size={30}/>
           </SocialLink>
         </SocialWrapper>

@@ -3,10 +3,9 @@ import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { rhythm, scale } from "../utils/typography";
+import { rhythm } from "../utils/typography";
 import styled from "@emotion/styled";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import "katex/dist/katex.min.css";
 
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -17,38 +16,24 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        banner={post.frontmatter.banner || 'website-banner.png'}
+        isBlogPost={true}
+        banner={post.frontmatter.banner || "website-banner.png"}
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
       <Wrapper>
-        <article>
-          <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1)
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
-          </header>
+        <Article>
+          <Header>
+            <h1>{post.frontmatter.title}</h1>
+            <p>{post.frontmatter.date}</p>
+            <img
+              alt="Blog post banner image"
+              src={`/${post.frontmatter.banner}`}
+            />
+          </Header>
           <MDXRenderer>{post.body}</MDXRenderer>
-          <hr
-            style={{
-              marginBottom: rhythm(1)
-            }}
-          />
-        </article>
+          <hr/>
+        </Article>
 
         <nav>
           <ul
@@ -81,15 +66,33 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   );
 };
 
-const Wrapper = styled.article`
+const Header = styled.header`
+  margin-bottom: 80px;
+  text-align: center;
+  & h1 {
+    margin-bottom: 20px;
+  }
+  & img {
+    border-radius: 8px;
+  }
+`;
+
+const Wrapper = styled.div`
   margin: 0 auto;
   max-width: ${rhythm(26)};
+`;
+
+const Article = styled.article`
+  backdrop-filter: blur(4px);
+  & hr {
+     margin-bottom: 10px;
+  }
   & pre {
-    background: rgb(var(--color-codeBlock));
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    overflow-x: scroll;
+     background: rgb(var(--color-codeBlock));
+     color: white;
+     padding: 10px;
+     border-radius: 8px;
+     overflow-x: scroll;
   }
 `;
 
@@ -110,6 +113,7 @@ export const query = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        banner
       }
     }
   }

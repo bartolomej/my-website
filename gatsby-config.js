@@ -62,6 +62,16 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: {
+                tsx: 'tsx',
+              },
+              aliases: {},
+            },
+          },
+          {
             resolve: `gatsby-remark-katex`,
             options: {
               // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here

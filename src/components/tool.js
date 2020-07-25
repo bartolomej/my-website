@@ -73,8 +73,8 @@ function Tool ({ toolKey }) {
   }
 
   return (
-    <Link href={t.url} target="_blank">
-      <Image alt={"Tool"} src={t.image}/>
+    <Link href={t.url} target="_blank" rel="noreferrer">
+      <Image alt={`${toolKey} logo`} src={t.image}/>
     </Link>
   );
 }

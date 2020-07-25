@@ -6,7 +6,7 @@ import { ImprovedNoise } from "three/examples/jsm/math/ImprovedNoise";
 function Animation ({
   noiseStepFactor = 0.04,
   noiseScaleFactor = 20,
-  pathLength = 200,
+  pathLength = 100,
   startRadius = 42,
   radiusStep = 2,
   nCircles = 60,
@@ -14,7 +14,8 @@ function Animation ({
   luminosity = 50,
   saturation = 60,
   hueFactor = 1,
-  cameraZ = 150
+  cameraZ = 150,
+  onMouseMove
 }) {
   const domRef = React.useRef();
   const animRef = React.useRef();
@@ -37,7 +38,8 @@ function Animation ({
         hueFactor,
         luminosity,
         saturation,
-        cameraZ
+        cameraZ,
+        onMouseMove
       });
       animRef.current.init();
     }
@@ -72,7 +74,8 @@ class ThreeAnim {
     hueFactor,
     luminosity,
     saturation,
-    cameraZ
+    cameraZ,
+    onMouseMove
   }) {
     this.canvas = canvas;
     this.noiseStepFactor = noiseStepFactor;
@@ -86,6 +89,8 @@ class ThreeAnim {
     this.saturation = saturation;
     this.hueFactor = hueFactor;
     this.cameraZ = cameraZ;
+    this.onMouseMove = onMouseMove;
+    this.animationFrameId = null;
   }
 
   init () {
@@ -100,7 +105,7 @@ class ThreeAnim {
       const c = this._initCircle(this.startRadius + i * this.radiusStep, 0);
       this.scene.add(c);
     }
-    this._render();
+    this.animationFrameId = requestAnimationFrame(this._render.bind(this));
   }
 
   _registerListeners () {
@@ -132,9 +137,10 @@ class ThreeAnim {
       x: (pos.x - center.x) / center.x,
       y: (pos.y - center.y) / center.y
     }
-
+    if (typeof this.onMouseMove === "function") {
+      this.onMouseMove(diff);
+    }
     this.hueFactor = factor * 4;
-    this.camera.position.set(-diff.x * 5, diff.y * 5, this.cameraZ);
     this.camera.fov = 50 + (factor * 55);
     this.camera.updateProjectionMatrix();
     this.updateColors();
@@ -148,6 +154,8 @@ class ThreeAnim {
   }
 
   dispose () {
+    console.log('disposing')
+    cancelAnimationFrame(this.animationFrameId);
     this.renderer.dispose();
   }
 
@@ -229,7 +237,7 @@ class ThreeAnim {
       }
     }
     this.renderer.render(this.scene, this.camera);
-    requestAnimationFrame(this._render.bind(this));
+    this.animationFrameId = requestAnimationFrame(this._render.bind(this));
   }
 
 }

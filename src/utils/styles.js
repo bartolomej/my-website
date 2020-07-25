@@ -9,6 +9,7 @@ function GlobalStyles () {
       styles={css`
         * {
           z-index: 1;
+          transition: 0.5s background ease-in-out, 0.5s color ease-in-out;
         }
         body, body {
           background: rgb(var(--color-background));
@@ -30,20 +31,22 @@ function GlobalStyles () {
         a:hover {
           box-shadow: inset 0 -10px rgb(var(--color-linkHover));
         }
-        h1,h2,h3 {
-          color: rgb(var(--color-headingText));
+        h1 {
+          font-size: 2.2rem;
+          text-align: center;
+          margin-bottom: 14vh;
         }
-        h3 {
-          font-size: 1.5rem;
+        h1,h2,h3,h4,h5,h6,th {
+          color: rgb(var(--color-heading));
         }
-        p,span,small {
+        p,span,small,li,td {
           color: rgb(var(--color-bodyText));
         }
+        table, tr, td, th {
+          border-color: rgba(var(--color-tags),0.2);
+      }
         svg {
           color: rgb(var(--color-bodyText));
-        }
-        footer, p, svg {
-          transition: all 0.4s ease;
         }
       `}
     />

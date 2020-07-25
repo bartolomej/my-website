@@ -13,10 +13,12 @@ function Skills ({ data, location }) {
   return (
     <Layout location={location}>
       <SEO
+        path={location.pathname}
         banner="skills-banner.png"
         title="My Skills"
-        description="A list of my skills and experiences."
+        description="A showcase of my skills and professional / non professional experiences with programming, design and film making."
       />
+      <h1>My Skills</h1>
       {skillsList.map(s => (
         <SkillGroup id={s.id} key={s.title}>
           <TextSide>

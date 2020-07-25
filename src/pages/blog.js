@@ -14,10 +14,12 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
+        path={location.pathname}
         banner="blog-banner.png"
         title="My Blog"
         description="These are my blog posts in the making."
       />
+      <h1>My Blog</h1>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
@@ -52,6 +54,9 @@ const Article = styled.article`
 
 const Title = styled.h3`
   margin-bottom: ${rhythm(1 / 4)};
+  a {
+    color: rgb(var(--color-heading));
+  }
 `;
 
 export default BlogIndex;

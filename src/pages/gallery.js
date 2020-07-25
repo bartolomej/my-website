@@ -14,6 +14,7 @@ function Gallery ({ data, location }) {
   return (
     <Layout location={location}>
       <SEO
+        path={location.pathname}
         banner="gallery-banner.png"
         title="My Photo Gallery"
         description="A place where I keep some of my finest photos that I've taken or generated."
@@ -30,18 +31,19 @@ function Gallery ({ data, location }) {
           <FullImage fluid={open}/>
         </FullImageWrapper>
       )}
-      <Wrapper>
+      <h1>Photo Gallery</h1>
+      <ImageGrid>
         {data.allFile.nodes.map((img, i) => (
           <ImageBtn key={i} onClick={() => setOpen(img.childImageSharp.full)}>
             <Image key={i} fluid={img.childImageSharp.thumb}/>
           </ImageBtn>
         ))}
-      </Wrapper>
+      </ImageGrid>
     </Layout>
   );
 }
 
-const Wrapper = styled.div`
+const ImageGrid = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

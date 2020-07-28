@@ -19,10 +19,10 @@ function Skills ({ data, location }) {
         description="A showcase of my skills and professional / non professional experiences with programming, design and film making."
       />
       <h1>My Skills</h1>
-      {skillsList.map(s => (
+      {skillsList.map((s, i) => (
         <SkillGroup id={s.id} key={s.title}>
           <TextSide>
-            <h3>{s.title}</h3>
+            <h2>{i + 1}. {s.title}</h2>
             <div>{s.tools.map(key => <Tool key={key} toolKey={key}/>)}</div>
             {s.description.map((txt, i) => <p key={i} dangerouslySetInnerHTML={{ __html: txt }}/>)}
           </TextSide>
@@ -93,7 +93,7 @@ const OuterImage = styled.div`
 const InnerImage = styled.div`
   height: 350px;
    & > div {
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 10px 20px rgba(var(--color-heading),.2);
     border-radius: 8px;
     position: absolute !important;
     width: 600px;
@@ -101,6 +101,7 @@ const InnerImage = styled.div`
   }
   & > div:hover {
     transform: translateY(-20px);
+    box-shadow: 0 10px 20px rgba(var(--color-heading),.3);
   }
   @media (max-width: 700px) {
     height: 300px;

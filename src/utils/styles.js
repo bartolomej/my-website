@@ -23,7 +23,7 @@ function GlobalStyles () {
           cursor: pointer;
         }
         a {
-          color: rgb(var(--color-navLink));
+          color: rgb(var(--color-link));
           text-decoration: none;
           box-shadow: inset 0 -2px;
           transition: 0.2s ease-in box-shadow;
@@ -36,15 +36,18 @@ function GlobalStyles () {
           text-align: center;
           margin-bottom: 14vh;
         }
-        h1,h2,h3,h4,h5,h6,th {
+        h1 {
+          color: rgb(var(--color-heading1));
+        }
+        h2,h3,h4,h5,h6,th {
           color: rgb(var(--color-heading));
         }
-        p,span,small,li,td {
+        p,span,small,li,td,hr {
           color: rgb(var(--color-bodyText));
         }
         table, tr, td, th {
           border-color: rgba(var(--color-tags),0.2);
-      }
+        }
         svg {
           color: rgb(var(--color-bodyText));
         }

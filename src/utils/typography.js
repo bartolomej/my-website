@@ -2,11 +2,12 @@ import Typography from "typography";
 
 
 const typography = new Typography({
-  headerFontFamily: ["Montserrat"],
-  bodyFontFamily: ["Raleway", "Helvetica Neue", "sans-serif"],
+  headerFontFamily: ["Archia", "Montserrat"],
+  bodyFontFamily: ["Quicksand","BlinkMacSystemFont", "sans-serif"],
   bodyWeight: 400,
   boldWeight: 700,
-  baseFontSize: "18px"
+  baseFontSize: "18px",
+  baseLineHeight: 1.5
 });
 
 // Hot reload typography in development.

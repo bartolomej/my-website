@@ -81,24 +81,28 @@ function Tool ({ toolKey }) {
 
 const Link = styled.a`
   box-shadow: none !important;
+  display: inline-block;
   margin-right: 8px;
   margin-bottom: 8px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  transition: 0.2s ease-in background;
   &:hover {
+    background: rgb(var(--color-linkHover));
     img {
       transform: scale(1.1);
     }
   }
+  @media (max-width: 700px) {
+    width: 45px;
+    height: 45px;
+  }
 `;
 
 const Image = styled.img`
-  width: 50px;
-  height: 50px;
-  padding: 8px;
+  padding: 14px;
   margin: 0;
   transition: 0.3s ease-in all;
-  @media (max-width: 700px) {
-    width: 40px;
-    height: 40px;
-  }
 `;
 export default Tool;

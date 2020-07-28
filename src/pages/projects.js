@@ -127,10 +127,10 @@ const Tag = styled.a`
   border-radius: 2em;
   padding: 0 10px;
   line-height: 22px;
-  color: rgb(var(--color-tags));
   margin-right: ${p => !p.mod2 ? "5px" : "0"};
   margin-left: ${p => p.mod2 ? "5px" : "0"};
-  background: rgba(var(--color-tags), 0.2);
+  background: rgba(var(--color-tags), 0.6);
+  color: rgb(var(--color-light));
   backdrop-filter: opacity(0.6);
   transition: 0.2s ease-in all;
   box-shadow: none !important;
@@ -163,10 +163,11 @@ const ImageWrapper = styled.div`
   & > div { 
     transition: 0.3s ease-in all;
     border-radius: 8px; 
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 0 20px rgba(var(--color-heading),.2);
   }
   & > div:hover {
-    transform: translateY(-6px) scale(1.05);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(var(--color-heading),.3);
   }
 `;
 

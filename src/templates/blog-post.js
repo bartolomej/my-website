@@ -36,15 +36,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </Article>
 
         <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0
-            }}
-          >
+          <List>
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
@@ -59,7 +51,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 </Link>
               )}
             </li>
-          </ul>
+          </List>
         </nav>
       </Wrapper>
     </Layout>
@@ -94,6 +86,14 @@ const Article = styled.article`
      border-radius: 8px;
      overflow-x: scroll;
   }
+`;
+
+const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 10px;
 `;
 
 export default BlogPostTemplate;

@@ -8,6 +8,7 @@ import UseAnimations from "react-useanimations";
 import mobile from "is-mobile";
 import logo from "../assets/logo.svg";
 import { ThemeContext } from "../utils/theme";
+import { THEMES } from "../utils/constants";
 
 
 function Navigation ({ location, isTransparent = false }) {
@@ -24,8 +25,8 @@ function Navigation ({ location, isTransparent = false }) {
         offColor="#333"
         checkedIcon={<img src={moonIcon} alt="Dark mode icon"/>}
         uncheckedIcon={<img src={sunIcon} alt="Light mode icon"/>}
-        boxShadow="0 0 2px 3px #B38CD9"
-        activeBoxShadow="0 0 2px 3px #dfb3e6"
+        boxShadow={`0 0 2px 3px rgba(${THEMES.heading[colorMode]}, 0.6)`}
+        activeBoxShadow={`0 0 2px 3px rgba(${THEMES.heading[colorMode]}, 0.6)`}
         aria-label="Color mode"
       />
     ) : null
@@ -146,7 +147,9 @@ const HomeLink = styled(Link)`
 const PageLink = styled(Link)`
   margin-left: ${p => p.to !== "/" ? "20px" : ""};
   margin-right: ${p => p.to === "/gallery" ? "20px" : ""};
-  ${p => !new RegExp(p.to).test(p.loc) ? `box-shadow: none;` : `color: rgb(var(--color-navLinkActive))`};
+  ${p => !new RegExp(p.to).test(p.loc)
+  ? `box-shadow: none; color: rgb(var(--color-navLink))`
+  : `color: rgb(var(--color-navLinkActive))`};
   @media (max-width: 700px) {
     padding: 20px 0;
     margin: 0 20px;

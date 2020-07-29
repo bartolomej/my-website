@@ -36,12 +36,12 @@ export const THEMES = {
     dark: COLORS.lightGrey
   },
   button: {
-    light: COLORS.dark,
-    dark: COLORS.light
+    light: COLORS.red,
+    dark: COLORS.red
   },
   buttonTextHover: {
     light: COLORS.white,
-    dark: COLORS.dark
+    dark: COLORS.white
   },
   navLink: {
     light: COLORS.darkish,

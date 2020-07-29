@@ -82,7 +82,7 @@ function Tool ({ toolKey }) {
 const Link = styled.a`
   box-shadow: none !important;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 3px;
   margin-bottom: 8px;
   width: 65px;
   height: 65px;
@@ -94,9 +94,13 @@ const Link = styled.a`
       transform: scale(1.1);
     }
   }
+  @media (max-width: 1300px) {
+    width: 60px;
+    height: 60px;
+  }
   @media (max-width: 700px) {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
   }
 `;
 

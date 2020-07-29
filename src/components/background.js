@@ -2,38 +2,40 @@ import React from "react";
 
 
 function Background ({ color = "rgb(100,100,100)", spacing = 50, size = 10, animate = true, height }) {
-  const field = React.useRef();
-  const ref = React.useRef();
+  const fieldRef = React.useRef();
+  const containerRef = React.useRef();
 
   React.useEffect(() => {
-    ref.current.style.height = height ? `${height}px` : "100%";
-    ref.current.style.width = "100%";
-    const f = new Field(ref.current, spacing, size, color, animate, height);
+    containerRef.current.style.height = height ? `${height}px` : "100%";
+    containerRef.current.style.width = "100%";
+    const f = new Field(containerRef.current, spacing, size, color, animate, height);
     f.init();
-    field.current = f;
+    fieldRef.current = f;
     return () => {
       f.destroy();
     };
-  }, [ref]);
+  }, [containerRef]);
 
   React.useEffect(() => {
-    if (field.current && height) {
-      field.current.height = height;
+    if (fieldRef.current && height) {
+      containerRef.current.style.height = height ? `${height}px` : "100%";
+      fieldRef.current.onResize();
     }
   }, [height]);
 
-  return <div id="background" ref={ref}/>;
+  return <div id="background" ref={containerRef}/>;
 }
 
 class Field {
 
-  constructor (container, spacing = 50, size = 10, color = "rgb(100,100,100)", animate) {
+  constructor (container, spacing = 50, size = 10, color = "rgb(100,100,100)", animate, height) {
     this.container = container;
     this.spacing = spacing;
     this.size = size;
     this.time = 0;
     this.color = color;
     this.animate = animate;
+    this.containerHeight = height;
   }
 
   get width () {

@@ -79,7 +79,7 @@ const FullImage = styled(GatsbyImage)`
 const ImageBtn = styled.button`
   margin-bottom: 50px;
   & img {
-     transition: opacity 500ms ease 0s, transform 0.3s ease-in, filter 0.3s ease-in !important;
+    transition: opacity 500ms ease 0s, transform 0.3s ease-in, filter 0.3s ease-in !important;
   }
   &:hover {
     & img {
@@ -91,8 +91,13 @@ const ImageBtn = styled.button`
 
 const Image = styled(GatsbyImage)`
   border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(var(--color-heading),.1);
+  transition: box-shadow 0.3s ease-in;
   width: 300px;
   display: inline-block;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(var(--color-heading),.3);
+  }
 `;
 
 export default Gallery;

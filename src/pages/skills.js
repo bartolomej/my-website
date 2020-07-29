@@ -91,7 +91,7 @@ const OuterImage = styled.div`
 `;
 
 const InnerImage = styled.div`
-  height: 350px;
+  height: 380px;
    & > div {
     box-shadow: 0 10px 20px rgba(var(--color-heading),.2);
     border-radius: 8px;
@@ -103,11 +103,12 @@ const InnerImage = styled.div`
     transform: translateY(-20px);
     box-shadow: 0 10px 20px rgba(var(--color-heading),.3);
   }
+  @media (max-width: 900px) {
+    & > div { width: 500px; }
+  }
   @media (max-width: 700px) {
     height: 300px;
-    & > div {
-      width: 300px;
-    }
+    & > div { width: 300px; }
   }
 `;
 

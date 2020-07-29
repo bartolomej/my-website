@@ -34,11 +34,21 @@ const Layout = ({ location, children }) => {
   const ref = React.useRef();
   const [height, setHeight] = React.useState(null);
 
+
   React.useEffect(() => {
+    window.addEventListener('resize', () => {
+      if (ref.current) {
+        setHeight(ref.current.clientHeight);
+      } else {
+        console.info(`Cannot set height: ref.current is null`)
+      }
+    })
     if (ref.current) {
-      setHeight(ref.current.clientHeight);
+      setHeight(ref.current.clientHeight)
+    } else {
+      console.info(`Cannot set height: ref.current is null`)
     }
-  }, [ref]);
+  }, [ref])
 
   const isHome = location.pathname === '/';
 

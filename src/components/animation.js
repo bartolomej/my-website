@@ -1,5 +1,6 @@
 import React from "react";
 import * as THREE from "three";
+import isMobile from "is-mobile";
 import { ImprovedNoise } from "three/examples/jsm/math/ImprovedNoise";
 
 
@@ -111,8 +112,6 @@ class ThreeAnim {
   _registerListeners () {
     window.addEventListener("resize", this._resize.bind(this));
     window.addEventListener("mousemove", this._trackMouse.bind(this));
-    window.addEventListener("touchmove", this._trackMouse.bind(this));
-    window.addEventListener("touchstart", this._trackMouse.bind(this));
   }
 
   _trackMouse (e) {
@@ -129,10 +128,7 @@ class ThreeAnim {
       x: e instanceof TouchEvent ? e.touches[0].clientX : e.clientX,
       y: e instanceof TouchEvent ? e.touches[0].clientY : e.clientY,
     }
-    const factor = (Math.sqrt(
-      (pos.x - center.x) ** 2 +
-      (pos.y - center.y) ** 2
-    ) / maxDist);
+
     const diff = {
       x: (pos.x - center.x) / center.x,
       y: (pos.y - center.y) / center.y
@@ -140,6 +136,16 @@ class ThreeAnim {
     if (typeof this.onMouseMove === "function") {
       this.onMouseMove(diff);
     }
+
+    // prevent tap adjustments on mobile
+    if (isMobile()) {
+      return;
+    }
+
+    const factor = (Math.sqrt(
+      (pos.x - center.x) ** 2 +
+      (pos.y - center.y) ** 2
+    ) / maxDist);
     this.hueFactor = factor * 4;
     this.camera.fov = 50 + (factor * 55);
     this.camera.updateProjectionMatrix();
@@ -154,7 +160,6 @@ class ThreeAnim {
   }
 
   dispose () {
-    console.log('disposing')
     cancelAnimationFrame(this.animationFrameId);
     this.renderer.dispose();
   }

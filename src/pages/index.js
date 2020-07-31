@@ -28,10 +28,11 @@ function Index ({ location }) {
       <AnimWrapper>
         <Animation
           startRadius={isMobile() ? 1 : 50}
-          radiusStep={isMobile() ? 5 : 3}
+          radiusStep={isMobile() ? 4 : 3}
           nCircles={isMobile() ? 25 : 45}
           pathLength={200}
           luminosity={colorMode === "light" ? 20 : 50}
+          hueFactor={(isMobile() ? 4 : 1)}
           onMouseMove={o => {
             if (!titleRef.current) return;
             // update title text shadow

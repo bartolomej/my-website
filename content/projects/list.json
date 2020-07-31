@@ -1,5 +1,20 @@
 [
   {
+    "title": "Brot",
+    "image": "brot.png",
+    "date": "August 2020",
+    "description": "Mandelbrot and julia set rendering tool. Make aesthetic images of complex fractals.",
+    "repo_url": "https://github.com/bartolomej/brot",
+    "tags": [
+      "golang",
+      "creative-coding"
+    ],
+    "languages": [
+      "Go"
+    ],
+    "tech": []
+  },
+  {
     "title": "Generative Art",
     "image": "generative-art.png",
     "date": "July 2020",

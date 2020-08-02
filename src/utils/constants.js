@@ -20,8 +20,8 @@ export const THEMES = {
     dark: COLORS.light
   },
   headingShadow: {
-    light: COLORS.darkish,
-    dark: COLORS.white
+    light: "0, 255, 255",
+    dark: "0, 255, 255"
   },
   bodyText: {
     light: COLORS.darkish,

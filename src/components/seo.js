@@ -69,7 +69,7 @@ const SEO = ({
       {/* Structured data and google site verification */}
       <meta name="google-site-verification" content="RwRuJzajY31jPYG0gLcRsgtxLOXOJbpG833_Dcw_XWM"/>
       <script type="application/ld+json">{JSON.stringify({
-        "@context": site.siteMetadata.siteUrl,
+        "@context": "http://schema.org",
         "@type": "CreativeWork",
         url: site.siteMetadata.siteUrl,
         name: site.siteMetadata.title,

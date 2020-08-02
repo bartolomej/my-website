@@ -34,12 +34,13 @@ function Index ({ location }) {
           luminosity={colorMode === "light" ? 20 : 50}
           hueFactor={(isMobile() ? 4 : 1)}
           onMouseMove={o => {
+            const f = isMobile() ? 2 : 4;
             if (!titleRef.current) return;
             // update title text shadow
             // reuse values for performance benefits
             const abs = Math.sqrt(o.x ** 2 + o.y ** 2);
             titleRef.current.style.textShadow =
-              `${(o.x / abs) * 5}px ${(o.y / abs) * 5}px 1px rgb(var(--color-headingShadow))`;
+              `${(o.x / abs) * f}px ${(o.y / abs) * f}px 1px rgba(var(--color-headingShadow), 0.6)`;
           }}
           startHue={177}
         />

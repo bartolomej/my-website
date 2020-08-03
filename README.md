@@ -17,4 +17,6 @@
  
 </p>
 
-This is Bartolomej's portfolio website for the year 2020.
+Hello there! This is my personal website for the year 2020. I built this using [Gatsby.js](https://www.gatsbyjs.org/) SSR.
+
+![Website DEMO](./screenshot.png)

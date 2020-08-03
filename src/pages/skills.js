@@ -41,6 +41,9 @@ function Skills ({ data, location }) {
   );
 }
 
+// TODO: align horizontally !!
+// horizontal space is unevenly distributed on smaller screens
+// https://jgthms.com/freelance-designer-developer-london/
 const SkillGroup = styled.article`
   display: flex;
   padding-bottom: 20vh;
@@ -91,24 +94,33 @@ const OuterImage = styled.div`
 `;
 
 const InnerImage = styled.div`
-  height: 380px;
+  height: 330px;
    & > div {
     box-shadow: 0 10px 20px rgba(var(--color-heading),.2);
     border-radius: 8px;
     position: absolute !important;
-    width: 600px;
+    width: 500px;
     transition: 0.3s ease-in all;
   }
   & > div:hover {
     transform: translateY(-20px);
     box-shadow: 0 10px 20px rgba(var(--color-heading),.3);
   }
-  @media (max-width: 900px) {
-    & > div { width: 500px; }
+  @media (max-width: 1500px) {
+    & > div { width: 450px; }
+  }
+  @media (max-width: 1400px) {
+    & > div { width: 400px; }
+  }
+  @media (max-width: 1300px) {
+    & > div { width: 350px; }
+  }
+  @media (max-width: 1200px) {
+    & > div { width: 300px; }
   }
   @media (max-width: 700px) {
     height: 300px;
-    & > div { width: 300px; }
+    & > div { width: 250px; }
   }
 `;
 

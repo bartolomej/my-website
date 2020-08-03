@@ -10,9 +10,9 @@
     "tools": [
       "nodejs",
       "mysql",
-      "heroku",
       "jest",
-      "java"
+      "java",
+      "go"
     ]
   },
   {

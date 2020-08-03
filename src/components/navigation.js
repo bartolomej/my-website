@@ -84,12 +84,11 @@ const Container = styled.nav`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  height: 7vh;
+  height: 9vh;
   padding: 0 20px;
   transition: 300ms all;
   @media (max-width: 700px) {
     padding: 0 10px;
-    height: 9vh;
     ${p => p.navOpen ? `backdrop-filter: none; background: none;` : ""};
   }
 `;

@@ -49,7 +49,7 @@ function Projects ({ data, location }) {
                   <LinkBtn mod2={i % 2 === 0} href={p.demo_url} target="_blank">Demo</LinkBtn>
                 )}
                 {p.repo_url && (
-                  <LinkBtn mod2={i % 2 === 0} href={p.repo_url} target="_blank">Source code</LinkBtn>
+                  <LinkBtn mod2={i % 2 === 0} href={p.repo_url} target="_blank">Code</LinkBtn>
                 )}
               </div>
             </TextWrapper>
@@ -141,14 +141,14 @@ const Tag = styled.a`
 `;
 
 const LinkBtn = styled.a`
-  padding: 8px 15px;
+  padding: 8px 24px;
   border-radius: 5px;
   transition: 0.2s ease-in all;
   border: 2px solid rgb(var(--color-button));
   box-shadow: inset 0px -0px rgb(var(--color-button));
   color: rgb(var(--color-button));
-  margin-right: ${p => !p.mod2 ? "10px" : "0"};
-  margin-left: ${p => p.mod2 ? "10px" : "0"};
+  margin-right: ${p => !p.mod2 ? "15px" : "0"};
+  margin-left: ${p => p.mod2 ? "15px" : "0"};
   &:hover {
       box-shadow: inset 0px -50px rgb(var(--color-button));
       color: rgb(var(--color-buttonTextHover));

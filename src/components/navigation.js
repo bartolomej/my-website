@@ -35,15 +35,17 @@ function Navigation ({ location, isTransparent = false }) {
   const Links = ({ isMobile }) => isMobile ? (
     <MobileLinks>
       <PageLink loc={location} to="/projects">Projects</PageLink>
-      <PageLink loc={location} to="/blog">Blog</PageLink>
-      <PageLink loc={location} to="/skills">My Skills</PageLink>
+      <PageLink loc={location} to="/experience">Experience</PageLink>
+      {/*<PageLink loc={location} to="/blog">Blog</PageLink>*/}
+      <PageLink loc={location} to="/skills">Skills</PageLink>
       <PageLink loc={location} to="/gallery">Gallery</PageLink>
     </MobileLinks>
   ) : (
     <DesktopLinks>
       <PageLink loc={location} to="/projects">Projects</PageLink>
-      <PageLink loc={location} to="/blog">Blog</PageLink>
-      <PageLink loc={location} to="/skills">My Skills</PageLink>
+      <PageLink loc={location} to="/experience">Experience</PageLink>
+      {/*<PageLink loc={location} to="/blog">Blog</PageLink>*/}
+      <PageLink loc={location} to="/skills">Skills</PageLink>
       <PageLink loc={location} to="/gallery">Gallery</PageLink>
       <ThemeSwitchBtn/>
     </DesktopLinks>

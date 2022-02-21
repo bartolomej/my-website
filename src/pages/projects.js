@@ -46,7 +46,7 @@ function Projects ({ data, location }) {
               <p dangerouslySetInnerHTML={{ __html: p.description }}/>
               <div>
                 {p.demo_url && (
-                  <LinkBtn mod2={i % 2 === 0} href={p.demo_url} target="_blank">Demo</LinkBtn>
+                  <LinkBtn mod2={i % 2 === 0} href={p.demo_url} target="_blank">Visit</LinkBtn>
                 )}
                 {p.repo_url && (
                   <LinkBtn mod2={i % 2 === 0} href={p.repo_url} target="_blank">Code</LinkBtn>

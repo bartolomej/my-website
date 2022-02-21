@@ -1,5 +1,28 @@
 [
   {
+    "title": "Flowser",
+    "image": "flowser.png",
+    "date": "November 2021",
+    "description": "Flowser (Stands for Flow Browser) is a convenient development tool for #Flow blockchain, which starts and indexes flow emulator or testnet blockchains \uD83E\uDD19.",
+    "repo_url": "https://github.com/onflowser/flowser",
+    "demo_url": "https://flowser.dev",
+    "tags": [
+      "onflow",
+      "blockchain",
+      "developer-tools",
+      "blockchain-explorer"
+    ],
+    "languages": [
+      "TypeScript",
+      "Go"
+    ],
+    "tech": [
+      "Node.js",
+      "Docker",
+      "Flow"
+    ]
+  },
+  {
     "title": "Brot",
     "image": "brot.png",
     "date": "August 2020",

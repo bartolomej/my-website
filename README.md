@@ -17,6 +17,6 @@
  
 </p>
 
-Hello there! This is my personal website for the year 2020. I built this using [Gatsby.js](https://www.gatsbyjs.org/) SSR.
+Hello there! This is my personal website built in 2020.
 
 ![Website DEMO](./screenshot.png)

@@ -1,0 +1,29 @@
+[
+  {
+    "job_title": "Full Stack Developer",
+    "company": "Libera",
+    "website": "https://libera.app",
+    "employment_type": "Part-time",
+    "image": "https://www.libera.app/images/social-banner.png",
+    "time_span": "Mar 2021 - Present",
+    "description": "Working on mobility related projects. Helped develop a fleet management platform and vehicle dock management system."
+  },
+  {
+    "job_title": "Full Stack Developer",
+    "company": "HiGroup",
+    "website": "https://higroup.si",
+    "employment_type": "Full-time",
+    "image": "https://media-exp1.licdn.com/dms/image/C561BAQGe-edA7OJqhg/company-background_10000/0/1591970942368?e=1645527600&v=beta&t=RrvKkHoIPyW0kSgUv75cZtSQT3swQ0zKlX5Dipi0dxs",
+    "time_span": "Oct 2020 - Present",
+    "description": "I was working on various types of projects for clients. One of those projects are a mobile app and backend service for VisitVibe, product management software for a furniture company and educational platform for slovenian consulting firm."
+  },
+  {
+    "job_title": "Programming Tutor",
+    "company": "Digital School",
+    "website": "https://digitalschool.si",
+    "employment_type": "Part-time",
+    "image": "https://media-exp1.licdn.com/dms/image/C4D03AQEwJekSopNxXw/profile-displayphoto-shrink_800_800/0/1534836895745?e=1651104000&v=beta&t=_q6AyjzYzpnul5_eSU-oeDEJJT1bN36-8ClnaHzEGA4",
+    "time_span": "Oct 2020 - Present",
+    "description": "I teach web development to primary school kids. Also made a custom made course to help students with learning."
+  }
+]

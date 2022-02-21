@@ -2,8 +2,8 @@
 
 <p align="center">
 
-   <a href="https://twitter.com/bartolomej">
-    <img alt="Twitter: bartolomej" src="https://img.shields.io/twitter/follow/bartolomej.svg?style=flat-square&logo=TWITTER&logoColor=FFFFFF&labelColor=00aced&logoWidth=20&color=lightgray" target="_blank" />
+   <a href="https://twitter.com/mejkoz">
+    <img alt="Twitter: mejkoz" src="https://img.shields.io/twitter/follow/mejkoz.svg?style=flat-square&logo=TWITTER&logoColor=FFFFFF&labelColor=00aced&logoWidth=20&color=lightgray" target="_blank" />
   </a>
   <a href="https://github.com/bartolomej" aria-label="Follow Bartolomej on Github">
     <img alt="Github: bartolomej" src="https://img.shields.io/github/followers/bartolomej.svg?label=Follow&style=flat-square&logo=github&logoColor=FFFFFF&labelColor=24292e&logoWidth=20&color=lightgray" target="_blank" />

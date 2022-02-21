@@ -9,13 +9,25 @@ import GatsbyImage from "gatsby-image";
 
 function Projects ({ data, location }) {
 
-  const getImage = fileName => {
+  const getLocalImage = fileName => {
     for (let node of data.allFile.nodes) {
       if (new RegExp(fileName).test(node.relativePath)) {
         return node.childImageSharp.fluid;
       }
     }
     throw new Error(`File ${fileName} not matched`);
+  }
+
+  const getWebsiteBanner = rul => {
+    return "https://webdev-tldr.vercel.app/thumbnail.png" // TODO: remove test
+  }
+
+  const getImage = project => {
+    if (project.image) {
+      return getLocalImage(project.image);
+    } else {
+      return
+    }
   };
 
   return (
@@ -54,7 +66,7 @@ function Projects ({ data, location }) {
               </div>
             </TextWrapper>
             <ImageWrapper>
-              <GatsbyImage fluid={getImage(p.image)}/>
+              <GatsbyImage fluid={getImage(p)}/>
             </ImageWrapper>
           </ProjectItem>
         ))}

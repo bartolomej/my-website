@@ -42,6 +42,9 @@ const SEO = ({
       htmlAttributes={{ lang }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}>
+      
+      {/* Analytics */}
+      <script async src="https://cdn.splitbee.io/sb.js"></script>
 
       {/* General tags */}
       <title>{title}</title>

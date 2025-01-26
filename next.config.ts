@@ -3,6 +3,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'habibi.bartolomej.dev',
+        pathname: '/api/assets/**',
+      }
+    ],
+  },
   async rewrites() {
     return [
       {

@@ -33,7 +33,9 @@ type Photo = {
 async function getImages(): Promise<Photo[]> {
   const albumApiKey = "3OrJBDFCFd-ojm1248CJr3DrS1BPsKi_1chGlTZ1zOv0giQQSzvvHzXDDFRyhG56pJs"
   const serverUrl = "https://habibi.bartolomej.dev"
-  const response = await fetch(`${serverUrl}/api/shared-links/me?key=${albumApiKey}`);
+  const response = await fetch(`${serverUrl}/api/shared-links/me?key=${albumApiKey}`, {
+    cache: "no-store",
+  });
   const data = await response.json();
   return data.assets.map((asset: any): Photo => ({
     thumbnailUrl: `${serverUrl}/api/assets/${asset.id}/thumbnail?size=thumbnail&key=${albumApiKey}`,

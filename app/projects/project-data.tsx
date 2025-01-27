@@ -13,7 +13,7 @@ export const projects: Project[] = [
     url: "https://join.kazm.com",
   },
   {
-    title: "PINS",
+    title: "Pins",
     year: 2024,
     description: "Toy dynamic programming language with VM",
     url: "https://github.com/bartolomej/pins24",
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     url: "https://devfolio.co/projects/linklock-2686",
   },
   {
-    title: "WODA",
+    title: "Woda",
     year: 2023,
     description: "Animated landing website I built at HiGroup",
     url: "https://www.woda-alliance.com",

@@ -13,6 +13,7 @@ export default function BlogPosts() {
     <section>
       <h1 className="mb-8 text-2xl font-medium tracking-tight">Blogs</h1>
       <div>
+        {allBlogs.length === 0 && <span>No posts yet, come back later :)</span>}
         {allBlogs
           .sort((a, b) => {
             if (

@@ -38,7 +38,7 @@ html {
   min-width: 360px;
 
   /* background pattern from https://www.magicpattern.design/tools/css-backgrounds */
-  background-image: radial-gradient(rgba(130, 133, 185, 0.62) 0.75px, transparent 0.75px);
+  background-image: radial-gradient(rgba(130, 133, 185, 0.4) 0.75px, transparent 0.75px);
   background-size: 15px 15px;
 }
 

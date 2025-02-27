@@ -41,15 +41,20 @@ function SocialLinks() {
 export default function Footer() {
   return (
     <small className="block lg:mt-24 mt-16 text-[#1C1C1C] dark:text-[#D4D4D4]">
-      <time>© {YEAR}</time>{" "}
-      <a
-        className="no-underline"
-        href={socialLinks.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {metaData.title}
-      </a>
+      <div className="flex flex-col-reverse sm:flex-row sm:justify-between items-center gap-4">
+        <div>
+          <time>© {YEAR}</time>{" "}
+          <a
+            className="no-underline"
+            href={socialLinks.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {metaData.title}
+          </a>
+        </div>
+        <SocialLinks />
+      </div>
       <style jsx>{`
         @media screen and (max-width: 480px) {
           article {
@@ -58,7 +63,6 @@ export default function Footer() {
           }
         }
       `}</style>
-      <SocialLinks />
     </small>
   );
 }

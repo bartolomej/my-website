@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "screenshots": "ts-node -P tsconfig.scripts.json scripts/generate-screenshots.ts"
   },
   "dependencies": {
     "@types/node": "22.10.7",
@@ -30,9 +31,11 @@
     "typescript": "5.7.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.50.1",
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.1",
-    "tailwindcss": "3.4.17"
+    "tailwindcss": "3.4.17",
+    "ts-node": "^10.9.2"
   }
 }

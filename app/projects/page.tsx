@@ -23,6 +23,8 @@ export default async function Projects() {
                 fill
                 className="object-cover"
                 sizes="(min-width: 768px) 400px, 100vw"
+                quality={85}
+                priority={false}
               />
             </div>
             <div className="flex flex-col space-y-1.5">

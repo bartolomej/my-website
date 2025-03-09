@@ -5,10 +5,20 @@ export interface Project {
   description: string;
   websiteUrl: string;
   githubUrl?: string;
+  isWip?: boolean;
   preview?: "screenshot" | "og-image";
 }
 
 export const projects: Project[] = [
+  {
+    id: "vibetest",
+    title: "VibeTest",
+    year: 2025,
+    description: "e2e tests that evolve effortlessly",
+    websiteUrl: "https://vibetest.me",
+    preview: "screenshot",
+    isWip: true,
+  },
   {
     id: "jobwiser",
     title: "JobWiser",
@@ -16,6 +26,7 @@ export const projects: Project[] = [
     description: "AI-powered job search platform",
     websiteUrl: "https://jobwiser.co",
     preview: "screenshot",
+    isWip: true,
   },
   {
     id: "kazm",

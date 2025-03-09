@@ -6,7 +6,7 @@ import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Nextfolio Projects",
+  description: "Bart's Projects",
 };
 
 export default async function Projects() {
@@ -17,6 +17,13 @@ export default async function Projects() {
         {projects.map((project) => (
           <div key={project.id} className="flex flex-col space-y-4">
             <div className="relative aspect-video w-full max-w-[600px] overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800">
+              {project.isWip && (
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100 rounded-full">
+                    WIP
+                  </span>
+                </div>
+              )}
               <Image
                 src={`/screenshots/${project.id}.png`}
                 alt={`Screenshot of ${project.title}`}

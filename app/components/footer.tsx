@@ -4,9 +4,7 @@ import React from "react";
 import {
   FaXTwitter,
   FaGithub,
-  FaInstagram,
   FaProductHunt,
-  FaRss,
   FaLinkedinIn,
 } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
@@ -29,11 +27,7 @@ function SocialLinks() {
       <SocialLink href={socialLinks.github} icon={FaGithub} />
       <SocialLink href={socialLinks.producthunt} icon={FaProductHunt} />
       <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
-      <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
       <SocialLink href={socialLinks.email} icon={TbMailFilled} />
-      <a href="/rss.xml" target="_self">
-        <FaRss />
-      </a>
     </div>
   );
 }

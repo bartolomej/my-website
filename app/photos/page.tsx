@@ -37,7 +37,12 @@ async function getImages(): Promise<Photo[]> {
     cache: "no-store",
   });
   const data = await response.json();
-  return data.assets.map((asset: any): Photo => ({
+  
+  const sortedAssets = data.assets
+    .slice()
+    .sort((a: any, b: any) => new Date(b.fileCreatedAt).getTime() - new Date(a.fileCreatedAt).getTime());
+
+  return sortedAssets.map((asset: any): Photo => ({
     thumbnailUrl: `${serverUrl}/api/assets/${asset.id}/thumbnail?size=thumbnail&key=${albumApiKey}`,
     originalUrl: `${serverUrl}/api/assets/${asset.id}/original?key=${albumApiKey}`,
   }));

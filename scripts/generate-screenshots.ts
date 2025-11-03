@@ -1,4 +1,4 @@
-import { projects } from '../app/projects/project-data';
+import { projects } from '../app/work/project-data';
 import { generateScreenshot } from '../utils/screenshot';
 
 async function generateAllScreenshots() {

@@ -37,5 +37,6 @@
     "postcss": "^8.5.1",
     "tailwindcss": "3.4.17",
     "ts-node": "^10.9.2"
-  }
+  },
+  "packageManager": "npm@11.4.1+sha1.80350af543069991de20657ebcd07d9624cfad06"
 }

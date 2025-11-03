@@ -1,6 +1,6 @@
 export const metaData = {
   baseUrl: "https://bartolomej.dev/",
-  title: "Bart - SWE, builder, founder",
+  title: "Bart - engineer & founder",
   name: "Bartolomej Kozorog",
   ogImage: "/opengraph-image.png",
   description: "Bart's personal website showcasing his projects, pictures, experiences,...",

@@ -44,7 +44,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {metaData.title}
+            Bartolomej Kozorog
           </a>
         </div>
         <SocialLinks />

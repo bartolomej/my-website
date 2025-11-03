@@ -6,6 +6,10 @@ async function generateAllScreenshots() {
 
   for (const project of projects) {
     console.log(`\n📸 Generating screenshot for ${project.title}...`);
+    if (!project.websiteUrl) {
+      console.log(`⚠️ Skipping ${project.title} because it has no website URL`);
+      continue;
+    }
     try {
       const screenshotPath = await generateScreenshot(project.websiteUrl, project.id,  project.preview !== 'screenshot');
       if (screenshotPath) {

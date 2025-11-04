@@ -3,7 +3,7 @@ export const metaData = {
   title: "Bart - engineer & founder",
   name: "Bartolomej Kozorog",
   ogImage: "/opengraph-image.png",
-  description: "Bart's personal website showcasing his projects, pictures, experiences,...",
+  description: "Bart is a senior software engineer and founder working on ventures in the space of AI and blockchain technologies.",
 };
 
 export const socialLinks = {

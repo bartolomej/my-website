@@ -22,8 +22,8 @@ export default function Page() {
           blockchain systems and AI applications.
         </p>
         <p>
-          I'm currently focused on building and advising ventures at the
-          intersection of AI and blockchain technologies, helping
+          I'm currently focused on building ventures in the
+          space of AI and blockchain technologies, helping
           shape products and technical foundations that push the next generation
           of internet applications and infrastructure forward.
         </p>

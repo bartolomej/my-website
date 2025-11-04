@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import { ThemeSwitch } from "./theme-switch";
 import { metaData } from "../config";
 
@@ -14,6 +16,13 @@ const navItems = {
 
 export function Navbar() {
   const pathname = usePathname();
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "15min" });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
 
   return (
     <nav className="lg:mb-12 mb-8 py-5">
@@ -40,6 +49,14 @@ export function Navbar() {
               </Link>
             );
           })}
+          <button
+            data-cal-namespace="15min"
+            data-cal-link="0xbartek/15min"
+            data-cal-config='{"layout":"month_view"}'
+            className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200"
+          >
+            Book a call
+          </button>
           <ThemeSwitch />
         </div>
       </div>

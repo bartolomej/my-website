@@ -89,6 +89,11 @@ export default function RootLayout({
             <SpeedInsights />
           </main>
         </ThemeProvider>
+
+        <script
+          async
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+        ></script>
       </body>
     </html>
   );

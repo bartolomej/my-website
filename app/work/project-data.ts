@@ -1,4 +1,5 @@
 export interface Project {
+  // Preview image should live in public/screenshots/{id}.png
   id: string;
   title: string;
   year: number;
@@ -34,8 +35,9 @@ export const projects: Project[] = [
     title: "Cadence Formatter",
     year: 2025,
     description: "Cadence programming language formatter",
+    preview: "screenshot",
     githubUrl: "https://github.com/bartolomej/cadence",
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     id: "vibetest",

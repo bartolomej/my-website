@@ -15,6 +15,7 @@ export const projects: Project[] = [
     title: "Aluena",
     year: 2025,
     description: "Pre-vetted talent pool for web3",
+    websiteUrl: "https://aluena.com",
     preview: "screenshot",
     isFeatured: true,
   },

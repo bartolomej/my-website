@@ -11,5 +11,6 @@ export const socialLinks = {
   github: "https://github.com/bartolomej",
   producthunt: "https://www.producthunt.com/@0xbartek",
   linkedin: "https://www.linkedin.com/in/bartolomej",
+  upwork: "https://www.upwork.com/freelancers/~01d05ca9cd19589995",
   email: "mailto:bartolomej.kozorog@gmail.com",
 };
